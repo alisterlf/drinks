@@ -152,6 +152,69 @@ h1 {
   line-height: 0.92;
 }
 
+.filters {
+  display: block;
+  margin: 0 0 1.25rem;
+}
+
+.filter-panel {
+  padding: 1rem;
+  background: rgba(21, 23, 25, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.filter-panel h2 {
+  margin: 0 0 0.8rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.filter-actions,
+.filter-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.filter-chip {
+  min-height: 2.35rem;
+  background: rgba(11, 12, 13, 0.42);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 750;
+  padding: 0.48rem 0.72rem;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.filter-chip:hover,
+.filter-chip:focus-visible {
+  border-color: rgba(240, 179, 93, 0.65);
+  color: var(--text);
+  outline: none;
+}
+
+.filter-chip[aria-pressed='true'] {
+  background: rgba(240, 179, 93, 0.18);
+  border-color: rgba(240, 179, 93, 0.72);
+  color: var(--accent-strong);
+}
+
+.filter-chip-favorite {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .drink-grid {
   display: grid;
   grid-template-columns: 1fr;

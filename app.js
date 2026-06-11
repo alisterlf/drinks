@@ -1,19 +1,38 @@
 const DATA_URL_BY_LANGUAGE = {
   en: 'drinks.json',
-  'pt-BR': 'drinks.pt-BR.json'
+  'pt-BR': 'drinks.pt-BR.json',
 };
 
 const FAVORITES_KEY = 'drinks.favorites';
 const LANGUAGE_KEY = 'drinks.language';
 const LANGUAGE_CHANGE_EVENT = 'drinks:language-change';
 const FAVORITES_CHANGE_EVENT = 'drinks:favorites-change';
+const FILTER_CHANGE_EVENT = 'drinks:filter-change';
+
+const filterState = {
+  favoritesOnly: false,
+  category: 'all',
+};
+
+const FILTER_DEFINITIONS = [
+  { id: 'all', labelKey: 'filterAll', terms: [] },
+  { id: 'vodka', labelKey: 'filterVodka', terms: ['vodka'] },
+  { id: 'gin', labelKey: 'filterGin', terms: ['gin'] },
+  { id: 'rum', labelKey: 'filterRum', terms: ['rum', 'ron'] },
+  { id: 'whiskey', labelKey: 'filterWhiskey', terms: ['whiskey', 'bourbon', 'rye', 'centeio'] },
+  { id: 'tequila', labelKey: 'filterTequila', terms: ['tequila'] },
+  { id: 'campari', labelKey: 'filterCampari', terms: ['campari'] },
+  { id: 'sparkling', labelKey: 'filterSparkling', terms: ['champagne', 'prosecco', 'espumante'] },
+  { id: 'citrus', labelKey: 'filterCitrus', terms: ['lemon', 'lime', 'orange', 'limao', 'laranja'] },
+  { id: 'coffee', labelKey: 'filterCoffee', terms: ['coffee', 'cafe', 'espresso', 'kahlua'] },
+];
 
 const UI_COPY = {
   en: {
     brand: 'Drinks',
     languageLabel: 'Language',
     indexEyebrow: 'Cocktail index',
-    indexTitle: 'Classic drinks.',
+    indexTitle: 'My drinks.',
     allDrinks: 'All drinks',
     detailEyebrow: 'Cocktail details',
     ingredientsTitle: 'Ingredients',
@@ -24,13 +43,26 @@ const UI_COPY = {
     notFound: 'Drink not found.',
     loadError: 'Could not load drinks data. Start a local web server and open this page through http://localhost.',
     addFavorite: 'Add to favorites',
-    removeFavorite: 'Remove from favorites'
+    removeFavorite: 'Remove from favorites',
+    filtersTitle: 'Filters',
+    filterAll: 'All',
+    filterFavorites: 'Only favorites',
+    filterVodka: 'Vodka',
+    filterGin: 'Gin',
+    filterRum: 'Rum',
+    filterWhiskey: 'Whiskey',
+    filterTequila: 'Tequila',
+    filterCampari: 'Campari',
+    filterSparkling: 'Sparkling',
+    filterCitrus: 'Citrus',
+    filterCoffee: 'Coffee',
+    noResults: 'No drinks match these filters.',
   },
   'pt-BR': {
     brand: 'Drinks',
     languageLabel: 'Idioma',
     indexEyebrow: 'Índice de coquetéis',
-    indexTitle: 'Coquetéis clássicos.',
+    indexTitle: 'Meus coquetéis.',
     allDrinks: 'Todos os drinks',
     detailEyebrow: 'Detalhes do coquetel',
     ingredientsTitle: 'Ingredientes',
@@ -41,8 +73,21 @@ const UI_COPY = {
     notFound: 'Coquetel não encontrado.',
     loadError: 'Não foi possível carregar os dados. Inicie um servidor local e abra esta página por http://localhost.',
     addFavorite: 'Adicionar aos favoritos',
-    removeFavorite: 'Remover dos favoritos'
-  }
+    removeFavorite: 'Remover dos favoritos',
+    filtersTitle: 'Filtros',
+    filterAll: 'Todos',
+    filterFavorites: 'Só favoritos',
+    filterVodka: 'Vodka',
+    filterGin: 'Gin',
+    filterRum: 'Rum',
+    filterWhiskey: 'Whiskey',
+    filterTequila: 'Tequila',
+    filterCampari: 'Campari',
+    filterSparkling: 'Espumantes',
+    filterCitrus: 'Cítricos',
+    filterCoffee: 'Café',
+    noResults: 'Nenhum drink combina com esses filtros.',
+  },
 };
 
 const drinksCache = new Map();
@@ -50,18 +95,72 @@ const drinksCache = new Map();
 setupLanguageControls();
 applyI18n(document);
 
+class DrinkFilters extends HTMLElement {
+  connectedCallback() {
+    this.handleLanguageChange = () => this.render();
+    this.handleFavoritesChange = () => this.updateFavoriteFilterButton();
+    window.addEventListener(LANGUAGE_CHANGE_EVENT, this.handleLanguageChange);
+    window.addEventListener(FAVORITES_CHANGE_EVENT, this.handleFavoritesChange);
+    this.render();
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener(LANGUAGE_CHANGE_EVENT, this.handleLanguageChange);
+    window.removeEventListener(FAVORITES_CHANGE_EVENT, this.handleFavoritesChange);
+  }
+
+  render() {
+    const template = getTemplate('drink-filters-template');
+    const content = template.content.cloneNode(true);
+    const favoritesButton = content.querySelector('[data-favorites-filter]');
+    const options = content.querySelector('[data-filter-options]');
+
+    applyI18n(content);
+    favoritesButton.addEventListener('click', () => {
+      filterState.favoritesOnly = !filterState.favoritesOnly;
+      this.render();
+      dispatchFilterChange();
+    });
+
+    for (const filter of FILTER_DEFINITIONS) {
+      options.append(createFilterOption(filter));
+    }
+
+    this.replaceChildren(content);
+    this.updateFavoriteFilterButton();
+    this.updateCategoryButtons();
+  }
+
+  updateFavoriteFilterButton() {
+    const button = this.querySelector('[data-favorites-filter]');
+    if (!button) return;
+
+    button.setAttribute('aria-pressed', String(filterState.favoritesOnly));
+    button.querySelector('[aria-hidden="true"]').textContent = filterState.favoritesOnly ? '\u2764\uFE0F' : '\u2661';
+  }
+
+  updateCategoryButtons() {
+    for (const button of this.querySelectorAll('[data-filter-id]')) {
+      button.setAttribute('aria-pressed', String(button.dataset.filterId === filterState.category));
+    }
+  }
+}
+
 class DrinkGrid extends HTMLElement {
   connectedCallback() {
     this.handleLanguageChange = () => this.loadAndRender();
-    this.handleFavoritesChange = () => this.updateFavoriteButtons();
+    this.handleFavoritesChange = () => this.loadAndRender();
+    this.handleFilterChange = () => this.loadAndRender();
     window.addEventListener(LANGUAGE_CHANGE_EVENT, this.handleLanguageChange);
     window.addEventListener(FAVORITES_CHANGE_EVENT, this.handleFavoritesChange);
+    window.addEventListener(FILTER_CHANGE_EVENT, this.handleFilterChange);
     this.loadAndRender();
   }
 
   disconnectedCallback() {
     window.removeEventListener(LANGUAGE_CHANGE_EVENT, this.handleLanguageChange);
     window.removeEventListener(FAVORITES_CHANGE_EVENT, this.handleFavoritesChange);
+    window.removeEventListener(FILTER_CHANGE_EVENT, this.handleFilterChange);
   }
 
   async loadAndRender() {
@@ -77,8 +176,14 @@ class DrinkGrid extends HTMLElement {
   render(drinks) {
     const template = getTemplate('drink-card-template');
     const fragment = document.createDocumentFragment();
+    const filteredDrinks = applyDrinkFilters(drinks);
 
-    for (const drink of drinks) {
+    if (filteredDrinks.length === 0) {
+      renderError(this, t('noResults'));
+      return;
+    }
+
+    for (const drink of filteredDrinks) {
       const card = template.content.firstElementChild.cloneNode(true);
       const link = card.querySelector('.drink-card-link');
       const image = card.querySelector('img');
@@ -168,6 +273,7 @@ class DrinkDetail extends HTMLElement {
   }
 }
 
+customElements.define('drink-filters', DrinkFilters);
 customElements.define('drink-grid', DrinkGrid);
 customElements.define('drink-detail', DrinkDetail);
 
@@ -196,6 +302,44 @@ function createIngredientItem(ingredient) {
   const item = template.content.firstElementChild.cloneNode(true);
   item.querySelector('span').textContent = ingredientLine(ingredient);
   return item;
+}
+
+function createFilterOption(filter) {
+  const template = getTemplate('filter-option-template');
+  const button = template.content.firstElementChild.cloneNode(true);
+  button.dataset.filterId = filter.id;
+  button.textContent = t(filter.labelKey);
+  button.setAttribute('aria-pressed', String(filterState.category === filter.id));
+  button.addEventListener('click', () => {
+    filterState.category = filter.id;
+    dispatchFilterChange();
+    document.querySelector('drink-filters')?.updateCategoryButtons();
+  });
+  return button;
+}
+
+function dispatchFilterChange() {
+  window.dispatchEvent(
+    new CustomEvent(FILTER_CHANGE_EVENT, {
+      detail: { ...filterState },
+    }),
+  );
+}
+
+function applyDrinkFilters(drinks) {
+  return drinks.filter((drink) => {
+    if (filterState.favoritesOnly && !isFavorite(slugFromDrink(drink))) return false;
+    if (filterState.category === 'all') return true;
+    return drinkMatchesFilter(drink, filterState.category);
+  });
+}
+
+function drinkMatchesFilter(drink, filterId) {
+  const filter = FILTER_DEFINITIONS.find((item) => item.id === filterId);
+  if (!filter || filter.id === 'all') return true;
+
+  const searchable = normalizeSearchText(drink.ingredients.map((ingredient) => ingredient.name).join(' '));
+  return filter.terms.some((term) => searchable.includes(term));
 }
 
 function setupFavoriteButton(button, drink) {
@@ -227,9 +371,11 @@ function toggleFavorite(slug) {
   }
 
   saveFavorites(favorites);
-  window.dispatchEvent(new CustomEvent(FAVORITES_CHANGE_EVENT, {
-    detail: { slug, favorite: favorites.has(slug) }
-  }));
+  window.dispatchEvent(
+    new CustomEvent(FAVORITES_CHANGE_EVENT, {
+      detail: { slug, favorite: favorites.has(slug) },
+    }),
+  );
 }
 
 function isFavorite(slug) {
@@ -269,9 +415,11 @@ function setLanguage(language) {
   document.documentElement.lang = nextLanguage;
   updateLanguageControls();
   applyI18n(document);
-  window.dispatchEvent(new CustomEvent(LANGUAGE_CHANGE_EVENT, {
-    detail: { language: nextLanguage }
-  }));
+  window.dispatchEvent(
+    new CustomEvent(LANGUAGE_CHANGE_EVENT, {
+      detail: { language: nextLanguage },
+    }),
+  );
 }
 
 function updateLanguageControls() {
@@ -279,6 +427,13 @@ function updateLanguageControls() {
     select.value = getLanguage();
     select.setAttribute('aria-label', t('languageLabel'));
   }
+}
+
+function normalizeSearchText(value) {
+  return String(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase();
 }
 
 function getLanguage() {
@@ -340,10 +495,7 @@ function ingredientLine(ingredient) {
 }
 
 function slugFromDrink(drink) {
-  return drink.ibaLink
-    .replace(/\/$/, '')
-    .split('/')
-    .pop();
+  return drink.ibaLink.replace(/\/$/, '').split('/').pop();
 }
 
 function renderError(target, message) {

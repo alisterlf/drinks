@@ -27,8 +27,26 @@
         <h1 id="page-title" data-i18n="indexTitle">Classic drinks.</h1>
       </section>
 
+      <drink-filters class="filters" aria-label="Drink filters"></drink-filters>
       <drink-grid class="drink-grid" aria-label="Drink list"></drink-grid>
     </main>
+
+    <template id="drink-filters-template">
+      <section class="filter-panel" aria-labelledby="filters-title">
+        <h2 id="filters-title" data-i18n="filtersTitle">Filters</h2>
+        <div class="filter-actions">
+          <button class="filter-chip filter-chip-favorite" type="button" data-favorites-filter>
+            <span aria-hidden="true"></span>
+            <span data-i18n="filterFavorites">Only favorites</span>
+          </button>
+          <div class="filter-chip-group" data-filter-options></div>
+        </div>
+      </section>
+    </template>
+
+    <template id="filter-option-template">
+      <button class="filter-chip" type="button"></button>
+    </template>
 
     <template id="drink-card-template">
       <article class="drink-card">
