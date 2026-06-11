@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drink Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="detail">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Back to IBA Drinks" data-i18n="brand">Drinks</a>
+      <div class="header-actions">
+        <label class="language-control">
+          <span data-i18n="languageLabel">Language</span>
+          <select data-language-select aria-label="Language">
+            <option value="en">EN</option>
+            <option value="pt-BR">PT-BR</option>
+          </select>
+        </label>
+        <a class="back-link" href="index.html" data-i18n="allDrinks">All drinks</a>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <drink-detail class="drink-detail"></drink-detail>
+    </main>
+
+    <template id="drink-detail-template">
+      <figure class="detail-hero">
+        <img alt="">
+      </figure>
+
+      <div class="detail-content">
+        <header class="detail-heading">
+          <div>
+            <p class="eyebrow" data-i18n="detailEyebrow">Cocktail details</p>
+            <h1 class="detail-title"></h1>
+          </div>
+          <button class="favorite-button detail-favorite" type="button" data-favorite-button>
+            <span aria-hidden="true"></span>
+          </button>
+        </header>
+
+        <p class="detail-summary"></p>
+
+        <section class="detail-section" aria-labelledby="ingredients-title">
+          <h2 id="ingredients-title" data-i18n="ingredientsTitle">Ingredients</h2>
+          <ul class="ingredient-list"></ul>
+        </section>
+
+        <section class="detail-section" aria-labelledby="method-title">
+          <h2 id="method-title" data-i18n="methodTitle">Method</h2>
+          <p class="method-text"></p>
+        </section>
+
+        <section class="detail-section" aria-labelledby="garnish-title">
+          <h2 id="garnish-title" data-i18n="garnishTitle">Garnish</h2>
+          <p class="garnish-text"></p>
+        </section>
+
+        <p>
+          <a class="iba-link" target="_blank" rel="noreferrer" data-i18n="openIba">Open IBA page</a>
+        </p>
+      </div>
+    </template>
+
+    <template id="ingredient-item-template">
+      <li>
+        <span></span>
+      </li>
+    </template>
+
+    <template id="empty-state-template">
+      <section class="empty-state">
+        <p></p>
+        <p><a class="iba-link" href="index.html" data-i18n="backAll">Back to all drinks</a></p>
+      </section>
+    </template>
+  </body>
+</html>

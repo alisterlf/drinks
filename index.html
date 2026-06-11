@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IBA Drinks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="index">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="IBA Drinks home" data-i18n="brand">Drinks</a>
+      <div class="header-actions">
+        <label class="language-control">
+          <span data-i18n="languageLabel">Language</span>
+          <select data-language-select aria-label="Language">
+            <option value="en">EN</option>
+            <option value="pt-BR">PT-BR</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow" data-i18n="indexEyebrow">Cocktail index</p>
+        <h1 id="page-title" data-i18n="indexTitle">Classic drinks.</h1>
+      </section>
+
+      <drink-grid class="drink-grid" aria-label="Drink list"></drink-grid>
+    </main>
+
+    <template id="drink-card-template">
+      <article class="drink-card">
+        <button class="favorite-button" type="button" data-favorite-button>
+          <span aria-hidden="true"></span>
+        </button>
+        <a class="drink-card-link">
+          <figure class="drink-card-figure">
+            <img loading="lazy" alt="">
+            <figcaption class="drink-card-body">
+              <h2></h2>
+              <p class="ingredient-legend"></p>
+            </figcaption>
+          </figure>
+        </a>
+      </article>
+    </template>
+
+    <template id="empty-state-template">
+      <section class="empty-state">
+        <p></p>
+      </section>
+    </template>
+  </body>
+</html>
