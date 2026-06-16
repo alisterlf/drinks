@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ingredients | IBA Drinks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="./app.ts"></script>
+  </head>
+  <body data-page="ingredients">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="IBA Drinks home" data-i18n="brand">Drinks</a>
+      <div class="header-actions">
+        <label class="language-control">
+          <span data-i18n="languageLabel">Language</span>
+          <select data-language-select aria-label="Language">
+            <option value="en">EN</option>
+            <option value="pt-BR">PT-BR</option>
+          </select>
+        </label>
+        <a class="back-link" href="index.html" data-i18n="allDrinks">All drinks</a>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow" data-i18n="ingredientIndexEyebrow">Ingredient index</p>
+        <h1 id="page-title" data-i18n="ingredientIndexTitle">My bar.</h1>
+      </section>
+
+      <ingredient-inventory class="ingredient-inventory" aria-live="polite"></ingredient-inventory>
+    </main>
+
+    <template id="ingredient-inventory-template">
+      <section class="ingredient-inventory-panel" aria-labelledby="ingredient-inventory-title">
+        <h2 id="ingredient-inventory-title" data-i18n="ingredientInventoryTitle">Ingredients</h2>
+        <label class="search-control ingredient-search-control">
+          <span data-i18n="ingredientSearchLabel">Search</span>
+          <input
+            type="search"
+            autocomplete="off"
+            data-ingredient-search
+            data-i18n-placeholder="ingredientSearchPlaceholder"
+            placeholder="Search ingredients"
+          />
+        </label>
+        <ul class="ingredient-inventory-list" data-ingredient-list></ul>
+      </section>
+    </template>
+
+    <template id="ingredient-inventory-item-template">
+      <li class="ingredient-inventory-item">
+        <label class="ingredient-toggle">
+          <input class="ingredient-toggle-input" type="checkbox" data-ingredient-toggle />
+          <span class="ingredient-toggle-name" data-ingredient-name></span>
+          <span class="ingredient-toggle-count" data-ingredient-count></span>
+        </label>
+      </li>
+    </template>
+
+    <template id="empty-state-template">
+      <section class="empty-state">
+        <p></p>
+      </section>
+    </template>
+  </body>
+</html>

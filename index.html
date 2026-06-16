@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>IBA Drinks</title>
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./app.ts"></script>
   </head>
   <body data-page="index">
     <header class="site-header">
@@ -18,13 +18,14 @@
             <option value="pt-BR">PT-BR</option>
           </select>
         </label>
+        <a class="back-link" href="ingredients.html" data-i18n="allIngredients">Ingredients</a>
       </div>
     </header>
 
     <main class="page-shell">
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow" data-i18n="indexEyebrow">Cocktail index</p>
-        <h1 id="page-title" data-i18n="indexTitle">Classic drinks.</h1>
+        <h1 id="page-title" data-i18n="indexTitle">My drinks.</h1>
       </section>
 
       <drink-filters class="filters" aria-label="Drink filters"></drink-filters>
@@ -42,7 +43,7 @@
               autocomplete="off"
               data-search-input
               data-i18n-placeholder="searchPlaceholder"
-              placeholder="Search drinks"
+              placeholder="Search by drink or ingredient"
             />
           </label>
           <div class="filter-actions">
@@ -50,6 +51,7 @@
               <span aria-hidden="true"></span>
               <span data-i18n="filterFavorites">Only favorites</span>
             </button>
+            <button class="filter-chip" type="button" data-makeable-filter data-i18n="filterMakeable">Can make</button>
             <div class="filter-chip-group" data-filter-options></div>
           </div>
         </div>

@@ -1,13 +1,15 @@
 const js = require('@eslint/js');
 const globals = require('globals');
+const tseslint = require('typescript-eslint');
 
-module.exports = [
+module.exports = tseslint.config(
   {
     ignores: ['node_modules/**', 'dist/**', '.vite/**'],
   },
   js.configs.recommended,
   {
-    files: ['app.js'],
+    files: ['app.ts', 'src/**/*.ts'],
+    extends: [tseslint.configs.recommended],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'module',
@@ -26,4 +28,4 @@ module.exports = [
       },
     },
   },
-];
+);
