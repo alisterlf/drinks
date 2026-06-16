@@ -47,6 +47,42 @@ export class IngredientStore {
     return ingredients.has(ingredientKey);
   }
 
+  set(ingredientKey: string, hasIngredient: boolean): void {
+    const ingredients = this.readIngredients();
+
+    if (hasIngredient) {
+      ingredients.add(ingredientKey);
+    } else {
+      ingredients.delete(ingredientKey);
+    }
+
+    this.saveIngredients(ingredients);
+  }
+
+  removeAll(ingredientKeys: string[]): void {
+    const ingredients = this.readIngredients();
+
+    for (const ingredientKey of ingredientKeys) {
+      ingredients.delete(ingredientKey);
+    }
+
+    this.saveIngredients(ingredients);
+  }
+
+  addAll(ingredientKeys: string[]): void {
+    const ingredients = this.readIngredients();
+
+    for (const ingredientKey of ingredientKeys) {
+      ingredients.add(ingredientKey);
+    }
+
+    this.saveIngredients(ingredients);
+  }
+
+  clear(): void {
+    this.saveIngredients(new Set());
+  }
+
   readIngredients(): Set<string> {
     const value = this.storage.read(this.storageKey);
     if (!value) return new Set();

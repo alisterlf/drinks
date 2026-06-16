@@ -161,8 +161,14 @@ export function createIngredientInventoryElement(app: DrinksApp): CustomElementC
     renderIngredients(ingredients: IngredientInventoryItem[]): void {
       const content = app.templates.cloneTemplateContent('ingredient-inventory-template');
       const searchInput = content.querySelector('[data-ingredient-search]');
+      const markAllButton = content.querySelector('[data-mark-all-ingredients]');
+      const markNoButton = content.querySelector('[data-mark-no-ingredients]');
 
-      if (!(searchInput instanceof HTMLInputElement)) {
+      if (
+        !(searchInput instanceof HTMLInputElement) ||
+        !(markAllButton instanceof HTMLButtonElement) ||
+        !(markNoButton instanceof HTMLButtonElement)
+      ) {
         throw new Error('Ingredient inventory template is missing required elements.');
       }
 
@@ -172,6 +178,14 @@ export function createIngredientInventoryElement(app: DrinksApp): CustomElementC
         this.searchQuery = (event.currentTarget as HTMLInputElement).value;
         const list = this.querySelector('[data-ingredient-list]');
         if (list instanceof HTMLElement) this.renderIngredientList(list, ingredients);
+      });
+      markAllButton.addEventListener('click', () => {
+        app.ingredientStore.addAll(this.getIngredientKeys(ingredients));
+        app.dispatchIngredientsChange();
+      });
+      markNoButton.addEventListener('click', () => {
+        app.ingredientStore.clear();
+        app.dispatchIngredientsChange();
       });
 
       this.replaceChildren(content);
@@ -286,6 +300,10 @@ export function createIngredientInventoryElement(app: DrinksApp): CustomElementC
       } catch {
         return [];
       }
+    }
+
+    getIngredientKeys(ingredients: IngredientInventoryItem[]): string[] {
+      return [...new Set(ingredients.flatMap((ingredient) => ingredient.aliasKeys))];
     }
 
     formatDrinkCount(count: number): string {

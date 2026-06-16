@@ -46,7 +46,12 @@
         <p class="detail-summary"></p>
 
         <section class="detail-section" aria-labelledby="ingredients-title">
-          <h2 id="ingredients-title" data-i18n="ingredientsTitle">Ingredients</h2>
+          <div class="detail-section-header">
+            <h2 id="ingredients-title" data-i18n="ingredientsTitle">Ingredients</h2>
+            <button class="detail-edit-button" type="button" data-edit-ingredients-button data-i18n="editIngredients">
+              Edit
+            </button>
+          </div>
           <ul class="ingredient-list"></ul>
         </section>
 
@@ -74,7 +79,10 @@
 
     <template id="ingredient-item-template">
       <li>
-        <span></span>
+        <label class="detail-ingredient-toggle">
+          <input class="ingredient-toggle-input" type="checkbox" data-detail-ingredient-toggle />
+          <span data-detail-ingredient-name></span>
+        </label>
         <small class="ingredient-substitution" hidden></small>
       </li>
     </template>
