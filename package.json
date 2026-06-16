@@ -1,0 +1,19 @@
+{
+  "name": "drinks",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "start": "npm run dev",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{html,css,js,json}\"",
+    "format:check": "prettier --check \"**/*.{html,css,js,json}\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.5.0",
+    "globals": "^17.6.0",
+    "prettier": "^3.8.4",
+    "vite": "^8.0.16"
+  }
+}
