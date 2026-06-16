@@ -1,4 +1,4 @@
-const DATA_URL_BY_LANGUAGE = {
+const DATA_FILE_BY_LANGUAGE = {
   en: 'drinks.json',
   'pt-BR': 'drinks.pt-BR.json',
 };
@@ -12,6 +12,7 @@ const FILTER_CHANGE_EVENT = 'drinks:filter-change';
 const filterState = {
   favoritesOnly: false,
   category: 'all',
+  query: '',
 };
 
 const FILTER_DEFINITIONS = [
@@ -45,6 +46,8 @@ const UI_COPY = {
     addFavorite: 'Add to favorites',
     removeFavorite: 'Remove from favorites',
     filtersTitle: 'Filters',
+    searchLabel: 'Search',
+    searchPlaceholder: 'Search by drink or ingredient',
     filterAll: 'All',
     filterFavorites: 'Only favorites',
     filterVodka: 'Vodka',
@@ -75,6 +78,8 @@ const UI_COPY = {
     addFavorite: 'Adicionar aos favoritos',
     removeFavorite: 'Remover dos favoritos',
     filtersTitle: 'Filtros',
+    searchLabel: 'Busca',
+    searchPlaceholder: 'Busque por drink ou ingrediente',
     filterAll: 'Todos',
     filterFavorites: 'Só favoritos',
     filterVodka: 'Vodka',
@@ -113,9 +118,16 @@ class DrinkFilters extends HTMLElement {
     const template = getTemplate('drink-filters-template');
     const content = template.content.cloneNode(true);
     const favoritesButton = content.querySelector('[data-favorites-filter]');
+    const searchInput = content.querySelector('[data-search-input]');
     const options = content.querySelector('[data-filter-options]');
 
     applyI18n(content);
+    searchInput.value = filterState.query;
+    searchInput.addEventListener('input', (event) => {
+      filterState.query = event.currentTarget.value;
+      dispatchFilterChange();
+    });
+
     favoritesButton.addEventListener('click', () => {
       filterState.favoritesOnly = !filterState.favoritesOnly;
       this.render();
@@ -164,12 +176,16 @@ class DrinkGrid extends HTMLElement {
   }
 
   async loadAndRender() {
+    this.setAttribute('aria-busy', 'true');
+
     try {
       const drinks = await loadDrinks();
       this.render(drinks);
     } catch (error) {
       renderError(this, t('loadError'));
       console.error(error);
+    } finally {
+      this.setAttribute('aria-busy', 'false');
     }
   }
 
@@ -223,12 +239,16 @@ class DrinkDetail extends HTMLElement {
   }
 
   async loadAndRender() {
+    this.setAttribute('aria-busy', 'true');
+
     try {
       const drinks = await loadDrinks();
       this.render(drinks);
     } catch (error) {
       renderError(this, t('loadError'));
       console.error(error);
+    } finally {
+      this.setAttribute('aria-busy', 'false');
     }
   }
 
@@ -279,13 +299,22 @@ customElements.define('drink-detail', DrinkDetail);
 
 async function loadDrinks() {
   const language = getLanguage();
-  const dataUrl = DATA_URL_BY_LANGUAGE[language] ?? DATA_URL_BY_LANGUAGE.en;
+  const dataUrl = dataUrlForLanguage(language);
 
   if (!drinksCache.has(dataUrl)) {
-    drinksCache.set(dataUrl, fetchDrinks(dataUrl));
+    const request = fetchDrinks(dataUrl).catch((error) => {
+      drinksCache.delete(dataUrl);
+      throw error;
+    });
+    drinksCache.set(dataUrl, request);
   }
 
   return drinksCache.get(dataUrl);
+}
+
+function dataUrlForLanguage(language) {
+  const dataFile = DATA_FILE_BY_LANGUAGE[language] ?? DATA_FILE_BY_LANGUAGE.en;
+  return `${import.meta.env.BASE_URL}${dataFile}`;
 }
 
 async function fetchDrinks(dataUrl) {
@@ -327,11 +356,21 @@ function dispatchFilterChange() {
 }
 
 function applyDrinkFilters(drinks) {
+  const query = normalizeSearchText(filterState.query).trim();
+
   return drinks.filter((drink) => {
     if (filterState.favoritesOnly && !isFavorite(slugFromDrink(drink))) return false;
+    if (query && !drinkMatchesSearch(drink, query)) return false;
     if (filterState.category === 'all') return true;
     return drinkMatchesFilter(drink, filterState.category);
   });
+}
+
+function drinkMatchesSearch(drink, query) {
+  const searchable = normalizeSearchText(
+    [drink.name, drink.method, drink.garnish, ...drink.ingredients.map((ingredient) => ingredient.name)].join(' '),
+  );
+  return searchable.includes(query);
 }
 
 function drinkMatchesFilter(drink, filterId) {
@@ -408,7 +447,7 @@ function setupLanguageControls() {
 }
 
 function setLanguage(language) {
-  const nextLanguage = DATA_URL_BY_LANGUAGE[language] ? language : 'en';
+  const nextLanguage = DATA_FILE_BY_LANGUAGE[language] ? language : 'en';
   if (nextLanguage === getLanguage()) return;
 
   writeStorage(LANGUAGE_KEY, nextLanguage);
@@ -438,7 +477,23 @@ function normalizeSearchText(value) {
 
 function getLanguage() {
   const savedLanguage = readStorage(LANGUAGE_KEY);
-  if (DATA_URL_BY_LANGUAGE[savedLanguage]) return savedLanguage;
+  if (DATA_FILE_BY_LANGUAGE[savedLanguage]) return savedLanguage;
+  return getBrowserLanguage();
+}
+
+function getBrowserLanguage() {
+  if (typeof navigator === 'undefined') return 'en';
+
+  const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+
+  for (const language of languages) {
+    if (DATA_FILE_BY_LANGUAGE[language]) return language;
+
+    const baseLanguage = language.toLocaleLowerCase().split('-')[0];
+    if (baseLanguage === 'pt') return 'pt-BR';
+    if (baseLanguage === 'en') return 'en';
+  }
+
   return 'en';
 }
 
@@ -449,6 +504,10 @@ function t(key) {
 function applyI18n(root) {
   for (const element of root.querySelectorAll('[data-i18n]')) {
     element.textContent = t(element.dataset.i18n);
+  }
+
+  for (const element of root.querySelectorAll('[data-i18n-placeholder]')) {
+    element.setAttribute('placeholder', t(element.dataset.i18nPlaceholder));
   }
 
   updateLanguageControls();
@@ -471,12 +530,20 @@ function ingredientLegend(ingredients) {
 }
 
 function formatList(items) {
-  if (items.length <= 1) return items[0] ?? '';
+  if (items.length === 0) return '';
 
-  const conjunction = getLanguage() === 'pt-BR' ? 'e' : 'and';
-  if (items.length === 2) return `${items[0]} ${conjunction} ${items[1]}`;
+  try {
+    return new Intl.ListFormat(getLanguage(), {
+      style: 'long',
+      type: 'conjunction',
+    }).format(items);
+  } catch {
+    const conjunction = getLanguage() === 'pt-BR' ? 'e' : 'and';
+    if (items.length === 1) return items[0];
+    if (items.length === 2) return `${items[0]} ${conjunction} ${items[1]}`;
 
-  return `${items.slice(0, -1).join(', ')} ${conjunction} ${items[items.length - 1]}`;
+    return `${items.slice(0, -1).join(', ')} ${conjunction} ${items[items.length - 1]}`;
+  }
 }
 
 function ingredientAmount(ingredient) {

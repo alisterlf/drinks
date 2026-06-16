@@ -1,5 +1,74 @@
 # Drinks
 
+A small static cocktail index with localized drink data, ingredient filters, favorites, and detail pages.
+
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the local development server with hot reload:
+
+```bash
+npm run dev
+```
+
+Then open the local URL Vite prints in the terminal, usually `http://127.0.0.1:5173/`.
+
+## Quality Checks
+
+Run the full check suite:
+
+```bash
+npm run lint
+```
+
+That runs JavaScript linting, CSS linting, HTML linting, and data validation.
+
+Format HTML, CSS, JavaScript, and JSON:
+
+```bash
+npm run format
+```
+
+Check formatting without writing changes:
+
+```bash
+npm run format:check
+```
+
+Validate only the drink data:
+
+```bash
+npm run validate:data
+```
+
+## Production Build
+
+Build both HTML pages and copy the static drink data:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+- `index.html` - drink list page.
+- `drink.html` - drink detail page.
+- `app.js` - custom elements, filtering, language selection, favorites, and data loading.
+- `styles.css` - shared styling.
+- `public/drinks.json` - English drink data.
+- `public/drinks.pt-BR.json` - Brazilian Portuguese drink data.
+
 Americano - https://iba-world.com/iba-cocktail/americano/
 Bee’s Knees - https://iba-world.com/iba-cocktail/bees-knees/
 Between the Sheets - https://iba-world.com/iba-cocktail/between-the-sheets/
@@ -61,7 +130,7 @@ White Lady - https://iba-world.com/iba-cocktail/white-lady/
     {
       "quantity": 30,
       "unit": "ml",
-      "name": "Sweet Red Vermouth"
+      "name": "Vermouth Rosso"
     },
     {
       "prefix": "A splash of ",

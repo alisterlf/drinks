@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>IBA Drinks</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="app.js" defer></script>
+    <script type="module" src="./app.js"></script>
   </head>
   <body data-page="index">
     <header class="site-header">
@@ -28,18 +28,30 @@
       </section>
 
       <drink-filters class="filters" aria-label="Drink filters"></drink-filters>
-      <drink-grid class="drink-grid" aria-label="Drink list"></drink-grid>
+      <drink-grid class="drink-grid" role="list" aria-label="Drink list" aria-live="polite"></drink-grid>
     </main>
 
     <template id="drink-filters-template">
       <section class="filter-panel" aria-labelledby="filters-title">
         <h2 id="filters-title" data-i18n="filtersTitle">Filters</h2>
-        <div class="filter-actions">
-          <button class="filter-chip filter-chip-favorite" type="button" data-favorites-filter>
-            <span aria-hidden="true"></span>
-            <span data-i18n="filterFavorites">Only favorites</span>
-          </button>
-          <div class="filter-chip-group" data-filter-options></div>
+        <div class="filter-controls">
+          <label class="search-control">
+            <span data-i18n="searchLabel">Search</span>
+            <input
+              type="search"
+              autocomplete="off"
+              data-search-input
+              data-i18n-placeholder="searchPlaceholder"
+              placeholder="Search drinks"
+            />
+          </label>
+          <div class="filter-actions">
+            <button class="filter-chip filter-chip-favorite" type="button" data-favorites-filter>
+              <span aria-hidden="true"></span>
+              <span data-i18n="filterFavorites">Only favorites</span>
+            </button>
+            <div class="filter-chip-group" data-filter-options></div>
+          </div>
         </div>
       </section>
     </template>
@@ -49,7 +61,7 @@
     </template>
 
     <template id="drink-card-template">
-      <article class="drink-card">
+      <article class="drink-card" role="listitem">
         <button class="favorite-button" type="button" data-favorite-button>
           <span aria-hidden="true"></span>
         </button>

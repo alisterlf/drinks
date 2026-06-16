@@ -5,6 +5,7 @@ dist/
 *.log
 .env
 .env.*
+.vscode/.edge-debug-profile/
 
 .DS_Store
 Thumbs.db
