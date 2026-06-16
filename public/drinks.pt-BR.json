@@ -1,1205 +1,1125 @@
-[
-  {
+{
+  "americano": {
     "name": "Americano",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-americano-669490fe3cb42.webp",
-    "ingredients": [
-      {
-        "quantity": 30,
-        "unit": "ml",
+    "ingredients": {
+      "campari": {
         "name": "Campari"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "vermouth-rosso": {
         "name": "Vermute tinto doce"
       },
-      {
-        "prefix": "Um splash de ",
+      "soda-water": {
         "name": "Água com gás"
       }
-    ],
+    },
     "method": "Misture os ingredientes diretamente em um copo old fashioned cheio de cubos de gelo. Adicione um splash de água com gás. Mexa delicadamente.",
     "garnish": "Guarneça com meia fatia de laranja e uma casca de limão-siciliano.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/americano/"
-  },
-  {
-    "name": "Bee’s Knees",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-bees-knees-6695d397e26c1.webp",
-    "ingredients": [
-      {
-        "quantity": 52.5,
-        "unit": "ml",
-        "name": "Gin seco"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
       },
-      {
-        "quantity": 2,
-        "unit": "colheres de chá",
+      "lemon": {
+        "name": "Limão-siciliano"
+      }
+    }
+  },
+  "bees-knees": {
+    "name": "Bee’s Knees",
+    "ingredients": {
+      "gin": {
+        "name": "Gin",
+        "note": "Prefira gin seco."
+      },
+      "honey-syrup": {
         "name": "Xarope de mel"
       },
-      {
-        "quantity": 22.5,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       },
-      {
-        "quantity": 22.5,
-        "unit": "ml",
-        "name": "Suco de laranja fresco"
+      "orange-juice": {
+        "name": "Suco de laranja",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Mexa o mel com os sucos de limão-siciliano e laranja até dissolver, adicione o gin e bata com gelo. Coe para uma taça de coquetel resfriada.",
     "garnish": "Opcionalmente, guarneça com uma casca de limão-siciliano ou de laranja.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/bees-knees/"
+    "garnishIngredients": {
+      "lemon": {
+        "name": "Limão-siciliano"
+      },
+      "orange": {
+        "name": "Laranja"
+      }
+    }
   },
-  {
+  "between-the-sheets": {
     "name": "Between the Sheets",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-between-the-sheets-669491023d7af.webp",
-    "ingredients": [
-      {
-        "quantity": 30,
-        "unit": "ml",
+    "ingredients": {
+      "white-rum": {
         "name": "Rum branco"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "cognac": {
         "name": "Conhaque"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "cointreau": {
         "name": "Cointreau"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Adicione todos os ingredientes à coqueteleira. Bata com gelo e coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/between-the-sheets/"
+    "garnish": "Sem guarnição."
   },
-  {
+  "black-russian": {
     "name": "Black Russian",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-black-russian-6695cda4183dc.webp",
-    "ingredients": [
-      {
-        "quantity": 50,
-        "unit": "ml",
+    "ingredients": {
+      "vodka": {
         "name": "Vodka"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
+      "coffee-liqueur": {
         "name": "Licor de café"
       }
-    ],
+    },
     "method": "Despeje os ingredientes em um copo old fashioned cheio de cubos de gelo. Mexa delicadamente. Coe para um copo old fashioned cheio de gelo. NOTA: WHITE RUSSIAN - coloque creme de leite fresco por cima e misture lentamente.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/black-russian/"
+    "garnish": "Sem guarnição."
   },
-  {
+  "bloody-mary": {
     "name": "Bloody Mary",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-bloody-mary-6695cda72fe0f.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
+    "ingredients": {
+      "vodka": {
         "name": "Vodka"
       },
-      {
-        "quantity": 90,
-        "unit": "ml",
+      "tomato-juice": {
         "name": "Suco de tomate"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
-      },
-      {
-        "quantity": 2,
-        "unit": "dashes",
+      "worcestershire-sauce": {
         "name": "Molho inglês"
       },
-      {
-        "name": "Tabasco, sal de aipo e pimenta (a gosto)"
+      "tabasco": {
+        "name": "Tabasco",
+        "note": "a gosto"
+      },
+      "celery": {
+        "name": "Aipo",
+        "note": "a gosto"
+      },
+      "salt": {
+        "name": "Sal",
+        "note": "a gosto"
+      },
+      "pepper": {
+        "name": "Pimenta",
+        "note": "a gosto"
+      },
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Mexa delicadamente todos os ingredientes em um mixing glass com gelo e despeje em um copo rocks. NOTA: se solicitado com gelo, sirva em um copo highball.",
     "garnish": "Aipo e gomo de limão (opcional).",
-    "ibaLink": "https://iba-world.com/iba-cocktail/bloody-mary/"
-  },
-  {
-    "name": "Boulevardier",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-boulevardier-6694910552acd.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
-        "name": "Whiskey bourbon ou de centeio"
+    "garnishIngredients": {
+      "celery": {
+        "name": "Aipo"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "lemon": {
+        "name": "Limão-siciliano"
+      }
+    }
+  },
+  "boulevardier": {
+    "name": "Boulevardier",
+    "ingredients": {
+      "bourbon": {
+        "name": "Whiskey bourbon",
+        "substitutions": {
+          "rye-whiskey": {
+            "name": "Whiskey de centeio"
+          }
+        }
+      },
+      "campari": {
         "name": "Campari"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "vermouth-rosso": {
         "name": "Vermute tinto doce"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada.",
     "garnish": "Guarneça com uma casca de laranja; opcionalmente, uma casca de limão-siciliano.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/boulevardier/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      },
+      "lemon": {
+        "name": "Limão-siciliano"
+      }
+    }
   },
-  {
+  "caipirinha": {
     "name": "Caipirinha",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-caipirinha-6695cda74b13a.webp",
-    "ingredients": [
-      {
-        "quantity": 60,
-        "unit": "ml",
+    "ingredients": {
+      "cachaca": {
         "name": "Cachaça"
       },
-      {
-        "quantity": 1,
-        "name": "Limão cortado em pequenos gomos"
+      "lime": {
+        "name": "Limão",
+        "note": "Cortado em pequenos gomos."
       },
-      {
-        "quantity": 4,
-        "unit": "colheres de chá",
-        "name": "Açúcar de cana branco"
+      "sugar": {
+        "name": "Açúcar",
+        "note": "Prefira açúcar de cana branco."
       }
-    ],
+    },
     "method": "Coloque o limão e o açúcar em um copo double old fashioned e macere delicadamente. Complete o copo com gelo quebrado e adicione a cachaça. Mexa delicadamente para envolver os ingredientes. Nota: Caipiroska - use vodka no lugar da cachaça; Caipirissima - use rum no lugar da cachaça. Caipirão - use Licor Beirão no lugar da cachaça.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/caipirinha/"
+    "garnish": "Sem guarnição."
   },
-  {
+  "canchanchara": {
     "name": "Canchanchara",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-canchanchara-6695d39b24d7e.webp",
-    "ingredients": [
-      {
-        "quantity": 60,
-        "unit": "ml",
-        "name": "Aguardente cubana"
-      },
-      {
-        "quantity": 15,
-        "unit": "ml",
-        "name": "Suco de limão fresco"
-      },
-      {
-        "quantity": 15,
-        "unit": "ml",
+    "ingredients": {
+      "raw-honey": {
         "name": "Mel cru"
       },
-      {
-        "quantity": 50,
-        "unit": "ml",
+      "water": {
         "name": "Água"
+      },
+      "rum": {
+        "name": "Rum",
+        "note": "Prefira aguardente cubana."
+      },
+      "lime-juice": {
+        "name": "Suco de limão",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Misture o mel com água e suco de limão e espalhe a mistura no fundo e nas laterais do copo. Adicione gelo quebrado e depois o rum. Finalize mexendo energicamente de baixo para cima.",
     "garnish": "Guarneça com um gomo de limão.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/canchanchara/"
+    "garnishIngredients": {
+      "lime": {
+        "name": "Limão"
+      }
+    }
   },
-  {
+  "cardinale": {
     "name": "Cardinale",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-cardinale-6695cdaa5f0d8.webp",
-    "ingredients": [
-      {
-        "quantity": 40,
-        "unit": "ml",
+    "ingredients": {
+      "gin": {
         "name": "Gin"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
+      "dry-vermouth": {
         "name": "Vermute seco"
       },
-      {
-        "quantity": 10,
-        "unit": "ml",
+      "campari": {
         "name": "Campari"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada.",
     "garnish": "Guarneça com uma casca de limão-siciliano.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/cardinale/"
+    "garnishIngredients": {
+      "lemon": {
+        "name": "Limão-siciliano"
+      }
+    }
   },
-  {
+  "champagne-cocktail": {
     "name": "Champagne Cocktail",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-champagne-cocktail-6695cdaa71bb2.webp",
-    "ingredients": [
-      {
-        "quantity": 90,
-        "unit": "ml",
-        "name": "Champagne gelado"
+    "ingredients": {
+      "champagne": {
+        "name": "Champagne",
+        "note": "Use Champagne gelado.",
+        "substitutions": {
+          "prosecco": {
+            "name": "Prosecco"
+          }
+        }
       },
-      {
-        "quantity": 10,
-        "unit": "ml",
+      "cognac": {
         "name": "Conhaque"
       },
-      {
-        "quantity": 2,
-        "unit": "dashes",
+      "angostura-bitters": {
         "name": "Bitter Angostura"
       },
-      {
-        "prefix": "Algumas gotas de ",
-        "name": "Grand Marnier (opcional)"
+      "grand-marnier": {
+        "name": "Grand Marnier"
       },
-      {
-        "quantity": 1,
-        "name": "Cubo de açúcar"
+      "sugar-cube": {
+        "name": "Cubo de açúcar",
+        "substitutions": {
+          "sugar": {
+            "name": "Açúcar"
+          }
+        }
       }
-    ],
+    },
     "method": "Coloque o cubo de açúcar com 2 dashes de bitter em uma taça grande de Champagne e adicione o conhaque. Despeje delicadamente o Champagne gelado.",
     "garnish": "Guarneça com casca de laranja e cereja maraschino.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/champagne-cocktail/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      },
+      "cherry": {
+        "name": "Cereja",
+        "note": "Cereja de coquetel ou maraschino."
+      }
+    }
   },
-  {
+  "cosmopolitan": {
     "name": "Cosmopolitan",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-cosmopolitan-6695cdae389dc.webp",
-    "ingredients": [
-      {
-        "quantity": 40,
-        "unit": "ml",
+    "ingredients": {
+      "vodka-citron": {
         "name": "Vodka Citron"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
+      "cointreau": {
         "name": "Cointreau"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
-        "name": "Suco de limão fresco"
-      },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "cranberry-juice": {
         "name": "Suco de cranberry"
+      },
+      "lime-juice": {
+        "name": "Suco de limão",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Adicione todos os ingredientes a uma coqueteleira cheia de gelo. Bata bem e coe para uma taça grande de coquetel.",
     "garnish": "Guarneça com uma torção de casca de limão-siciliano.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/cosmopolitan/"
+    "garnishIngredients": {
+      "lemon": {
+        "name": "Limão-siciliano"
+      }
+    }
   },
-  {
+  "cuba-libre": {
     "name": "Cuba Libre",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-cuba-libre-6695cdb0a6f80.webp",
-    "ingredients": [
-      {
-        "quantity": 50,
-        "unit": "ml",
+    "ingredients": {
+      "white-rum": {
         "name": "Rum branco"
       },
-      {
-        "quantity": 120,
-        "unit": "ml",
+      "cola": {
         "name": "Cola"
       },
-      {
-        "quantity": 10,
-        "unit": "ml",
-        "name": "Suco de limão fresco"
+      "lime-juice": {
+        "name": "Suco de limão",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Monte todos os ingredientes em um copo highball cheio de gelo.",
     "garnish": "Guarneça com um gomo de limão.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/cuba-libre/"
-  },
-  {
-    "name": "Daiquiri",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-daiquiri-6694910c5866e.webp",
-    "ingredients": [
-      {
-        "quantity": 60,
-        "unit": "ml",
-        "name": "Rum branco cubano"
-      },
-      {
-        "quantity": 20,
-        "unit": "ml",
-        "name": "Suco de limão fresco"
-      },
-      {
-        "quantity": 2,
-        "unit": "colheres bailarinas",
-        "name": "Açúcar refinado"
+    "garnishIngredients": {
+      "lime": {
+        "name": "Limão"
       }
-    ],
-    "method": "Adicione todos os ingredientes a uma coqueteleira. Mexa bem para dissolver o açúcar. Adicione gelo e bata. Coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/daiquiri/"
+    }
   },
-  {
+  "daiquiri": {
+    "name": "Daiquiri",
+    "ingredients": {
+      "white-rum": {
+        "name": "Rum branco",
+        "note": "Prefira rum branco cubano."
+      },
+      "sugar": {
+        "name": "Açúcar",
+        "note": "Prefira refinado."
+      },
+      "lime-juice": {
+        "name": "Suco de limão",
+        "note": "Prefira fresco."
+      }
+    },
+    "method": "Adicione todos os ingredientes a uma coqueteleira. Mexa bem para dissolver o açúcar. Adicione gelo e bata. Coe para uma taça de coquetel resfriada.",
+    "garnish": "Sem guarnição."
+  },
+  "dry-martini": {
     "name": "Dry Martini",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-dry-martini-6694910fb500c.webp",
-    "ingredients": [
-      {
-        "quantity": 60,
-        "unit": "ml",
+    "ingredients": {
+      "gin": {
         "name": "Gin"
       },
-      {
-        "quantity": 10,
-        "unit": "ml",
+      "dry-vermouth": {
         "name": "Vermute seco"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça martini resfriada.",
     "garnish": "Esprema os óleos de uma casca de limão-siciliano sobre o drink ou guarneça com azeitonas verdes, se solicitado.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/dry-martini/"
+    "garnishIngredients": {
+      "lemon": {
+        "name": "Limão-siciliano"
+      },
+      "olive": {
+        "name": "Azeitona"
+      }
+    }
   },
-  {
+  "espresso-martini": {
     "name": "Espresso Martini",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-espresso-martini-6695d3a172fd3.webp",
-    "ingredients": [
-      {
-        "quantity": 50,
-        "unit": "ml",
+    "ingredients": {
+      "vodka": {
         "name": "Vodka"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
-        "name": "Kahlúa"
+      "coffee-liqueur": {
+        "name": "Licor de café",
+        "note": "Prefira Kahlúa."
       },
-      {
-        "quantity": 10,
-        "unit": "ml",
-        "name": "Xarope de açúcar"
+      "espresso": {
+        "name": "Espresso",
+        "note": "Use espresso forte."
       },
-      {
-        "quantity": 1,
-        "name": "Espresso forte"
+      "simple-syrup": {
+        "name": "Xarope simples"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes na coqueteleira, bata bem com gelo e coe para uma taça de coquetel resfriada.",
     "garnish": "3 grãos de café.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/espresso-martini/"
+    "garnishIngredients": {
+      "coffee-beans": {
+        "name": "Grãos de café"
+      }
+    }
   },
-  {
+  "fernandito": {
     "name": "Fernandito",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-fernandito-6695d3a1a3586.webp",
-    "ingredients": [
-      {
-        "quantity": 50,
-        "unit": "ml",
-        "name": "Fernet Branca"
+    "ingredients": {
+      "fernet": {
+        "name": "Fernet",
+        "note": "Prefira Fernet-Branca."
       },
-      {
-        "prefix": "Completar com ",
+      "cola": {
         "name": "Cola"
       }
-    ],
+    },
     "method": "Despeje o Fernet Branca em um copo double old fashioned com gelo e complete com cola. Mexa delicadamente.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/fernandito/"
+    "garnish": "Sem guarnição."
   },
-  {
+  "french-75": {
     "name": "French 75",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-french-75-6695cdb175e06.webp",
-    "ingredients": [
-      {
-        "quantity": 30,
-        "unit": "ml",
+    "ingredients": {
+      "gin": {
         "name": "Gin"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
+      "champagne": {
+        "name": "Champagne",
+        "substitutions": {
+          "prosecco": {
+            "name": "Prosecco"
+          }
+        }
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
-        "name": "Xarope de açúcar"
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       },
-      {
-        "quantity": 60,
-        "unit": "ml",
-        "name": "Champagne"
+      "simple-syrup": {
+        "name": "Xarope simples"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes, exceto o Champagne, em uma coqueteleira. Bata bem e coe para uma taça flute. Complete com Champagne. Mexa delicadamente.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/french-75/"
+    "garnish": "Sem guarnição."
   },
-  {
+  "french-connection": {
     "name": "French Connection",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-french-connection-6695cdb3cc15f.webp",
-    "ingredients": [
-      {
-        "quantity": 35,
-        "unit": "ml",
+    "ingredients": {
+      "cognac": {
         "name": "Conhaque"
       },
-      {
-        "quantity": 35,
-        "unit": "ml",
+      "amaretto": {
         "name": "Amaretto"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes diretamente em um copo old fashioned cheio de cubos de gelo. Mexa delicadamente.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/french-connection/"
+    "garnish": "Sem guarnição."
   },
-  {
+  "garibaldi": {
     "name": "Garibaldi",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-garibaldi-6695cdb4cbf81.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
+    "ingredients": {
+      "campari": {
         "name": "Campari"
       },
-      {
-        "quantity": 120,
-        "unit": "ml",
-        "name": "Suco de laranja espremido na hora"
+      "orange-juice": {
+        "name": "Suco de laranja",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Monte todos os ingredientes em um copo highball cheio de gelo.",
     "garnish": "Guarneça com um gomo de laranja.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/garibaldi/"
-  },
-  {
-    "name": "Gin Basil Smash",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-gin-basil-smash-6695d3a4c0967.webp",
-    "ingredients": [
-      {
-        "quantity": 60,
-        "unit": "ml",
-        "name": "Gin"
-      },
-      {
-        "quantity": 22.5,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano espremido na hora"
-      },
-      {
-        "quantity": 22.5,
-        "unit": "ml",
-        "name": "Xarope de açúcar"
-      },
-      {
-        "quantity": 10,
-        "unit": "unid.",
-        "name": "Folhas de manjericão italiano"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
       }
-    ],
-    "method": "Adicione todos os ingredientes à coqueteleira com gelo. Bata vigorosamente e despeje em uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/gin-basil-smash/"
+    }
   },
-  {
-    "name": "Gin Fizz",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-gin-fizz-6694910fc2eab.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
+  "gin-basil-smash": {
+    "name": "Gin Basil Smash",
+    "ingredients": {
+      "gin": {
         "name": "Gin"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
+      "basil": {
+        "name": "Manjericão",
+        "note": "Folhas de manjericão italiano."
       },
-      {
-        "quantity": 10,
-        "unit": "ml",
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
+      },
+      "simple-syrup": {
+        "name": "Xarope simples"
+      }
+    },
+    "method": "Adicione todos os ingredientes à coqueteleira com gelo. Bata vigorosamente e despeje em uma taça de coquetel resfriada.",
+    "garnish": "Sem guarnição."
+  },
+  "gin-fizz": {
+    "name": "Gin Fizz",
+    "ingredients": {
+      "gin": {
+        "name": "Gin"
+      },
+      "simple-syrup": {
         "name": "Xarope simples"
       },
-      {
-        "prefix": "Splash de ",
+      "soda-water": {
         "name": "Água com gás"
+      },
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Bata todos os ingredientes com gelo, exceto a água com gás. Despeje em um copo tumbler alto e fino e complete com um splash de água com gás. NOTA: sirva sem gelo.",
     "garnish": "Guarneça com uma fatia de limão-siciliano; opcionalmente, uma casca de limão-siciliano.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/gin-fizz/"
+    "garnishIngredients": {
+      "lemon": {
+        "name": "Limão-siciliano"
+      }
+    }
   },
-  {
+  "hanky-panky": {
     "name": "Hanky Panky",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-hanky-panky-66949112edbf5.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
-        "name": "London Dry Gin"
+    "ingredients": {
+      "gin": {
+        "name": "Gin",
+        "note": "Prefira London dry gin."
       },
-      {
-        "quantity": 45,
-        "unit": "ml",
+      "vermouth-rosso": {
         "name": "Vermute tinto doce"
       },
-      {
-        "quantity": 7.5,
-        "unit": "ml",
+      "fernet": {
         "name": "Fernet"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada.",
     "garnish": "Casca de laranja.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/hanky-panky/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      }
+    }
   },
-  {
+  "irish-coffee": {
     "name": "Irish Coffee",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-irish-coffee-copy-6695cdbb430cd.webp",
-    "ingredients": [
-      {
-        "quantity": 50,
-        "unit": "ml",
+    "ingredients": {
+      "irish-whiskey": {
         "name": "Whiskey irlandês"
       },
-      {
-        "quantity": 120,
-        "unit": "ml",
+      "hot-coffee": {
         "name": "Café quente"
       },
-      {
-        "quantity": 50,
-        "unit": "ml",
-        "name": "Creme de leite fresco (gelado)"
-      },
-      {
-        "quantity": 1,
-        "unit": "colher de chá",
+      "sugar": {
         "name": "Açúcar"
+      },
+      "cream": {
+        "name": "Creme de leite",
+        "note": "Fresco e gelado. Gelado."
       }
-    ],
+    },
     "method": "Despeje café preto quente em uma taça Irish coffee previamente aquecida. Adicione whiskey e pelo menos uma colher de chá de açúcar, mexendo até dissolver. Despeje cuidadosamente creme de leite fresco gelado e espesso sobre as costas de uma colher posicionada logo acima da superfície do café. A camada de creme deve flutuar sobre o café sem se misturar. Açúcar comum pode ser substituído por xarope de açúcar.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/irish-coffee/"
+    "garnish": "Sem guarnição."
   },
-  {
+  "john-collins": {
     "name": "John Collins",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-john-collins-669491130ef87.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
+    "ingredients": {
+      "gin": {
         "name": "Gin"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
-      },
-      {
-        "quantity": 15,
-        "unit": "ml",
+      "simple-syrup": {
         "name": "Xarope simples"
       },
-      {
-        "quantity": 60,
-        "unit": "ml",
+      "soda-water": {
         "name": "Água com gás"
+      },
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes diretamente em um copo highball cheio de gelo. Mexa delicadamente. NOTA: use gin Old Tom para o Tom Collins.",
     "garnish": "Guarneça com fatia de limão-siciliano e cereja maraschino.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/john-collins/"
+    "garnishIngredients": {
+      "lemon": {
+        "name": "Limão-siciliano"
+      },
+      "cherry": {
+        "name": "Cereja",
+        "note": "Cereja de coquetel ou maraschino."
+      }
+    }
   },
-  {
+  "jungle-bird": {
     "name": "Jungle Bird",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-jungle-bird-6695d3ab45a87.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
+    "ingredients": {
+      "blackstrap-rum": {
         "name": "Rum blackstrap"
       },
-      {
-        "quantity": 22.5,
-        "unit": "ml",
+      "campari": {
         "name": "Campari"
       },
-      {
-        "quantity": 45,
-        "unit": "ml",
+      "pineapple-juice": {
         "name": "Suco de abacaxi"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
-        "name": "Suco de limão espremido na hora"
-      },
-      {
-        "quantity": 15,
-        "unit": "ml",
+      "demerara-sugar-syrup": {
         "name": "Xarope de açúcar demerara"
+      },
+      "lime-juice": {
+        "name": "Suco de limão",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes em uma coqueteleira com gelo e bata. Coe para um copo rocks cheio de gelo.",
     "garnish": "Guarneça com um gomo de abacaxi.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/jungle-bird/"
+    "garnishIngredients": {
+      "pineapple": {
+        "name": "Abacaxi"
+      }
+    }
   },
-  {
+  "lemon-drop-martini": {
     "name": "Lemon Drop Martini",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-lemon-drop-martini-6695cdbe3eed7.webp",
-    "ingredients": [
-      {
-        "quantity": 30,
-        "unit": "ml",
+    "ingredients": {
+      "vodka": {
         "name": "Vodka"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
+      "cointreau": {
         "name": "Cointreau"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano espremido na hora"
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes em uma coqueteleira com gelo. Bata bem e coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/lemon-drop-martini/"
+    "garnish": "Sem guarnição."
   },
-  {
+  "long-island-iced-tea": {
     "name": "Long Island Iced Tea",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-long-island-iced-tea-6695cdc10c463.webp",
-    "ingredients": [
-      {
-        "quantity": 15,
-        "unit": "ml",
+    "ingredients": {
+      "vodka": {
         "name": "Vodka"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
+      "tequila": {
         "name": "Tequila"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
+      "white-rum": {
         "name": "Rum branco"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
+      "gin": {
         "name": "Gin"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
+      "cointreau": {
         "name": "Cointreau"
       },
-      {
-        "quantity": 25,
-        "unit": "ml",
+      "lemon-juice": {
         "name": "Suco de limão-siciliano"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "simple-syrup": {
         "name": "Xarope simples"
       },
-      {
-        "prefix": "Completar com ",
+      "cola": {
         "name": "Cola"
       }
-    ],
+    },
     "method": "Adicione todos os ingredientes em um copo highball cheio de gelo. Mexa delicadamente.",
     "garnish": "Guarneça com uma fatia de limão-siciliano (opcional).",
-    "ibaLink": "https://iba-world.com/iba-cocktail/long-island-iced-tea/"
+    "garnishIngredients": {
+      "lemon": {
+        "name": "Limão-siciliano"
+      }
+    }
   },
-  {
+  "manhattan": {
     "name": "Manhattan",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-manhattan-6694911627de7.webp",
-    "ingredients": [
-      {
-        "quantity": 50,
-        "unit": "ml",
+    "ingredients": {
+      "rye-whiskey": {
         "name": "Whiskey de centeio"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
+      "vermouth-rosso": {
         "name": "Vermute tinto doce"
       },
-      {
-        "quantity": 1,
-        "unit": "dash",
+      "angostura-bitters": {
         "name": "Bitter Angostura"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada.",
     "garnish": "Guarneça com cereja de coquetel.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/manhattan/"
+    "garnishIngredients": {
+      "cherry": {
+        "name": "Cereja",
+        "note": "Cereja de coquetel ou maraschino."
+      }
+    }
   },
-  {
+  "margarita": {
     "name": "Margarita",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-margarita-6695cdd7505e0.webp",
-    "ingredients": [
-      {
-        "quantity": 50,
-        "unit": "ml",
-        "name": "Tequila 100% agave"
+    "ingredients": {
+      "tequila": {
+        "name": "Tequila",
+        "note": "Prefira tequila 100% agave."
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
+      "cointreau": {
         "name": "Cointreau"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
-        "name": "Suco de limão espremido na hora"
+      "lime-juice": {
+        "name": "Suco de limão",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Adicione todos os ingredientes a uma coqueteleira com gelo. Bata e coe para uma taça de coquetel resfriada.",
     "garnish": "Meia borda de sal (opcional).",
-    "ibaLink": "https://iba-world.com/iba-cocktail/margarita/"
-  },
-  {
-    "name": "Mimosa",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-mimosa-6695cdc4463c9.webp",
-    "ingredients": [
-      {
-        "quantity": 75,
-        "unit": "ml",
-        "name": "Suco de laranja espremido na hora"
-      },
-      {
-        "quantity": 75,
-        "unit": "ml",
-        "name": "Prosecco"
+    "garnishIngredients": {
+      "salt": {
+        "name": "Sal"
       }
-    ],
+    }
+  },
+  "mimosa": {
+    "name": "Mimosa",
+    "ingredients": {
+      "prosecco": {
+        "name": "Prosecco"
+      },
+      "orange-juice": {
+        "name": "Suco de laranja",
+        "note": "Prefira fresco."
+      }
+    },
     "method": "Despeje o suco de laranja em uma taça flute e adicione delicadamente o vinho espumante. Mexa delicadamente. NOTA: também conhecido como Buck’s Fizz.",
     "garnish": "Guarneça com uma torção de casca de laranja (opcional).",
-    "ibaLink": "https://iba-world.com/iba-cocktail/mimosa/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      }
+    }
   },
-  {
+  "mint-julep": {
     "name": "Mint Julep",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-mint-julep-6695cdc4aa398.webp",
-    "ingredients": [
-      {
-        "quantity": 60,
-        "unit": "ml",
+    "ingredients": {
+      "bourbon": {
         "name": "Whiskey bourbon"
       },
-      {
-        "quantity": 4,
-        "name": "Ramos de hortelã fresca"
-      },
-      {
-        "quantity": 1,
-        "unit": "colher de chá",
+      "powdered-sugar": {
         "name": "Açúcar de confeiteiro"
       },
-      {
-        "quantity": 2,
-        "unit": "colheres de chá",
+      "water": {
         "name": "Água"
+      },
+      "mint": {
+        "name": "Hortelã",
+        "note": "Use ramos frescos."
       }
-    ],
+    },
     "method": "Em uma caneca julep de aço inox, macere delicadamente a hortelã com açúcar e água. Complete o copo com gelo quebrado, adicione o bourbon e mexa bem até a caneca gelar por fora.",
     "garnish": "Guarneça com um ramo de hortelã.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/mint-julep/"
-  },
-  {
-    "name": "Mojito",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-mojito-6695cdc755626.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
-        "name": "Rum branco cubano"
-      },
-      {
-        "quantity": 20,
-        "unit": "ml",
-        "name": "Suco de limão fresco"
-      },
-      {
-        "quantity": 6,
-        "unit": "unid.",
-        "name": "Ramos de hortelã"
-      },
-      {
-        "quantity": 2,
-        "unit": "colheres de chá",
-        "name": "Açúcar de cana branco"
-      },
-      {
-        "name": "Água com gás"
+    "garnishIngredients": {
+      "mint": {
+        "name": "Hortelã"
       }
-    ],
+    }
+  },
+  "mojito": {
+    "name": "Mojito",
+    "ingredients": {
+      "white-rum": {
+        "name": "Rum branco",
+        "note": "Prefira rum branco cubano."
+      },
+      "soda-water": {
+        "name": "Água com gás"
+      },
+      "sugar": {
+        "name": "Açúcar",
+        "note": "Prefira açúcar de cana branco."
+      },
+      "mint": {
+        "name": "Hortelã",
+        "note": "Use ramos."
+      },
+      "lime-juice": {
+        "name": "Suco de limão",
+        "note": "Prefira fresco."
+      }
+    },
     "method": "Misture os ramos de hortelã com açúcar e suco de limão. Adicione um splash de água com gás e encha o copo com gelo. Despeje o rum e complete com água com gás. Mexa levemente para envolver todos os ingredientes.",
     "garnish": "Guarneça com ramos de hortelã e uma fatia de limão.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/mojito/"
-  },
-  {
-    "name": "Moscow Mule",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-moscow-mule-6695cdc7d8cb2.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
-        "name": "Vodka Smirnoff"
+    "garnishIngredients": {
+      "mint": {
+        "name": "Hortelã"
       },
-      {
-        "quantity": 120,
-        "unit": "ml",
+      "lime": {
+        "name": "Limão"
+      }
+    }
+  },
+  "moscow-mule": {
+    "name": "Moscow Mule",
+    "ingredients": {
+      "vodka": {
+        "name": "Vodka",
+        "note": "Prefira Smirnoff."
+      },
+      "ginger-beer": {
         "name": "Ginger beer"
       },
-      {
-        "quantity": 10,
-        "unit": "ml",
-        "name": "Suco de limão fresco"
+      "lime-juice": {
+        "name": "Suco de limão",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Em uma caneca mule ou copo rocks, combine a vodka e a ginger beer. Adicione o suco de limão e mexa delicadamente para envolver todos os ingredientes.",
     "garnish": "Guarneça com uma fatia de limão.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/moscow-mule/"
+    "garnishIngredients": {
+      "lime": {
+        "name": "Limão"
+      }
+    }
   },
-  {
+  "negroni": {
     "name": "Negroni",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-negroni-6694911cc3b65.webp",
-    "ingredients": [
-      {
-        "quantity": 30,
-        "unit": "ml",
+    "ingredients": {
+      "gin": {
         "name": "Gin"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "campari": {
         "name": "Campari"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "vermouth-rosso": {
         "name": "Vermute tinto doce"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes diretamente em um copo old fashioned resfriado e cheio de gelo. Mexa delicadamente.",
     "garnish": "Guarneça com meia fatia de laranja.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/negroni/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      }
+    }
   },
-  {
+  "new-york-sour": {
     "name": "New York Sour",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-new-york-sour-6695d3ae88cd2.webp",
-    "ingredients": [
-      {
-        "quantity": 60,
-        "unit": "ml",
-        "name": "Whiskey de centeio ou bourbon"
+    "ingredients": {
+      "rye-whiskey": {
+        "name": "Whiskey de centeio",
+        "substitutions": {
+          "bourbon": {
+            "name": "Bourbon"
+          }
+        }
       },
-      {
-        "quantity": 22.5,
-        "unit": "ml",
+      "simple-syrup": {
         "name": "Xarope simples"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
-      },
-      {
-        "prefix": "Algumas gotas de ",
+      "egg-white": {
         "name": "Clara de ovo"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
-        "name": "Vinho tinto (Shiraz ou Malbech)"
+      "red-wine": {
+        "name": "Vinho tinto",
+        "note": "Shiraz ou Malbech"
+      },
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes na coqueteleira. Bata vigorosamente com gelo. Coe para um copo rocks resfriado e cheio de gelo. Flutue o vinho por cima.",
     "garnish": "Guarneça com casca de limão-siciliano ou de laranja e cereja.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/new-york-sour/"
-  },
-  {
-    "name": "Old Cuban",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-old-cuban-6695d3b18c692.webp",
-    "ingredients": [
-      {
-        "prefix": "6/8 unid. ",
-        "name": "Folhas de hortelã"
+    "garnishIngredients": {
+      "lemon": {
+        "name": "Limão-siciliano"
       },
-      {
-        "quantity": 45,
-        "unit": "ml",
+      "orange": {
+        "name": "Laranja"
+      },
+      "cherry": {
+        "name": "Cereja",
+        "note": "Cereja de coquetel ou maraschino."
+      }
+    }
+  },
+  "old-cuban": {
+    "name": "Old Cuban",
+    "ingredients": {
+      "aged-rum": {
         "name": "Rum envelhecido"
       },
-      {
-        "quantity": 22.5,
-        "unit": "ml",
-        "name": "Suco de limão fresco"
-      },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "simple-syrup": {
         "name": "Xarope simples"
       },
-      {
-        "quantity": 2,
-        "unit": "dashes",
+      "angostura-bitters": {
         "name": "Bitter Angostura"
       },
-      {
-        "quantity": 60,
-        "unit": "ml",
-        "name": "Champagne brut ou prosecco"
+      "champagne": {
+        "name": "Champagne",
+        "note": "Prefira Champagne Brut.",
+        "substitutions": {
+          "prosecco": {
+            "name": "Prosecco"
+          }
+        }
+      },
+      "mint": {
+        "name": "Hortelã",
+        "note": "Use folhas."
+      },
+      "lime-juice": {
+        "name": "Suco de limão",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes na coqueteleira, exceto o espumante. Bata bem com gelo e coe para uma taça de coquetel elegante e resfriada. Complete com o vinho espumante.",
     "garnish": "Guarneça com ramos de hortelã.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/old-cuban/"
+    "garnishIngredients": {
+      "mint": {
+        "name": "Hortelã"
+      }
+    }
   },
-  {
+  "old-fashioned": {
     "name": "Old Fashioned",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-old-fashioned-6694911fce360.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
-        "name": "Whiskey bourbon ou de centeio"
+    "ingredients": {
+      "bourbon": {
+        "name": "Whiskey bourbon",
+        "substitutions": {
+          "rye-whiskey": {
+            "name": "Whiskey de centeio"
+          }
+        }
       },
-      {
-        "quantity": 1,
-        "name": "Cubo de açúcar"
+      "sugar-cube": {
+        "name": "Cubo de açúcar",
+        "substitutions": {
+          "sugar": {
+            "name": "Açúcar"
+          }
+        }
       },
-      {
-        "prefix": "Alguns dashes de ",
+      "angostura-bitters": {
         "name": "Bitter Angostura"
       },
-      {
-        "prefix": "Alguns dashes de ",
-        "name": "Água sem gás"
+      "water": {
+        "name": "Água",
+        "note": "Sem gás."
       }
-    ],
+    },
     "method": "Coloque o cubo de açúcar no copo old fashioned e sature com bitter; adicione alguns dashes de água sem gás. Macere até dissolver. Encha o copo com cubos de gelo e adicione o whiskey. Mexa delicadamente.",
     "garnish": "Guarneça com fatia ou casca de laranja e uma cereja de coquetel.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/old-fashioned/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      },
+      "cherry": {
+        "name": "Cereja",
+        "note": "Cereja de coquetel ou maraschino."
+      }
+    }
   },
-  {
+  "pina-colada": {
     "name": "Pina Colada",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-pina-colada-6695cdcabbf00.webp",
-    "ingredients": [
-      {
-        "quantity": 50,
-        "unit": "ml",
+    "ingredients": {
+      "white-rum": {
         "name": "Rum branco"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "coconut-cream": {
         "name": "Creme de coco"
       },
-      {
-        "quantity": 50,
-        "unit": "ml",
-        "name": "Suco de abacaxi fresco"
+      "pineapple-juice": {
+        "name": "Suco de abacaxi",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Bata todos os ingredientes com gelo em um liquidificador, despeje em um copo grande e sirva com canudos. Nota: historicamente, algumas gotas de suco de limão fresco eram adicionadas a gosto. Quatro fatias de abacaxi fresco podem ser usadas no lugar do suco.",
     "garnish": "Guarneça com uma fatia de abacaxi e uma cereja de coquetel.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/pina-colada/"
+    "garnishIngredients": {
+      "pineapple": {
+        "name": "Abacaxi"
+      },
+      "cherry": {
+        "name": "Cereja",
+        "note": "Cereja de coquetel ou maraschino."
+      }
+    }
   },
-  {
+  "rabo-de-galo": {
     "name": "Rabo de Galo",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-rabo-de-galo-6695cdcdb2df1.webp",
-    "ingredients": [
-      {
-        "quantity": 60,
-        "unit": "ml",
+    "ingredients": {
+      "cachaca": {
         "name": "Cachaça"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
+      "vermouth-rosso": {
         "name": "Vermute doce Cinzano Rosso"
       },
-      {
-        "quantity": 15,
-        "unit": "ml",
+      "cynar": {
         "name": "Cynar"
       },
-      {
-        "quantity": 2,
-        "unit": "gotas",
-        "name": "Angostura (opcional)"
+      "angostura-bitters": {
+        "name": "Bitter Angostura"
       }
-    ],
+    },
     "method": "Combine todos os ingredientes em um copo rocks, adicione gelo e mexa brevemente.",
     "garnish": "Guarneça com uma torção de casca de laranja.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/rabo-de-galo/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      }
+    }
   },
-  {
+  "sex-on-the-beach": {
     "name": "Sex on the Beach",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-contemporary-classics-sex-on-the-beach-6695cdd0aecf3.webp",
-    "ingredients": [
-      {
-        "quantity": 40,
-        "unit": "ml",
+    "ingredients": {
+      "vodka": {
         "name": "Vodka"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
+      "peach-schnapps": {
         "name": "Schnapps de pêssego"
       },
-      {
-        "quantity": 40,
-        "unit": "ml",
-        "name": "Suco de laranja fresco"
-      },
-      {
-        "quantity": 40,
-        "unit": "ml",
+      "cranberry-juice": {
         "name": "Suco de cranberry"
+      },
+      "orange-juice": {
+        "name": "Suco de laranja",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Monte todos os ingredientes em um copo highball cheio de gelo.",
     "garnish": "Guarneça com meia fatia de laranja.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/sex-on-the-beach/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      }
+    }
   },
-  {
+  "sidecar": {
     "name": "Sidecar",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-sidecar-6694912cb8aa9.webp",
-    "ingredients": [
-      {
-        "quantity": 50,
-        "unit": "ml",
+    "ingredients": {
+      "cognac": {
         "name": "Conhaque"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
+      "cointreau": {
         "name": "Cointreau"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes na coqueteleira, bata bem com gelo e coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/sidecar/"
+    "garnish": "Sem guarnição."
   },
-  {
+  "south-side": {
     "name": "South Side",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-south-side-6695d3bdcc9fe.webp",
-    "ingredients": [
-      {
-        "quantity": 60,
-        "unit": "ml",
-        "name": "London dry Gin"
+    "ingredients": {
+      "gin": {
+        "name": "Gin",
+        "note": "Prefira London dry gin."
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
-      },
-      {
-        "quantity": 15,
-        "unit": "ml",
+      "simple-syrup": {
         "name": "Xarope simples"
       },
-      {
-        "prefix": "5/6 ",
-        "name": "Folhas de hortelã"
+      "egg-white": {
+        "name": "Clara de ovo"
       },
-      {
-        "prefix": "Algumas gotas de ",
-        "name": "Clara de ovo (opcional)"
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
+      },
+      "mint": {
+        "name": "Hortelã",
+        "note": "Use folhas."
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes em uma coqueteleira, bata bem com gelo e faça dupla coagem para uma taça de coquetel resfriada. Nota: se usar clara de ovo, bata vigorosamente.",
     "garnish": "Guarneça com ramos de hortelã.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/south-side/"
+    "garnishIngredients": {
+      "mint": {
+        "name": "Hortelã"
+      }
+    }
   },
-  {
+  "spritz": {
     "name": "Spritz",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-new-era-spritz-6695d3c0f113f.webp",
-    "ingredients": [
-      {
-        "quantity": 90,
-        "unit": "ml",
+    "ingredients": {
+      "prosecco": {
         "name": "Prosecco"
       },
-      {
-        "quantity": 60,
-        "unit": "ml",
+      "aperol": {
         "name": "Aperol"
       },
-      {
-        "prefix": "Splash de ",
+      "soda-water": {
         "name": "Água com gás"
       }
-    ],
+    },
     "method": "Monte todos os ingredientes em uma taça de vinho cheia de gelo. Mexa delicadamente. NOTA: existem outras versões do Spritz que usam Campari, Cynar ou Select no lugar do Aperol.",
     "garnish": "Guarneça com uma fatia de laranja.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/spritz/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      }
+    }
   },
-  {
+  "whiskey-sour": {
     "name": "Whiskey Sour",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-whiskey-sour-66949132e6ae9.webp",
-    "ingredients": [
-      {
-        "quantity": 45,
-        "unit": "ml",
+    "ingredients": {
+      "bourbon": {
         "name": "Whiskey bourbon"
       },
-      {
-        "quantity": 25,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
+      "egg-white": {
+        "name": "Clara de ovo"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
-        "name": "Xarope de açúcar"
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       },
-      {
-        "prefix": "Algumas gotas de ",
-        "name": "Clara de ovo (opcional)"
+      "simple-syrup": {
+        "name": "Xarope simples"
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes em uma coqueteleira cheia de gelo. Bata bem. Coe para um copo cobbler. Se servido “on the rocks”, coe para um copo old fashioned cheio de gelo. NOTA: se usar clara de ovo, bata um pouco mais forte para liberar e incorporar a espuma da clara.",
     "garnish": "Guarneça com meia fatia de laranja e cereja maraschino; opcionalmente, use casca de laranja.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/whiskey-sour/"
+    "garnishIngredients": {
+      "orange": {
+        "name": "Laranja"
+      },
+      "cherry": {
+        "name": "Cereja",
+        "note": "Cereja de coquetel ou maraschino."
+      }
+    }
   },
-  {
+  "white-lady": {
     "name": "White Lady",
-    "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-white-lady-6694913318105.webp",
-    "ingredients": [
-      {
-        "quantity": 40,
-        "unit": "ml",
+    "ingredients": {
+      "gin": {
         "name": "Gin"
       },
-      {
-        "quantity": 30,
-        "unit": "ml",
+      "cointreau": {
         "name": "Cointreau"
       },
-      {
-        "quantity": 20,
-        "unit": "ml",
-        "name": "Suco de limão-siciliano fresco"
+      "lemon-juice": {
+        "name": "Suco de limão-siciliano",
+        "note": "Prefira fresco."
       }
-    ],
+    },
     "method": "Despeje todos os ingredientes na coqueteleira, bata bem com gelo e coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição.",
-    "ibaLink": "https://iba-world.com/iba-cocktail/white-lady/"
+    "garnish": "Sem guarnição."
   }
-]
+}

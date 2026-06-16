@@ -1,12 +1,15 @@
 import type { AppEvents, DrinkFilterDefinition, LanguageFileMap } from './types.ts';
 
-export const DATA_FILE_BY_LANGUAGE = {
-  en: 'drinks.json',
+export const DRINK_DATA_FILE = 'drinks.json';
+
+export const DRINK_TRANSLATION_FILE_BY_LANGUAGE = {
+  en: '',
   'pt-BR': 'drinks.pt-BR.json',
 } satisfies LanguageFileMap;
 
 export const STORAGE_KEYS = {
   favorites: 'drinks.favorites',
+  filters: 'drinks.filters',
   ingredients: 'drinks.ingredients',
   language: 'drinks.language',
 };

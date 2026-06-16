@@ -5,12 +5,15 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
   return class DrinkDetailElement extends app.BaseHTMLElement {
     private onLanguageChanged?: EventListener;
     private onFavoritesChanged?: EventListener;
+    private onIngredientsChanged?: EventListener;
 
     connectedCallback() {
       this.onLanguageChanged = () => this.loadAndRenderDrink();
       this.onFavoritesChanged = () => this.updateFavoriteButton();
+      this.onIngredientsChanged = () => this.loadAndRenderDrink();
       app.eventTarget.addEventListener(app.events.languageChanged, this.onLanguageChanged);
       app.eventTarget.addEventListener(app.events.favoritesChanged, this.onFavoritesChanged);
+      app.eventTarget.addEventListener(app.events.ingredientsChanged, this.onIngredientsChanged);
       this.loadAndRenderDrink();
     }
 
@@ -19,6 +22,8 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
         app.eventTarget.removeEventListener(app.events.languageChanged, this.onLanguageChanged);
       if (this.onFavoritesChanged)
         app.eventTarget.removeEventListener(app.events.favoritesChanged, this.onFavoritesChanged);
+      if (this.onIngredientsChanged)
+        app.eventTarget.removeEventListener(app.events.ingredientsChanged, this.onIngredientsChanged);
     }
 
     async loadAndRenderDrink(): Promise<void> {
@@ -49,12 +54,16 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
       const image = content.querySelector('.detail-hero img');
       const ibaLink = content.querySelector('.iba-link');
       const ingredientList = content.querySelector('.ingredient-list');
+      const missingIngredientsSection = content.querySelector('[data-missing-ingredients-section]');
+      const missingIngredientList = content.querySelector('[data-missing-ingredient-list]');
       const favoriteButton = content.querySelector('[data-favorite-button]');
 
       if (
         !(image instanceof HTMLImageElement) ||
         !(ibaLink instanceof HTMLAnchorElement) ||
         !(ingredientList instanceof HTMLElement) ||
+        !(missingIngredientsSection instanceof HTMLElement) ||
+        !(missingIngredientList instanceof HTMLElement) ||
         !(favoriteButton instanceof HTMLElement)
       ) {
         throw new Error('Drink detail template is missing required elements.');
@@ -78,15 +87,36 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
         ingredientList.append(this.createIngredientItem(ingredient));
       }
 
+      const missingIngredients = app.filterMatcher.getMissingIngredients(drink);
+      missingIngredientsSection.hidden = missingIngredients.length === 0;
+      for (const ingredient of missingIngredients) {
+        missingIngredientList.append(this.createIngredientItem(ingredient, { showSubstitutions: true }));
+      }
+
       app.favoriteButtons.bind(favoriteButton, drink);
       this.replaceChildren(content);
     }
 
-    createIngredientItem(ingredient: DrinkIngredient): HTMLElement {
+    createIngredientItem(ingredient: DrinkIngredient, options: { showSubstitutions?: boolean } = {}): HTMLElement {
       const item = app.templates.cloneTemplateElement<HTMLElement>('ingredient-item-template');
       const text = item.querySelector('span');
+      const substitution = item.querySelector('.ingredient-substitution');
       if (text) text.textContent = app.formatter.formatIngredientLine(ingredient);
+      if (substitution instanceof HTMLElement) {
+        const suggestion = options.showSubstitutions ? this.formatSubstitutionSuggestion(ingredient) : '';
+        substitution.textContent = suggestion;
+        substitution.hidden = !suggestion;
+      }
       return item;
+    }
+
+    formatSubstitutionSuggestion(ingredient: DrinkIngredient): string {
+      if (!ingredient.substitutions?.length) return '';
+
+      const substitutions = app.formatter.formatAlternativeList(
+        ingredient.substitutions.map((substitution) => substitution.name),
+      );
+      return app.translations.translate('substitutionSuggestion').replace('{substitutions}', substitutions);
     }
 
     updateFavoriteButton(): void {

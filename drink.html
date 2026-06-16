@@ -50,6 +50,11 @@
           <ul class="ingredient-list"></ul>
         </section>
 
+        <section class="detail-section" aria-labelledby="missing-ingredients-title" data-missing-ingredients-section>
+          <h2 id="missing-ingredients-title" data-i18n="missingIngredientsTitle">Missing Ingredients</h2>
+          <ul class="ingredient-list" data-missing-ingredient-list></ul>
+        </section>
+
         <section class="detail-section" aria-labelledby="method-title">
           <h2 id="method-title" data-i18n="methodTitle">Method</h2>
           <p class="method-text"></p>
@@ -69,6 +74,7 @@
     <template id="ingredient-item-template">
       <li>
         <span></span>
+        <small class="ingredient-substitution" hidden></small>
       </li>
     </template>
 

@@ -47,6 +47,7 @@ export function createDrinkGridElement(app: DrinksApp): CustomElementConstructor
     renderDrinkCards(drinks: Drink[]): void {
       const fragment = app.document.createDocumentFragment();
       const filteredDrinks = app.filterMatcher.filterDrinks(drinks);
+      this.updateDrinkCount(filteredDrinks.length);
 
       if (filteredDrinks.length === 0) {
         app.templates.renderEmptyState(this, app.translations.translate('noResults'), app.translations);
@@ -83,6 +84,14 @@ export function createDrinkGridElement(app: DrinksApp): CustomElementConstructor
       if (ingredientLegend) ingredientLegend.textContent = app.formatter.formatIngredientSummary(drink.ingredients);
       app.favoriteButtons.bind(favoriteButton, drink);
       return card;
+    }
+
+    updateDrinkCount(count: number): void {
+      const countElement = app.document.querySelector('[data-drink-count]');
+      if (!countElement) return;
+
+      const key = count === 1 ? 'drinkCountSingle' : 'drinkCountPlural';
+      countElement.textContent = app.translations.translate(key).replace('{count}', String(count));
     }
   };
 }

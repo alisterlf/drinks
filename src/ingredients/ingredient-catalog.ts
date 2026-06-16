@@ -1,5 +1,5 @@
-import type { Drink, IngredientInventoryItem } from '../types.ts';
 import type { DrinkTextFormatter } from '../formatting/drink-text-formatter.ts';
+import type { Drink, IngredientInventoryItem } from '../types.ts';
 
 export class IngredientCatalog {
   private readonly formatter: DrinkTextFormatter;
@@ -16,18 +16,26 @@ export class IngredientCatalog {
     for (const drink of drinks) {
       const drinkSlug = this.formatter.getDrinkSlug(drink);
 
-      for (const [ingredientIndex, ingredient] of drink.ingredients.entries()) {
-        const key = this.formatter.getIngredientKey(ingredient.name);
-        if (!key) continue;
-        const aliasKeys = this.getIngredientAliasKeys(drinkSlug, ingredientIndex, ingredient.name, relatedDrinksBySlug);
+      for (const [ingredientIndex, ingredient] of this.getInventoryIngredients(drink).entries()) {
+        for (const [optionIndex, ingredientName] of this.formatter.getIngredientOptionNames(ingredient).entries()) {
+          const key = this.formatter.getIngredientKey(ingredientName);
+          if (!key) continue;
+          const aliasKeys = this.getIngredientAliasKeys(
+            drinkSlug,
+            ingredientIndex,
+            optionIndex,
+            ingredientName,
+            relatedDrinksBySlug,
+          );
 
-        if (!ingredientsByKey.has(key)) {
-          ingredientsByKey.set(key, { key, aliasKeys, name: ingredient.name, drinkCount: 0 });
+          if (!ingredientsByKey.has(key)) {
+            ingredientsByKey.set(key, { key, aliasKeys, name: ingredientName, drinkCount: 0 });
+          }
+
+          const drinkSlugs = drinkSlugsByIngredientKey.get(key) ?? new Set<string>();
+          drinkSlugs.add(drinkSlug);
+          drinkSlugsByIngredientKey.set(key, drinkSlugs);
         }
-
-        const drinkSlugs = drinkSlugsByIngredientKey.get(key) ?? new Set<string>();
-        drinkSlugs.add(drinkSlug);
-        drinkSlugsByIngredientKey.set(key, drinkSlugs);
       }
     }
 
@@ -45,17 +53,26 @@ export class IngredientCatalog {
     return new Map(drinks.map((drink) => [this.formatter.getDrinkSlug(drink), drink]));
   }
 
+  getInventoryIngredients(drink: Drink) {
+    return [...drink.ingredients, ...(drink.garnishIngredients ?? [])];
+  }
+
   getIngredientAliasKeys(
     drinkSlug: string,
     ingredientIndex: number,
+    optionIndex: number,
     ingredientName: string,
     relatedDrinksBySlug: Map<string, Drink>[],
   ): string[] {
     const aliases = new Set([this.formatter.getIngredientKey(ingredientName)]);
 
     for (const drinksBySlug of relatedDrinksBySlug) {
-      const relatedIngredient = drinksBySlug.get(drinkSlug)?.ingredients[ingredientIndex];
-      if (relatedIngredient) aliases.add(this.formatter.getIngredientKey(relatedIngredient.name));
+      const relatedDrink = drinksBySlug.get(drinkSlug);
+      const relatedIngredient = relatedDrink ? this.getInventoryIngredients(relatedDrink)[ingredientIndex] : undefined;
+      if (relatedIngredient) {
+        const relatedIngredientName = this.formatter.getIngredientOptionNames(relatedIngredient)[optionIndex];
+        if (relatedIngredientName) aliases.add(this.formatter.getIngredientKey(relatedIngredientName));
+      }
     }
 
     return [...aliases].filter(Boolean);

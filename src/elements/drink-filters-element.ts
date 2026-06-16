@@ -1,4 +1,5 @@
 import type { DrinksApp } from '../app/drinks-app.ts';
+import type { InventoryFilterMode } from '../filters/drink-filter-state.ts';
 import type { DrinkFilterDefinition } from '../types.ts';
 
 export function createDrinkFiltersElement(app: DrinksApp): CustomElementConstructor {
@@ -10,7 +11,7 @@ export function createDrinkFiltersElement(app: DrinksApp): CustomElementConstruc
     connectedCallback() {
       this.onLanguageChanged = () => this.renderControls();
       this.onFavoritesChanged = () => this.updateFavoritesOnlyButton();
-      this.onIngredientsChanged = () => this.updateMakeableOnlyButton();
+      this.onIngredientsChanged = () => this.updateInventoryFilterButtons();
       app.eventTarget.addEventListener(app.events.languageChanged, this.onLanguageChanged);
       app.eventTarget.addEventListener(app.events.favoritesChanged, this.onFavoritesChanged);
       app.eventTarget.addEventListener(app.events.ingredientsChanged, this.onIngredientsChanged);
@@ -29,13 +30,13 @@ export function createDrinkFiltersElement(app: DrinksApp): CustomElementConstruc
     renderControls(): void {
       const content = app.templates.cloneTemplateContent('drink-filters-template');
       const favoritesButton = content.querySelector('[data-favorites-filter]');
-      const makeableButton = content.querySelector('[data-makeable-filter]');
+      const inventoryButtons = content.querySelectorAll('[data-inventory-filter]');
       const searchInput = content.querySelector('[data-search-input]');
       const categoryOptions = content.querySelector('[data-filter-options]');
 
       if (
         !(favoritesButton instanceof HTMLButtonElement) ||
-        !(makeableButton instanceof HTMLButtonElement) ||
+        inventoryButtons.length === 0 ||
         !(searchInput instanceof HTMLInputElement) ||
         !categoryOptions
       ) {
@@ -55,11 +56,14 @@ export function createDrinkFiltersElement(app: DrinksApp): CustomElementConstruc
         app.dispatchFilterChange();
       });
 
-      makeableButton.addEventListener('click', () => {
-        app.filterState.toggleMakeableOnly();
-        this.renderControls();
-        app.dispatchFilterChange();
-      });
+      for (const button of inventoryButtons) {
+        if (!(button instanceof HTMLButtonElement)) continue;
+        button.addEventListener('click', () => {
+          app.filterState.selectInventoryFilter(this.getInventoryFilterMode(button));
+          app.dispatchFilterChange();
+          this.updateInventoryFilterButtons();
+        });
+      }
 
       for (const filterDefinition of app.filterDefinitions) {
         categoryOptions.append(this.createCategoryButton(filterDefinition));
@@ -67,7 +71,7 @@ export function createDrinkFiltersElement(app: DrinksApp): CustomElementConstruc
 
       this.replaceChildren(content);
       this.updateFavoritesOnlyButton();
-      this.updateMakeableOnlyButton();
+      this.updateInventoryFilterButtons();
       this.updateCategoryButtons();
     }
 
@@ -93,11 +97,21 @@ export function createDrinkFiltersElement(app: DrinksApp): CustomElementConstruc
       if (icon) icon.textContent = app.filterState.favoritesOnly ? '\u2764\uFE0F' : '\u2661';
     }
 
-    updateMakeableOnlyButton(): void {
-      const button = this.querySelector('[data-makeable-filter]');
-      if (!button) return;
+    updateInventoryFilterButtons(): void {
+      for (const button of this.querySelectorAll('[data-inventory-filter]')) {
+        if (button instanceof HTMLElement) {
+          button.setAttribute(
+            'aria-pressed',
+            String(button.dataset.inventoryFilter === app.filterState.inventoryFilterMode),
+          );
+        }
+      }
+    }
 
-      button.setAttribute('aria-pressed', String(app.filterState.makeableOnly));
+    getInventoryFilterMode(button: HTMLElement): InventoryFilterMode {
+      if (button.dataset.inventoryFilter === 'makeable') return 'makeable';
+      if (button.dataset.inventoryFilter === 'missing') return 'missing';
+      return 'all';
     }
 
     updateCategoryButtons(): void {

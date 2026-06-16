@@ -1,16 +1,97 @@
 :root {
   color-scheme: dark;
 
-  --bg: #0b0c0d;
-  --panel: #151719;
-  --panel-strong: #1d2023;
-  --text: #f5f0e8;
-  --muted: #b9b0a6;
-  --soft: #847b72;
-  --line: rgb(255, 255, 255, 0.1);
-  --accent: #f0b35d;
-  --accent-strong: #ffd08a;
-  --shadow: 0 18px 44px rgb(0, 0, 0, 0.36);
+  --color-bg: #0b0c0d;
+  --color-bg-elevated: #101112;
+  --color-panel: #151719;
+  --color-panel-strong: #1d2023;
+  --color-ink: #f5f0e8;
+  --color-muted: #b9b0a6;
+  --color-soft: #847b72;
+  --color-accent: #f0b35d;
+  --color-accent-strong: #ffd08a;
+  --color-image-bg: #050505;
+  --color-line: color-mix(in srgb, white 10%, transparent);
+  --color-line-soft: color-mix(in srgb, white 7%, transparent);
+  --color-panel-glass: color-mix(in srgb, var(--color-panel) 72%, transparent);
+  --color-panel-deep: color-mix(in srgb, var(--color-bg) 42%, transparent);
+  --color-header-bg: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  --color-button-bg: color-mix(in srgb, var(--color-bg) 76%, transparent);
+  --color-accent-glow: color-mix(in srgb, var(--color-accent) 13%, transparent);
+  --color-accent-hover: color-mix(in srgb, var(--color-accent) 65%, transparent);
+  --color-accent-focus: color-mix(in srgb, var(--color-accent) 75%, transparent);
+  --color-accent-selected: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  --color-accent-checked: color-mix(in srgb, var(--color-accent) 16%, transparent);
+  --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, 'BlinkMacSystemFont', 'Segoe UI', sans-serif;
+  --font-size-xs: 0.78rem;
+  --font-size-sm: 0.8rem;
+  --font-size-md: 0.86rem;
+  --font-size-base: 0.92rem;
+  --font-size-body: 0.94rem;
+  --font-size-card-title: 1.2rem;
+  --font-size-icon: 1.15rem;
+  --font-size-summary: 1.04rem;
+  --font-size-page-title: clamp(2.35rem, 12vw, 5.8rem);
+  --font-size-detail-title: clamp(2.4rem, 12vw, 5rem);
+  --font-weight-medium: 650;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 750;
+  --font-weight-black: 800;
+  --font-weight-heading: 850;
+  --tracking-label: 0.14em;
+  --tracking-brand: 0.12em;
+  --tracking-control: 0.08em;
+  --tracking-group: 0.11em;
+  --line-height-tight: 0.92;
+  --line-height-heading: 1.12;
+  --line-height-body: 1.5;
+  --space-0: 0;
+  --space-1: 0.15rem;
+  --space-2: 0.35rem;
+  --space-3: 0.4rem;
+  --space-4: 0.45rem;
+  --space-5: 0.48rem;
+  --space-6: 0.5rem;
+  --space-7: 0.55rem;
+  --space-8: 0.65rem;
+  --space-9: 0.7rem;
+  --space-10: 0.72rem;
+  --space-11: 0.75rem;
+  --space-12: 0.8rem;
+  --space-13: 0.85rem;
+  --space-14: 1rem;
+  --space-15: 1.1rem;
+  --space-16: 1.15rem;
+  --space-17: 1.25rem;
+  --space-18: 1.4rem;
+  --space-19: 2rem;
+  --space-20: 2.5rem;
+  --space-21: 3rem;
+  --space-22: 4rem;
+  --radius-control: 8px;
+  --shadow-card: 0 18px 44px color-mix(in srgb, black 36%, transparent);
+  --shadow-float: 0 10px 24px color-mix(in srgb, black 28%, transparent);
+  --transition-fast: 160ms ease;
+  --container-max: 1180px;
+  --search-max: 26rem;
+  --detail-title-max: 14ch;
+  --detail-hero-max-block: 72vh;
+  --detail-hero-sticky-top: 5.75rem;
+  --image-card-ratio: 4 / 5;
+  --ingredient-grid-columns: 1;
+  --drink-grid-columns: 1;
+
+  /* Backward-compatible aliases used by existing components and future quick edits. */
+  --bg: var(--color-bg);
+  --panel: var(--color-panel);
+  --panel-strong: var(--color-panel-strong);
+  --text: var(--color-ink);
+  --muted: var(--color-muted);
+  --soft: var(--color-soft);
+  --line: var(--color-line);
+  --accent: var(--color-accent);
+  --accent-strong: var(--color-accent-strong);
+  --shadow: var(--shadow-card);
 }
 
 * {
@@ -18,21 +99,14 @@
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
+  margin: var(--space-0);
+  min-block-size: 100vh;
   background:
-    radial-gradient(circle at top left, rgb(240, 179, 93, 0.13), transparent 32rem),
-    linear-gradient(180deg, #101112 0%, var(--bg) 28rem);
-  color: var(--text);
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    sans-serif;
-  line-height: 1.5;
+    radial-gradient(circle at top left, var(--color-accent-glow), transparent 32rem),
+    linear-gradient(180deg, var(--color-bg-elevated) 0%, var(--color-bg) 28rem);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: var(--line-height-body);
 }
 
 a {
@@ -45,21 +119,54 @@ img {
 }
 
 figure {
-  margin: 0;
+  margin: var(--space-0);
+}
+
+:where(ul, ol)[class] {
+  padding: var(--space-0);
+  margin: var(--space-0);
+  list-style: none;
+}
+
+:where(.filter-panel, .ingredient-inventory-panel, .detail-section) {
+  padding: var(--panel-padding, var(--space-14));
+  background: var(--panel-bg, var(--color-panel-glass));
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+}
+
+:where(.filter-panel h2, .ingredient-inventory-panel h2, .detail-section h2) {
+  color: var(--color-accent);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+:where(
+  .drink-grid,
+  .filter-controls,
+  .ingredient-inventory-list,
+  .ingredient-inventory-group-list,
+  .drink-card-body,
+  .detail-content,
+  .ingredient-list
+) {
+  display: grid;
+  gap: var(--grid-gap, var(--space-14));
 }
 
 .site-header {
   position: sticky;
-  top: 0;
+  inset-block-start: var(--space-0);
   z-index: 5;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem;
-  background: rgb(11, 12, 13, 0.82);
-  border-bottom: 1px solid var(--line);
+  gap: var(--space-14);
+  padding: var(--space-14);
+  background: var(--color-header-bg);
+  border-block-end: 1px solid var(--color-line);
   backdrop-filter: blur(16px);
 }
 
@@ -68,27 +175,27 @@ figure {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.65rem;
+  gap: var(--space-8);
   min-width: 0;
 }
 
 .language-control {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 700;
+  gap: var(--space-4);
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
 }
 
 .language-control select {
-  min-height: 2.25rem;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--text);
+  min-block-size: 2.25rem;
+  padding: var(--space-2) var(--space-7);
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  color: var(--color-ink);
   font: inherit;
-  padding: 0.35rem 0.55rem;
 }
 
 .brand,
@@ -100,43 +207,43 @@ figure {
 
 .brand {
   font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--tracking-brand);
   text-transform: uppercase;
 }
 
 .back-link,
 .iba-link {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--text);
-  font-size: 0.86rem;
-  font-weight: 700;
-  padding: 0.55rem 0.85rem;
+  padding: var(--space-7) var(--space-13);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  color: var(--color-ink);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
 }
 
 .back-link:hover,
 .iba-link:hover {
-  border-color: rgb(240, 179, 93, 0.7);
-  color: var(--accent-strong);
+  border-color: var(--color-accent-hover);
+  color: var(--color-accent-strong);
 }
 
 .page-shell {
-  width: min(1180px, 100%);
-  margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
+  inline-size: min(var(--container-max), 100%);
+  margin-inline: auto;
+  padding: var(--space-17) var(--space-14) var(--space-21);
 }
 
 .intro {
-  padding: 2.5rem 0 1.4rem;
+  padding-block: var(--space-20) var(--space-18);
 }
 
 .eyebrow {
-  margin: 0 0 0.65rem;
-  color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  margin: var(--space-0) var(--space-0) var(--space-8);
+  color: var(--color-accent);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
@@ -144,135 +251,156 @@ h1,
 h2,
 h3,
 p {
-  margin-top: 0;
+  margin-block-start: var(--space-0);
 }
 
 h1 {
-  margin-bottom: 3rem;
-  font-size: clamp(2.35rem, 12vw, 5.8rem);
-  line-height: 0.92;
+  margin-block-end: var(--space-21);
+  font-size: var(--font-size-page-title);
+  line-height: var(--line-height-tight);
 }
 
 .filters {
   display: block;
-  margin: 0 0 1.25rem;
+  margin: var(--space-0) var(--space-0) var(--space-17);
 }
 
 .ingredient-inventory {
   display: block;
 }
 
-.filter-panel,
-.ingredient-inventory-panel {
-  padding: 1rem;
-  background: rgb(21, 23, 25, 0.72);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
 .filter-panel h2,
 .ingredient-inventory-panel h2 {
-  margin: 0 0 0.8rem;
-  color: var(--accent);
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  margin: var(--space-0) var(--space-0) var(--space-12);
 }
 
 .filter-controls {
-  display: grid;
-  gap: 0.85rem;
+  --grid-gap: var(--space-13);
 }
 
 .search-control {
   display: grid;
-  gap: 0.35rem;
-  max-width: 26rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  gap: var(--space-2);
+  max-inline-size: var(--search-max);
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--tracking-control);
   text-transform: uppercase;
 }
 
 .search-control input {
-  width: 100%;
-  min-height: 2.45rem;
-  background: rgb(11, 12, 13, 0.42);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--text);
+  inline-size: 100%;
+  min-block-size: 2.45rem;
+  padding: var(--space-7) var(--space-10);
+  background: var(--color-panel-deep);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  color: var(--color-ink);
   font: inherit;
-  font-size: 0.92rem;
-  font-weight: 650;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   letter-spacing: 0;
-  padding: 0.55rem 0.72rem;
   text-transform: none;
 }
 
 .search-control input:focus {
-  border-color: rgb(240, 179, 93, 0.75);
+  border-color: var(--color-accent-focus);
   outline: none;
 }
 
 .search-control input::placeholder {
-  color: var(--soft);
+  color: var(--color-soft);
 }
 
 .ingredient-search-control {
-  margin-bottom: 1rem;
+  margin-block-end: var(--space-14);
 }
 
 .filter-actions,
-.filter-chip-group {
+.filter-chip-group,
+.filter-segment {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: var(--space-7);
+}
+
+.filter-segment {
+  padding: var(--space-1);
+  background: var(--color-panel-deep);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
 }
 
 .filter-chip {
-  min-height: 2.35rem;
-  background: rgb(11, 12, 13, 0.42);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--muted);
+  min-block-size: 2.35rem;
+  padding: var(--space-5) var(--space-10);
+  background: var(--color-panel-deep);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  color: var(--color-muted);
   cursor: pointer;
   font: inherit;
-  font-size: 0.86rem;
-  font-weight: 750;
-  padding: 0.48rem 0.72rem;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-heavy);
   transition:
-    background 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease;
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.filter-segment .filter-chip {
+  background: transparent;
+  border-color: transparent;
 }
 
 .filter-chip:hover,
 .filter-chip:focus-visible {
-  border-color: rgb(240, 179, 93, 0.65);
-  color: var(--text);
+  border-color: var(--color-accent-hover);
+  color: var(--color-ink);
   outline: none;
 }
 
 .filter-chip[aria-pressed='true'] {
-  background: rgb(240, 179, 93, 0.18);
-  border-color: rgb(240, 179, 93, 0.72);
-  color: var(--accent-strong);
+  background: var(--color-accent-selected);
+  border-color: var(--color-accent-focus);
+  color: var(--color-accent-strong);
 }
 
 .filter-chip-favorite {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: var(--space-3);
+}
+
+.drink-count {
+  margin: var(--space-0) var(--space-0) var(--space-11);
+  color: var(--color-muted);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
 }
 
 .ingredient-inventory-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.55rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+  --grid-gap: var(--space-16);
+}
+
+.ingredient-inventory-group {
+  min-width: 0;
+}
+
+.ingredient-inventory-group-title {
+  margin: var(--space-0) var(--space-0) var(--space-7);
+  color: var(--color-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-heading);
+  letter-spacing: var(--tracking-group);
+  text-transform: uppercase;
+}
+
+.ingredient-inventory-group-list {
+  --grid-gap: var(--space-7);
+
+  grid-template-columns: repeat(var(--ingredient-grid-columns), minmax(0, 1fr));
 }
 
 .ingredient-inventory-item,
@@ -284,180 +412,179 @@ h1 {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0.7rem;
-  min-height: 2.8rem;
-  padding: 0.65rem 0.75rem;
-  background: rgb(11, 12, 13, 0.42);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  gap: var(--space-9);
+  min-block-size: 2.8rem;
+  padding: var(--space-8) var(--space-11);
+  background: var(--color-panel-deep);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
   cursor: pointer;
   transition:
-    background 160ms ease,
-    border-color 160ms ease;
+    background var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .ingredient-toggle:hover,
 .ingredient-toggle:focus-within {
-  border-color: rgb(240, 179, 93, 0.65);
+  border-color: var(--color-accent-hover);
 }
 
 .ingredient-toggle-input {
-  width: 1.05rem;
-  height: 1.05rem;
-  accent-color: var(--accent);
+  inline-size: 1.05rem;
+  block-size: 1.05rem;
+  accent-color: var(--color-accent);
 }
 
 .ingredient-toggle-name {
   overflow-wrap: anywhere;
-  color: var(--text);
-  font-size: 0.94rem;
-  font-weight: 750;
+  color: var(--color-ink);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-heavy);
 }
 
 .ingredient-toggle-count,
 .ingredient-inventory-empty {
-  color: var(--muted);
-  font-size: 0.86rem;
-  font-weight: 700;
+  color: var(--color-muted);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
 }
 
 .ingredient-toggle:has(input:checked) {
-  background: rgb(240, 179, 93, 0.16);
-  border-color: rgb(240, 179, 93, 0.7);
+  background: var(--color-accent-checked);
+  border-color: var(--color-accent-hover);
 }
 
 .ingredient-inventory-empty {
-  padding: 1rem 0;
+  padding-block: var(--space-14);
 }
 
 .drink-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  --grid-gap: var(--space-14);
+
+  grid-template-columns: repeat(var(--drink-grid-columns), minmax(0, 1fr));
 }
 
 .drink-card {
   position: relative;
   overflow: hidden;
-  min-height: 100%;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+  min-block-size: 100%;
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-card);
   text-decoration: none;
   transition:
-    border-color 160ms ease,
-    transform 160ms ease;
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .drink-card:hover,
 .drink-card:focus-within {
-  border-color: rgb(240, 179, 93, 0.65);
+  border-color: var(--color-accent-hover);
   outline: none;
   transform: translateY(-2px);
 }
 
 .drink-card-link {
   display: block;
-  min-height: 100%;
+  min-block-size: 100%;
 }
 
 .drink-card img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
+  inline-size: 100%;
+  aspect-ratio: var(--image-card-ratio);
   object-fit: cover;
-  background: #050505;
+  background: var(--color-image-bg);
 }
 
 .drink-card-body {
-  display: grid;
-  gap: 0.5rem;
-  padding: 1rem;
+  --grid-gap: var(--space-6);
+
+  padding: var(--space-14);
 }
 
 .drink-card h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.12;
+  margin: var(--space-0);
+  font-size: var(--font-size-card-title);
+  line-height: var(--line-height-heading);
 }
 
 .ingredient-legend {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.92rem;
+  margin: var(--space-0);
+  color: var(--color-muted);
+  font-size: var(--font-size-base);
 }
 
 .favorite-button {
   display: inline-grid;
   place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: rgb(11, 12, 13, 0.76);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--text);
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  background: var(--color-button-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  color: var(--color-ink);
   cursor: pointer;
-  font-size: 1.15rem;
+  font-size: var(--font-size-icon);
   line-height: 1;
   transition:
-    background 160ms ease,
-    border-color 160ms ease,
-    transform 160ms ease;
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .favorite-button:hover,
 .favorite-button:focus-visible {
-  background: rgb(240, 179, 93, 0.15);
-  border-color: rgb(240, 179, 93, 0.75);
+  background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+  border-color: var(--color-accent-focus);
   outline: none;
   transform: translateY(-1px);
 }
 
 .favorite-button[aria-pressed='true'] {
-  background: rgb(240, 179, 93, 0.2);
-  border-color: rgb(240, 179, 93, 0.9);
-  color: var(--accent-strong);
+  background: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 90%, transparent);
+  color: var(--color-accent-strong);
 }
 
 .drink-card > .favorite-button {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  inset-block-start: var(--space-11);
+  inset-inline-end: var(--space-11);
   z-index: 2;
-  box-shadow: 0 10px 24px rgb(0, 0, 0, 0.28);
+  box-shadow: var(--shadow-float);
 }
 
 .drink-detail {
   display: grid;
-  gap: 1.25rem;
-  padding-top: 1.25rem;
+  gap: var(--space-17);
+  padding-block-start: var(--space-17);
 }
 
 .detail-hero {
   overflow: hidden;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-card);
 }
 
 .detail-hero img {
-  width: 100%;
-  max-height: 72vh;
+  inline-size: 100%;
+  max-block-size: var(--detail-hero-max-block);
   object-fit: cover;
-  background: #050505;
+  background: var(--color-image-bg);
 }
 
 .detail-content {
-  display: grid;
-  gap: 1.1rem;
+  --grid-gap: var(--space-15);
 }
 
 .detail-heading {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--space-14);
 }
 
 .detail-heading > div {
@@ -466,108 +593,91 @@ h1 {
 
 .detail-favorite {
   flex: 0 0 auto;
-  margin-top: 0.15rem;
+  margin-block-start: var(--space-1);
 }
 
 .detail-title {
-  margin: 0;
-  max-width: 14ch;
-  font-size: clamp(2.4rem, 12vw, 5rem);
-  line-height: 0.92;
+  max-inline-size: var(--detail-title-max);
+  margin: var(--space-0);
+  font-size: var(--font-size-detail-title);
+  line-height: var(--line-height-tight);
 }
 
 .detail-summary {
-  color: var(--muted);
-  font-size: 1.04rem;
-}
-
-.detail-section {
-  padding: 1rem;
-  background: rgb(21, 23, 25, 0.8);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  color: var(--color-muted);
+  font-size: var(--font-size-summary);
 }
 
 .detail-section h2 {
-  margin-bottom: 0.65rem;
-  color: var(--accent);
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  margin-block-end: var(--space-8);
 }
 
 .ingredient-list {
-  display: grid;
-  gap: 0.55rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+  --grid-gap: var(--space-7);
 }
 
 .ingredient-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 1px solid rgb(255, 255, 255, 0.07);
+  display: grid;
+  gap: var(--space-2);
+  padding-block-end: var(--space-7);
+  border-block-end: 1px solid var(--color-line-soft);
+}
+
+.ingredient-substitution {
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
 }
 
 .ingredient-list li:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
+  padding-block-end: var(--space-0);
+  border-block-end: 0;
 }
 
 .empty-state {
-  padding: 2rem 0;
-  color: var(--muted);
+  padding-block: var(--space-19);
+  color: var(--color-muted);
 }
 
 @media (width >= 520px) {
-  .drink-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .ingredient-inventory-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  :root {
+    --drink-grid-columns: 2;
+    --ingredient-grid-columns: 2;
   }
 }
 
 @media (width >= 820px) {
   .site-header {
-    padding: 1.1rem 2rem;
+    padding: var(--space-15) var(--space-19);
   }
 
   .page-shell {
-    padding: 2rem 2rem 4rem;
+    padding: var(--space-19) var(--space-19) var(--space-22);
+  }
+
+  :root {
+    --drink-grid-columns: 3;
+    --ingredient-grid-columns: 3;
   }
 
   .drink-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
+    --grid-gap: var(--space-17);
   }
 
   .drink-detail {
     grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
     align-items: start;
-    gap: 2rem;
-  }
-
-  .ingredient-inventory-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-19);
   }
 
   .detail-hero {
     position: sticky;
-    top: 5.75rem;
+    inset-block-start: var(--detail-hero-sticky-top);
   }
 }
 
 @media (width >= 1120px) {
-  .drink-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .ingredient-inventory-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  :root {
+    --drink-grid-columns: 4;
+    --ingredient-grid-columns: 4;
   }
 }

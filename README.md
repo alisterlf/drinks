@@ -64,10 +64,10 @@ npm run preview
 
 - `index.html` - drink list page.
 - `drink.html` - drink detail page.
-- `app.js` - custom elements, filtering, language selection, favorites, and data loading.
+- `app.ts` and `src/` - custom elements, filtering, language selection, favorites, and data loading.
 - `styles.css` - shared styling.
-- `public/drinks.json` - English drink data.
-- `public/drinks.pt-BR.json` - Brazilian Portuguese drink data.
+- `public/drinks.json` - canonical drink recipe data: images, links, measurements, ingredient keys, and English fallback text.
+- `public/drinks.pt-BR.json` - Brazilian Portuguese text overlay keyed by drink slug and ingredient key.
 
 Americano - https://iba-world.com/iba-cocktail/americano/
 Bee’s Knees - https://iba-world.com/iba-cocktail/bees-knees/
@@ -115,30 +115,75 @@ Spritz - https://iba-world.com/iba-cocktail/spritz/
 Whiskey Sour - https://iba-world.com/iba-cocktail/whiskey-sour/
 White Lady - https://iba-world.com/iba-cocktail/white-lady/
 
-## JSON schema
+## Drink Data
+
+Recipe data is centralized in `public/drinks.json`. Localized files should only contain text that changes by language: drink names, methods, garnish text, ingredient names, and translated ingredient notes.
+
+Canonical recipe example:
 
 ```json
 {
-  "name": "Americano",
-  "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-americano-669490fe3cb42.webp",
+  "slug": "boulevardier",
+  "name": "Boulevardier",
+  "photo": "https://iba-world.com/wp-content/uploads/2024/07/iba-cocktail-the-unforgettables-boulevardier-6694910552acd.webp",
+  "ibaLink": "https://iba-world.com/iba-cocktail/boulevardier/",
   "ingredients": [
     {
-      "quantity": 30,
+      "key": "bourbon",
+      "name": "Bourbon",
+      "quantity": 45,
       "unit": "ml",
-      "name": "Bitter Campari"
+      "substitutions": [
+        {
+          "key": "rye-whiskey",
+          "name": "Rye Whiskey"
+        }
+      ]
     },
     {
+      "key": "campari",
+      "name": "Campari",
       "quantity": 30,
-      "unit": "ml",
-      "name": "Vermouth Rosso"
+      "unit": "ml"
     },
     {
-      "prefix": "A splash of ",
-      "name": "Soda Water"
+      "key": "vermouth-rosso",
+      "name": "Vermouth Rosso",
+      "quantity": 30,
+      "unit": "ml"
     }
   ],
-  "method": "Mix the ingredients directly in an old fashioned glass filled with ice cubes. Add a splash of Soda Water. Stir gently.",
-  "garnish": "Garnish with half orange slice and a lemon zest.",
-  "ibaLink": "https://iba-world.com/iba-cocktail/americano/"
+  "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
+  "garnish": "Garnish with a orange zest, optionally a lemon zest."
 }
 ```
+
+Portuguese overlay example:
+
+```json
+{
+  "boulevardier": {
+    "name": "Boulevardier",
+    "ingredients": {
+      "bourbon": {
+        "name": "Whiskey bourbon",
+        "substitutions": {
+          "rye-whiskey": {
+            "name": "Whiskey de centeio"
+          }
+        }
+      },
+      "campari": {
+        "name": "Campari"
+      },
+      "vermouth-rosso": {
+        "name": "Vermute tinto doce"
+      }
+    },
+    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada.",
+    "garnish": "Guarneça com uma casca de laranja; opcionalmente, uma casca de limão-siciliano."
+  }
+}
+```
+
+For substitutable ingredients, the top-level ingredient is the default. Alternatives are listed in `substitutions`; the UI treats any listed option as valid for inventory and "Can make" filtering.

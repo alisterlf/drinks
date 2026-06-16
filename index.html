@@ -29,6 +29,7 @@
       </section>
 
       <drink-filters class="filters" aria-label="Drink filters"></drink-filters>
+      <p class="drink-count" data-drink-count aria-live="polite"></p>
       <drink-grid class="drink-grid" role="list" aria-label="Drink list" aria-live="polite"></drink-grid>
     </main>
 
@@ -51,7 +52,17 @@
               <span aria-hidden="true"></span>
               <span data-i18n="filterFavorites">Only favorites</span>
             </button>
-            <button class="filter-chip" type="button" data-makeable-filter data-i18n="filterMakeable">Can make</button>
+            <div class="filter-segment" role="group" aria-label="Ingredient availability">
+              <button class="filter-chip" type="button" data-inventory-filter="all" data-i18n="filterInventoryAll">
+                All drinks
+              </button>
+              <button class="filter-chip" type="button" data-inventory-filter="makeable" data-i18n="filterMakeable">
+                Ready to make
+              </button>
+              <button class="filter-chip" type="button" data-inventory-filter="missing" data-i18n="filterMissing">
+                Need shopping
+              </button>
+            </div>
             <div class="filter-chip-group" data-filter-options></div>
           </div>
         </div>

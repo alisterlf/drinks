@@ -1,6 +1,125 @@
 import type { DrinksApp } from '../app/drinks-app.ts';
 import type { IngredientInventoryItem } from '../types.ts';
 
+interface IngredientInventoryGroup {
+  id: string;
+  labelKey: string;
+  ingredientKeys: string[];
+}
+
+interface RenderedIngredientInventoryGroup extends IngredientInventoryGroup {
+  ingredients: IngredientInventoryItem[];
+}
+
+const INGREDIENT_GROUPS: IngredientInventoryGroup[] = [
+  {
+    id: 'spirits',
+    labelKey: 'ingredientGroupSpirits',
+    ingredientKeys: [
+      'aged rum',
+      'blackstrap rum',
+      'bourbon',
+      'cachaca',
+      'cognac',
+      'gin',
+      'irish whiskey',
+      'rum',
+      'rye whiskey',
+      'tequila',
+      'vodka',
+      'vodka citron',
+      'white rum',
+    ],
+  },
+  {
+    id: 'liqueurs',
+    labelKey: 'ingredientGroupLiqueurs',
+    ingredientKeys: [
+      'amaretto',
+      'aperol',
+      'campari',
+      'coffee liqueur',
+      'cointreau',
+      'cynar',
+      'fernet',
+      'grand marnier',
+      'peach schnapps',
+    ],
+  },
+  {
+    id: 'wine',
+    labelKey: 'ingredientGroupWine',
+    ingredientKeys: ['champagne', 'dry vermouth', 'prosecco', 'red wine', 'vermouth rosso'],
+  },
+  {
+    id: 'mixers',
+    labelKey: 'ingredientGroupMixers',
+    ingredientKeys: [
+      'cola',
+      'coffee beans',
+      'ginger beer',
+      'hot coffee',
+      'espresso',
+      'soda water',
+      'tomato juice',
+      'water',
+    ],
+  },
+  {
+    id: 'fruit',
+    labelKey: 'ingredientGroupFruit',
+    ingredientKeys: [
+      'cherry',
+      'cranberry juice',
+      'lemon',
+      'lemon juice',
+      'lime',
+      'lime juice',
+      'orange',
+      'orange juice',
+      'pineapple',
+      'pineapple juice',
+    ],
+  },
+  {
+    id: 'sweeteners',
+    labelKey: 'ingredientGroupSweeteners',
+    ingredientKeys: [
+      'demerara sugar syrup',
+      'honey syrup',
+      'powdered sugar',
+      'raw honey',
+      'simple syrup',
+      'sugar',
+      'sugar cube',
+    ],
+  },
+  {
+    id: 'herbs-spices',
+    labelKey: 'ingredientGroupHerbsSpices',
+    ingredientKeys: [
+      'angostura bitters',
+      'basil',
+      'mint',
+      'tabasco',
+      'celery',
+      'salt',
+      'pepper',
+      'worcestershire sauce',
+    ],
+  },
+  {
+    id: 'dairy-eggs',
+    labelKey: 'ingredientGroupDairyEggs',
+    ingredientKeys: ['coconut cream', 'cream', 'egg white'],
+  },
+  {
+    id: 'other',
+    labelKey: 'ingredientGroupOther',
+    ingredientKeys: ['olive'],
+  },
+];
+
 export function createIngredientInventoryElement(app: DrinksApp): CustomElementConstructor {
   return class IngredientInventoryElement extends app.BaseHTMLElement {
     private onLanguageChanged?: EventListener;
@@ -67,7 +186,7 @@ export function createIngredientInventoryElement(app: DrinksApp): CustomElementC
         : ingredients;
 
       if (filteredIngredients.length === 0) {
-        const item = app.document.createElement('li');
+        const item = app.document.createElement('p');
         item.className = 'ingredient-inventory-empty';
         item.textContent = app.translations.translate('noIngredients');
         list.replaceChildren(item);
@@ -75,11 +194,60 @@ export function createIngredientInventoryElement(app: DrinksApp): CustomElementC
       }
 
       const fragment = app.document.createDocumentFragment();
-      for (const ingredient of filteredIngredients) {
-        fragment.append(this.createIngredientItem(ingredient));
+      for (const group of this.groupIngredients(filteredIngredients)) {
+        fragment.append(this.createIngredientGroup(group));
       }
 
       list.replaceChildren(fragment);
+    }
+
+    groupIngredients(ingredients: IngredientInventoryItem[]): RenderedIngredientInventoryGroup[] {
+      const ingredientsByGroupId = new Map<string, IngredientInventoryItem[]>();
+
+      for (const ingredient of ingredients) {
+        const group = this.getIngredientGroup(ingredient);
+        const groupIngredients = ingredientsByGroupId.get(group.id) ?? [];
+        groupIngredients.push(ingredient);
+        ingredientsByGroupId.set(group.id, groupIngredients);
+      }
+
+      return INGREDIENT_GROUPS.map((group) => ({
+        ...group,
+        ingredients: ingredientsByGroupId.get(group.id) ?? [],
+      })).filter((group) => group.ingredients.length > 0);
+    }
+
+    getIngredientGroup(ingredient: IngredientInventoryItem): IngredientInventoryGroup {
+      return (
+        INGREDIENT_GROUPS.find((group) =>
+          group.ingredientKeys.some((ingredientKey) => this.ingredientMatchesKey(ingredient, ingredientKey)),
+        ) ?? INGREDIENT_GROUPS[INGREDIENT_GROUPS.length - 1]
+      );
+    }
+
+    ingredientMatchesKey(ingredient: IngredientInventoryItem, ingredientKey: string): boolean {
+      const normalizedKey = app.formatter.getIngredientKey(ingredientKey);
+      return ingredient.key === normalizedKey || ingredient.aliasKeys.includes(normalizedKey);
+    }
+
+    createIngredientGroup(group: RenderedIngredientInventoryGroup): HTMLElement {
+      const section = app.document.createElement('section');
+      section.className = 'ingredient-inventory-group';
+      section.setAttribute('aria-labelledby', `ingredient-group-${group.id}`);
+
+      const heading = app.document.createElement('h3');
+      heading.id = `ingredient-group-${group.id}`;
+      heading.className = 'ingredient-inventory-group-title';
+      heading.textContent = app.translations.translate(group.labelKey);
+
+      const groupList = app.document.createElement('ul');
+      groupList.className = 'ingredient-inventory-group-list';
+      for (const ingredient of group.ingredients) {
+        groupList.append(this.createIngredientItem(ingredient));
+      }
+
+      section.append(heading, groupList);
+      return section;
     }
 
     createIngredientItem(ingredient: IngredientInventoryItem): HTMLElement {

@@ -1,20 +1,46 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const DATA_FILES = ['drinks.json', 'drinks.pt-BR.json'];
 const DATA_DIR = path.resolve(__dirname, '..', 'public');
-const REQUIRED_DRINK_FIELDS = ['name', 'photo', 'ingredients', 'method', 'garnish', 'ibaLink'];
-const REQUIRED_INGREDIENT_FIELDS = ['name'];
+const RECIPE_FILE = 'drinks.json';
+const TRANSLATION_FILES = {
+  'pt-BR': 'drinks.pt-BR.json',
+};
 const IBA_LINK_PREFIX = 'https://iba-world.com/iba-cocktail/';
+const REQUIRED_RECIPE_FIELDS = ['slug', 'name', 'photo', 'ingredients', 'method', 'garnish', 'ibaLink'];
+const REQUIRED_RECIPE_INGREDIENT_FIELDS = ['key', 'name'];
+const REQUIRED_TRANSLATION_FIELDS = ['name', 'ingredients', 'method', 'garnish'];
+const RECIPE_FIELDS = new Set([...REQUIRED_RECIPE_FIELDS, 'garnishIngredients']);
+const RECIPE_INGREDIENT_FIELDS = new Set([
+  ...REQUIRED_RECIPE_INGREDIENT_FIELDS,
+  'action',
+  'amountLabel',
+  'maxQuantity',
+  'note',
+  'optional',
+  'quantity',
+  'substitutions',
+  'unit',
+]);
+const TRANSLATION_FIELDS = new Set([...REQUIRED_TRANSLATION_FIELDS, 'garnishIngredients']);
+const INGREDIENT_TRANSLATION_FIELDS = new Set(['name', 'note', 'substitutions']);
+const SUBSTITUTION_TRANSLATION_FIELDS = new Set(['name']);
+const SUBSTITUTION_FIELDS = new Set(['key', 'name']);
+const UNITS = new Set(['bar spoons', 'dash', 'dashes', 'drops', 'ml', 'pcs', 'splash', 'teaspoon', 'teaspoons', 'tsp']);
+const ACTIONS = new Set(['fill', 'top']);
+const AMOUNT_LABELS = new Set(['few']);
 
-const datasets = new Map(DATA_FILES.map((file) => [file, readJson(path.join(DATA_DIR, file))]));
 const errors = [];
+const recipes = readJson(path.join(DATA_DIR, RECIPE_FILE));
+const translationsByLanguage = new Map(
+  Object.entries(TRANSLATION_FILES).map(([language, file]) => [language, readJson(path.join(DATA_DIR, file))]),
+);
 
-for (const [file, drinks] of datasets) {
-  validateDataset(file, drinks);
+validateRecipes(recipes);
+
+for (const [language, translations] of translationsByLanguage) {
+  validateTranslations(language, translations, recipes);
 }
-
-validateMatchingSlugs();
 
 if (errors.length > 0) {
   console.error(`Data validation failed with ${errors.length} issue${errors.length === 1 ? '' : 's'}:`);
@@ -23,8 +49,10 @@ if (errors.length > 0) {
   }
   process.exitCode = 1;
 } else {
-  const counts = [...datasets].map(([file, drinks]) => `${file}: ${drinks.length}`).join(', ');
-  console.log(`Data validation passed (${counts}).`);
+  const translationCounts = [...translationsByLanguage]
+    .map(([language, translations]) => `${language}: ${Object.keys(translations).length}`)
+    .join(', ');
+  console.log(`Data validation passed (${RECIPE_FILE}: ${recipes.length}; translations: ${translationCounts}).`);
 }
 
 function readJson(filePath) {
@@ -32,111 +60,306 @@ function readJson(filePath) {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
   } catch (error) {
     errors.push(`${path.basename(filePath)} could not be read: ${error.message}`);
-    return [];
+    return path.basename(filePath) === RECIPE_FILE ? [] : {};
   }
 }
 
-function validateDataset(file, drinks) {
-  if (!Array.isArray(drinks)) {
-    errors.push(`${file} must contain an array`);
+function validateRecipes(value) {
+  if (!Array.isArray(value)) {
+    errors.push(`${RECIPE_FILE} must contain an array`);
     return;
   }
 
   const slugs = new Set();
 
-  drinks.forEach((drink, index) => {
-    const label = `${file}[${index}] ${drink?.name ?? '(unnamed)'}`;
+  value.forEach((recipe, index) => {
+    const label = `${RECIPE_FILE}[${index}] ${recipe?.name ?? '(unnamed)'}`;
 
-    if (!drink || typeof drink !== 'object' || Array.isArray(drink)) {
+    if (!recipe || typeof recipe !== 'object' || Array.isArray(recipe)) {
       errors.push(`${label} must be an object`);
       return;
     }
 
-    for (const field of REQUIRED_DRINK_FIELDS) {
-      if (!hasValue(drink?.[field])) {
-        errors.push(`${label} is missing ${field}`);
-      }
+    validateKnownFields(label, recipe, RECIPE_FIELDS);
+
+    for (const field of REQUIRED_RECIPE_FIELDS) {
+      if (!hasValue(recipe[field])) errors.push(`${label} is missing ${field}`);
     }
 
-    if (!Array.isArray(drink?.ingredients) || drink.ingredients.length === 0) {
-      errors.push(`${label} must have at least one ingredient`);
-    } else {
-      drink.ingredients.forEach((ingredient, ingredientIndex) => {
-        validateIngredient(`${label}.ingredients[${ingredientIndex}]`, ingredient);
-      });
+    if (hasValue(recipe.slug)) {
+      if (slugs.has(recipe.slug)) errors.push(`${RECIPE_FILE} has duplicate slug ${recipe.slug}`);
+      slugs.add(recipe.slug);
     }
 
-    if (hasValue(drink?.photo) && !isHttpsUrl(drink.photo)) {
+    if (hasValue(recipe.photo) && !isHttpsUrl(recipe.photo)) {
       errors.push(`${label} photo must be an https URL`);
     }
 
-    if (hasValue(drink?.ibaLink) && !drink.ibaLink.startsWith(IBA_LINK_PREFIX)) {
-      errors.push(`${label} ibaLink must start with ${IBA_LINK_PREFIX}`);
+    if (hasValue(recipe.ibaLink)) {
+      if (!recipe.ibaLink.startsWith(IBA_LINK_PREFIX)) {
+        errors.push(`${label} ibaLink must start with ${IBA_LINK_PREFIX}`);
+      }
+
+      const linkSlug = slugFromLink(recipe.ibaLink);
+      if (recipe.slug !== linkSlug) {
+        errors.push(`${label} slug must match ibaLink slug ${linkSlug}`);
+      }
     }
 
-    if (hasValue(drink?.ibaLink)) {
-      const slug = slugFromDrink(drink);
-      if (slugs.has(slug)) {
-        errors.push(`${file} has duplicate slug ${slug}`);
-      }
-      slugs.add(slug);
+    if (!Array.isArray(recipe.ingredients) || recipe.ingredients.length === 0) {
+      errors.push(`${label} must have at least one ingredient`);
+    } else {
+      validateRecipeIngredients(`${label}.ingredients`, recipe.ingredients);
+    }
+
+    if ('garnishIngredients' in recipe) {
+      validateRecipeIngredients(`${label}.garnishIngredients`, recipe.garnishIngredients);
     }
   });
 }
 
-function validateIngredient(label, ingredient) {
-  if (!ingredient || typeof ingredient !== 'object' || Array.isArray(ingredient)) {
-    errors.push(`${label} must be an object`);
+function validateRecipeIngredients(label, ingredients) {
+  const keys = new Set();
+
+  ingredients.forEach((ingredient, index) => {
+    const ingredientLabel = `${label}[${index}] ${ingredient?.name ?? '(unnamed)'}`;
+
+    if (!ingredient || typeof ingredient !== 'object' || Array.isArray(ingredient)) {
+      errors.push(`${ingredientLabel} must be an object`);
+      return;
+    }
+
+    validateKnownFields(ingredientLabel, ingredient, RECIPE_INGREDIENT_FIELDS);
+
+    for (const field of REQUIRED_RECIPE_INGREDIENT_FIELDS) {
+      if (!hasValue(ingredient[field])) errors.push(`${ingredientLabel} is missing ${field}`);
+    }
+
+    if (hasValue(ingredient.key)) {
+      if (keys.has(ingredient.key)) errors.push(`${ingredientLabel} has duplicate ingredient key ${ingredient.key}`);
+      keys.add(ingredient.key);
+    }
+
+    validateSubstitutions(`${ingredientLabel}.substitutions`, ingredient.substitutions, ingredient.key);
+    validateIngredientAmount(ingredientLabel, ingredient);
+
+    if ('optional' in ingredient && typeof ingredient.optional !== 'boolean') {
+      errors.push(`${ingredientLabel} optional must be a boolean`);
+    }
+
+    if ('note' in ingredient && !hasValue(ingredient.note)) {
+      errors.push(`${ingredientLabel} note must not be empty`);
+    }
+  });
+}
+
+function validateSubstitutions(label, substitutions, defaultKey) {
+  if (substitutions === undefined) return;
+
+  if (!Array.isArray(substitutions) || substitutions.length === 0) {
+    errors.push(`${label} must be a non-empty array`);
     return;
   }
 
-  for (const field of REQUIRED_INGREDIENT_FIELDS) {
-    if (!hasValue(ingredient?.[field])) {
-      errors.push(`${label} is missing ${field}`);
+  const keys = new Set([defaultKey]);
+
+  substitutions.forEach((substitution, index) => {
+    const substitutionLabel = `${label}[${index}]`;
+
+    if (!substitution || typeof substitution !== 'object' || Array.isArray(substitution)) {
+      errors.push(`${substitutionLabel} must be an object`);
+      return;
+    }
+
+    validateKnownFields(substitutionLabel, substitution, SUBSTITUTION_FIELDS);
+
+    if (!hasValue(substitution.key)) errors.push(`${substitutionLabel} is missing key`);
+    if (!hasValue(substitution.name)) errors.push(`${substitutionLabel} is missing name`);
+
+    if (hasValue(substitution.key)) {
+      if (keys.has(substitution.key))
+        errors.push(`${substitutionLabel} has duplicate substitution key ${substitution.key}`);
+      keys.add(substitution.key);
+    }
+  });
+}
+
+function validateIngredientAmount(label, ingredient) {
+  const hasAction = 'action' in ingredient;
+  const hasAmountLabel = 'amountLabel' in ingredient;
+  const hasQuantity = 'quantity' in ingredient;
+  const hasMaxQuantity = 'maxQuantity' in ingredient;
+  const hasUnit = 'unit' in ingredient;
+
+  if (hasAction) {
+    if (!ACTIONS.has(ingredient.action)) errors.push(`${label} action must be one of: ${[...ACTIONS].join(', ')}`);
+    if (hasAmountLabel || hasQuantity || hasMaxQuantity || hasUnit) {
+      errors.push(`${label} action cannot be combined with amount fields`);
+    }
+    return;
+  }
+
+  if (hasAmountLabel) {
+    if (!AMOUNT_LABELS.has(ingredient.amountLabel)) {
+      errors.push(`${label} amountLabel must be one of: ${[...AMOUNT_LABELS].join(', ')}`);
+    }
+    if (!hasUnit) errors.push(`${label} amountLabel requires unit`);
+    if (hasQuantity || hasMaxQuantity) errors.push(`${label} amountLabel cannot be combined with quantity`);
+  }
+
+  if (hasQuantity) validatePositiveNumber(`${label}.quantity`, ingredient.quantity);
+  if (hasMaxQuantity) {
+    validatePositiveNumber(`${label}.maxQuantity`, ingredient.maxQuantity);
+    if (!hasQuantity) errors.push(`${label} maxQuantity requires quantity`);
+    if (typeof ingredient.quantity === 'number' && ingredient.maxQuantity <= ingredient.quantity) {
+      errors.push(`${label} maxQuantity must be greater than quantity`);
     }
   }
 
-  if ('quantity' in ingredient && typeof ingredient.quantity !== 'number') {
-    errors.push(`${label} quantity must be a number`);
+  if (hasUnit && !UNITS.has(ingredient.unit)) {
+    errors.push(`${label} unit must be one of: ${[...UNITS].join(', ')}`);
   }
 
-  if ('unit' in ingredient && !hasValue(ingredient.unit)) {
-    errors.push(`${label} unit must not be empty`);
-  }
-
-  if ('prefix' in ingredient && !hasValue(ingredient.prefix)) {
-    errors.push(`${label} prefix must not be empty`);
+  if (hasUnit && !hasQuantity && !hasAmountLabel) {
+    errors.push(`${label} unit requires quantity or amountLabel`);
   }
 }
 
-function validateMatchingSlugs() {
-  const [firstFile, ...otherFiles] = DATA_FILES;
-  const baseSlugs = getDatasetSlugs(firstFile);
+function validateTranslations(language, translations, recipesToValidate) {
+  const file = TRANSLATION_FILES[language];
 
-  for (const file of otherFiles) {
-    const currentSlugs = getDatasetSlugs(file);
+  if (!translations || typeof translations !== 'object' || Array.isArray(translations)) {
+    errors.push(`${file} must contain an object keyed by recipe slug`);
+    return;
+  }
 
-    for (const slug of baseSlugs) {
-      if (!currentSlugs.has(slug)) {
-        errors.push(`${file} is missing slug ${slug}`);
-      }
+  const recipeSlugs = new Set(recipesToValidate.map((recipe) => recipe.slug));
+
+  for (const slug of Object.keys(translations)) {
+    if (!recipeSlugs.has(slug)) errors.push(`${file} has translation for unknown slug ${slug}`);
+  }
+
+  for (const recipe of recipesToValidate) {
+    const translation = translations[recipe.slug];
+    const label = `${file}.${recipe.slug}`;
+
+    if (!translation) {
+      errors.push(`${file} is missing translation for ${recipe.slug}`);
+      continue;
     }
 
-    for (const slug of currentSlugs) {
-      if (!baseSlugs.has(slug)) {
-        errors.push(`${file} has extra slug ${slug}`);
-      }
+    if (typeof translation !== 'object' || Array.isArray(translation)) {
+      errors.push(`${label} must be an object`);
+      continue;
     }
+
+    validateKnownFields(label, translation, TRANSLATION_FIELDS);
+
+    for (const field of REQUIRED_TRANSLATION_FIELDS) {
+      if (!hasValue(translation[field])) errors.push(`${label} is missing ${field}`);
+    }
+
+    validateIngredientTranslations(`${label}.ingredients`, translation.ingredients, recipe.ingredients);
+    validateOptionalIngredientTranslations(
+      `${label}.garnishIngredients`,
+      translation.garnishIngredients,
+      recipe.garnishIngredients,
+    );
   }
 }
 
-function getDatasetSlugs(file) {
-  return new Set(
-    datasets
-      .get(file)
-      .filter((drink) => drink && typeof drink === 'object' && hasValue(drink.ibaLink))
-      .map(slugFromDrink),
-  );
+function validateOptionalIngredientTranslations(label, translations, recipeIngredients) {
+  if (!recipeIngredients?.length) {
+    if (translations !== undefined) errors.push(`${label} is only allowed when recipe has garnishIngredients`);
+    return;
+  }
+
+  validateIngredientTranslations(label, translations, recipeIngredients);
+}
+
+function validateIngredientTranslations(label, translations, recipeIngredients) {
+  if (!translations || typeof translations !== 'object' || Array.isArray(translations)) {
+    errors.push(`${label} must be an object keyed by ingredient key`);
+    return;
+  }
+
+  const ingredientKeys = new Set(recipeIngredients.map((ingredient) => ingredient.key));
+
+  for (const key of Object.keys(translations)) {
+    if (!ingredientKeys.has(key)) errors.push(`${label} has translation for unknown ingredient key ${key}`);
+  }
+
+  for (const ingredient of recipeIngredients) {
+    const translation = translations[ingredient.key];
+    const ingredientLabel = `${label}.${ingredient.key}`;
+
+    if (!translation) {
+      errors.push(`${label} is missing translation for ${ingredient.key}`);
+      continue;
+    }
+
+    if (typeof translation !== 'object' || Array.isArray(translation)) {
+      errors.push(`${ingredientLabel} must be an object`);
+      continue;
+    }
+
+    validateKnownFields(ingredientLabel, translation, INGREDIENT_TRANSLATION_FIELDS);
+
+    if (!hasValue(translation.name)) errors.push(`${ingredientLabel} is missing name`);
+    if ('note' in translation && !hasValue(translation.note)) errors.push(`${ingredientLabel} note must not be empty`);
+    validateSubstitutionTranslations(
+      `${ingredientLabel}.substitutions`,
+      translation.substitutions,
+      ingredient.substitutions,
+    );
+  }
+}
+
+function validateSubstitutionTranslations(label, translations, substitutions) {
+  if (!substitutions?.length) {
+    if (translations !== undefined) errors.push(`${label} is only allowed when recipe ingredient has substitutions`);
+    return;
+  }
+
+  if (!translations || typeof translations !== 'object' || Array.isArray(translations)) {
+    errors.push(`${label} must be an object keyed by substitution key`);
+    return;
+  }
+
+  const substitutionKeys = new Set(substitutions.map((substitution) => substitution.key));
+
+  for (const key of Object.keys(translations)) {
+    if (!substitutionKeys.has(key)) errors.push(`${label} has translation for unknown substitution key ${key}`);
+  }
+
+  for (const substitution of substitutions) {
+    const translation = translations[substitution.key];
+    const substitutionLabel = `${label}.${substitution.key}`;
+
+    if (!translation) {
+      errors.push(`${label} is missing translation for ${substitution.key}`);
+      continue;
+    }
+
+    if (typeof translation !== 'object' || Array.isArray(translation)) {
+      errors.push(`${substitutionLabel} must be an object`);
+      continue;
+    }
+
+    validateKnownFields(substitutionLabel, translation, SUBSTITUTION_TRANSLATION_FIELDS);
+
+    if (!hasValue(translation.name)) errors.push(`${substitutionLabel} is missing name`);
+  }
+}
+
+function validateKnownFields(label, value, allowedFields) {
+  for (const field of Object.keys(value)) {
+    if (!allowedFields.has(field)) errors.push(`${label} has unknown field ${field}`);
+  }
+}
+
+function validatePositiveNumber(label, value) {
+  if (typeof value !== 'number' || value <= 0) errors.push(`${label} must be a positive number`);
 }
 
 function hasValue(value) {
@@ -151,6 +374,6 @@ function isHttpsUrl(value) {
   }
 }
 
-function slugFromDrink(drink) {
-  return drink.ibaLink.replace(/\/$/, '').split('/').pop();
+function slugFromLink(link) {
+  return link.replace(/\/$/, '').split('/').pop();
 }
