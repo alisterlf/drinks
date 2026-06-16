@@ -32,6 +32,7 @@ export interface Drink {
   name: string;
   photo: string;
   ibaLink: string;
+  videoLink: string;
   method: string;
   garnish: string;
   ingredients: DrinkIngredient[];
@@ -56,6 +57,7 @@ export interface DrinkRecipe {
   name: string;
   photo: string;
   ibaLink: string;
+  videoLink: string;
   method: string;
   garnish: string;
   ingredients: DrinkRecipeIngredient[];

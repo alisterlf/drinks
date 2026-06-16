@@ -608,6 +608,12 @@ h1 {
   font-size: var(--font-size-summary);
 }
 
+.detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
 .detail-section h2 {
   margin-block-end: var(--space-8);
 }

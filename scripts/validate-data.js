@@ -7,7 +7,7 @@ const TRANSLATION_FILES = {
   'pt-BR': 'drinks.pt-BR.json',
 };
 const IBA_LINK_PREFIX = 'https://iba-world.com/iba-cocktail/';
-const REQUIRED_RECIPE_FIELDS = ['slug', 'name', 'photo', 'ingredients', 'method', 'garnish', 'ibaLink'];
+const REQUIRED_RECIPE_FIELDS = ['slug', 'name', 'photo', 'ingredients', 'method', 'garnish', 'ibaLink', 'videoLink'];
 const REQUIRED_RECIPE_INGREDIENT_FIELDS = ['key', 'name'];
 const REQUIRED_TRANSLATION_FIELDS = ['name', 'ingredients', 'method', 'garnish'];
 const RECIPE_FIELDS = new Set([...REQUIRED_RECIPE_FIELDS, 'garnishIngredients']);
@@ -93,6 +93,10 @@ function validateRecipes(value) {
 
     if (hasValue(recipe.photo) && !isHttpsUrl(recipe.photo)) {
       errors.push(`${label} photo must be an https URL`);
+    }
+
+    if (hasValue(recipe.videoLink) && !isYoutubeWatchUrl(recipe.videoLink)) {
+      errors.push(`${label} videoLink must be a YouTube watch URL`);
     }
 
     if (hasValue(recipe.ibaLink)) {
@@ -369,6 +373,20 @@ function hasValue(value) {
 function isHttpsUrl(value) {
   try {
     return new URL(value).protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+function isYoutubeWatchUrl(value) {
+  try {
+    const url = new URL(value);
+    return (
+      url.protocol === 'https:' &&
+      url.hostname === 'www.youtube.com' &&
+      url.pathname === '/watch' &&
+      url.searchParams.has('v')
+    );
   } catch {
     return false;
   }

@@ -131,6 +131,7 @@ export class DrinkRepository {
       name: translation?.name ?? recipe.name,
       photo: recipe.photo,
       ibaLink: recipe.ibaLink,
+      videoLink: recipe.videoLink,
       method: translation?.method ?? recipe.method,
       garnish: translation?.garnish ?? recipe.garnish,
       ingredients: recipe.ingredients.map((ingredient) =>

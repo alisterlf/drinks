@@ -53,6 +53,7 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
       const content = app.templates.cloneTemplateContent('drink-detail-template');
       const image = content.querySelector('.detail-hero img');
       const ibaLink = content.querySelector('.iba-link');
+      const videoLink = content.querySelector('.video-link');
       const ingredientList = content.querySelector('.ingredient-list');
       const missingIngredientsSection = content.querySelector('[data-missing-ingredients-section]');
       const missingIngredientList = content.querySelector('[data-missing-ingredient-list]');
@@ -61,6 +62,7 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
       if (
         !(image instanceof HTMLImageElement) ||
         !(ibaLink instanceof HTMLAnchorElement) ||
+        !(videoLink instanceof HTMLAnchorElement) ||
         !(ingredientList instanceof HTMLElement) ||
         !(missingIngredientsSection instanceof HTMLElement) ||
         !(missingIngredientList instanceof HTMLElement) ||
@@ -82,6 +84,7 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
       if (method) method.textContent = drink.method;
       if (garnish) garnish.textContent = drink.garnish;
       ibaLink.href = drink.ibaLink;
+      videoLink.href = drink.videoLink;
 
       for (const ingredient of drink.ingredients) {
         ingredientList.append(this.createIngredientItem(ingredient));
