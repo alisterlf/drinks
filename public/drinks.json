@@ -24,8 +24,8 @@
         "unit": "splash"
       }
     ],
-    "method": "Mix the ingredients directly in an old fashioned glass filled with ice cubes. Add a splash of Soda Water. Stir gently.",
-    "garnish": "Garnish with half orange slice and a lemon zest.",
+    "method": "Mix the ingredients directly in an old fashioned glass filled with ice cubes. Add a splash of Soda Water. Stir gently",
+    "garnish": "Garnish with half orange slice and a lemon zest",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -47,7 +47,7 @@
       {
         "key": "gin",
         "name": "Gin",
-        "note": "Prefer dry gin.",
+        "note": "Prefer dry gin",
         "quantity": 52.5,
         "unit": "ml"
       },
@@ -62,18 +62,18 @@
         "name": "Lemon Juice",
         "quantity": 22.5,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "orange-juice",
         "name": "Orange Juice",
         "quantity": 22.5,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       }
     ],
-    "method": "Stir honey with lemon and orange juices until it dissolves, add gin and shake with ice. Strain into a chilled cocktail glass.",
-    "garnish": "Optionally garnish with a lemon or orange zest.",
+    "method": "Stir honey with lemon and orange juices until it dissolves, add gin and shake with ice. Strain into a chilled cocktail glass",
+    "garnish": "Optionally garnish with a lemon or orange zest",
     "garnishIngredients": [
       {
         "key": "lemon",
@@ -115,11 +115,10 @@
         "name": "Lemon Juice",
         "quantity": 20,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       }
     ],
-    "method": "Add all ingredients into a cocktail shaker. Shake with ice and strain into a chilled cocktail glass.",
-    "garnish": "N/A",
+    "method": "Add all ingredients into a cocktail shaker. Shake with ice and strain into a chilled cocktail glass",
     "videoLink": "https://www.youtube.com/watch?v=-wLpX8iICeU"
   },
   {
@@ -141,8 +140,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour the ingredients into the old fashioned glass filled with ice cubes. Stir gently. strain ingredients into old fashioned glass filled with ice. NOTE: WHITE RUSSIAN – Float fresh cream on the top and stir in slowly.",
-    "garnish": "N/A",
+    "method": "Pour the ingredients into the old fashioned glass filled with ice cubes. Stir gently. strain ingredients into old fashioned glass filled with ice.",
+    "methodNote": "White Russian – Float fresh cream on the top and stir in slowly",
     "videoLink": "https://www.youtube.com/watch?v=iOoBh4Qc6gs"
   },
   {
@@ -168,7 +167,7 @@
         "name": "Lemon Juice",
         "quantity": 15,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "worcestershire-sauce",
@@ -197,8 +196,9 @@
         "note": "Up to taste"
       }
     ],
-    "method": "Stir gently all the ingredients in a mixing glass with ice, pour into rocks glass. NOTE: If requested served with ice, pour into highball glass.",
-    "garnish": "Celery, lemon wedge (Optional).",
+    "method": "Stir gently all the ingredients in a mixing glass with ice, pour into rocks glass.",
+    "methodNote": "If requested served with ice, pour into highball glass",
+    "garnish": "Celery, lemon wedge (Optional)",
     "garnishIngredients": [
       {
         "key": "celery",
@@ -242,8 +242,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
-    "garnish": "Garnish with a orange zest, optionally a lemon zest.",
+    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass",
+    "garnish": "Garnish with a orange zest, optionally a lemon zest",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -272,18 +272,18 @@
         "key": "lime",
         "name": "Lime",
         "quantity": 1,
-        "note": "Cut into small wedges."
+        "note": "Cut into small wedges"
       },
       {
         "key": "sugar",
         "name": "Sugar",
         "quantity": 4,
         "unit": "teaspoons",
-        "note": "White cane sugar preferred."
+        "note": "White cane sugar preferred"
       }
     ],
-    "method": "Place lime and sugar into a double old fashioned glass and muddle gently. Fill the glass with cracked ice and add Cachaça. Stir gently to involve ingredients. Note: Caipiroska – Instead of Cachaça use Vodka; Caipirissima – Instead of Cachaça use Rum. Caipirão – Instead of Cachaça use Licor Beirão.",
-    "garnish": "N/A",
+    "method": "Place lime and sugar into a double old fashioned glass and muddle gently. Fill the glass with cracked ice and add Cachaça. Stir gently to involve ingredients.",
+    "methodNote": "Caipiroska – Instead of Cachaça use Vodka; Caipirissima – Instead of Cachaça use Rum. Caipirão – Instead of Cachaça use Licor Beirão",
     "videoLink": "https://www.youtube.com/watch?v=nil7VZJBoEU"
   },
   {
@@ -297,14 +297,14 @@
         "name": "Rum",
         "quantity": 60,
         "unit": "ml",
-        "note": "Prefer Cuban aguardiente."
+        "note": "Prefer Cuban aguardiente"
       },
       {
         "key": "lime-juice",
         "name": "Lime Juice",
         "quantity": 15,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "raw-honey",
@@ -319,8 +319,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Mix honey with water and lime juice and spread the mixture on the bottom and sides of the glass. Add cracked ice, and then the rum. End by energetically stirring from bottom to top.",
-    "garnish": "Garnish with a lime wedge.",
+    "method": "Mix honey with water and lime juice and spread the mixture on the bottom and sides of the glass. Add cracked ice, and then the rum. End by energetically stirring from bottom to top",
+    "garnish": "Garnish with a lime wedge",
     "garnishIngredients": [
       {
         "key": "lime",
@@ -354,8 +354,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
-    "garnish": "Garnish with a lemon zest.",
+    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass",
+    "garnish": "Garnish with a lemon zest",
     "garnishIngredients": [
       {
         "key": "lemon",
@@ -373,7 +373,7 @@
       {
         "key": "champagne",
         "name": "Champagne",
-        "note": "Use chilled Champagne.",
+        "note": "Use chilled Champagne",
         "quantity": 90,
         "substitutions": [
           {
@@ -414,8 +414,8 @@
         ]
       }
     ],
-    "method": "Place the sugar cube with 2 dashes of bitters in a large Champagne glass, add the cognac. Pour gently chilled Champagne.",
-    "garnish": "Garnish with orange zest and maraschino cherry.",
+    "method": "Place the sugar cube with 2 dashes of bitters in a large Champagne glass, add the cognac. Pour gently chilled Champagne",
+    "garnish": "Garnish with orange zest and maraschino cherry",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -424,7 +424,7 @@
       {
         "key": "cherry",
         "name": "Cherry",
-        "note": "Cocktail or maraschino cherry."
+        "note": "Cocktail or maraschino cherry"
       }
     ],
     "videoLink": "https://www.youtube.com/watch?v=liGUP4kfCZ0"
@@ -452,7 +452,7 @@
         "name": "Lime Juice",
         "quantity": 15,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "cranberry-juice",
@@ -461,8 +461,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Add all ingredients into cocktail shaker filled with ice. Shake well and strain into large cocktail glass.",
-    "garnish": "Garnish with lemon twist.",
+    "method": "Add all ingredients into cocktail shaker filled with ice. Shake well and strain into large cocktail glass",
+    "garnish": "Garnish with lemon twist",
     "garnishIngredients": [
       {
         "key": "lemon",
@@ -494,11 +494,11 @@
         "name": "Lime Juice",
         "quantity": 10,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       }
     ],
-    "method": "Build all ingredients in a highball glass filled with ice.",
-    "garnish": "Garnish with lime wedge.",
+    "method": "Build all ingredients in a highball glass filled with ice",
+    "garnish": "Garnish with lime wedge",
     "garnishIngredients": [
       {
         "key": "lime",
@@ -516,7 +516,7 @@
       {
         "key": "white-rum",
         "name": "White Rum",
-        "note": "Prefer Cuban white rum.",
+        "note": "Prefer Cuban white rum",
         "quantity": 60,
         "unit": "ml"
       },
@@ -525,18 +525,17 @@
         "name": "Lime Juice",
         "quantity": 20,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "sugar",
         "name": "Sugar",
         "quantity": 2,
         "unit": "bar spoons",
-        "note": "Superfine preferred."
+        "note": "Superfine preferred"
       }
     ],
-    "method": "In a cocktail shaker add all ingredients. Stir well to dissolve the sugar. Add ice and shake. Strain into chilled cocktail glass.",
-    "garnish": "N/A",
+    "method": "In a cocktail shaker add all ingredients. Stir well to dissolve the sugar. Add ice and shake. Strain into chilled cocktail glass",
     "videoLink": "https://www.youtube.com/watch?v=Vyi1YUSRyk4"
   },
   {
@@ -558,8 +557,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled martini cocktail glass.",
-    "garnish": "Squeeze oil from lemon peel onto the drink, or garnish with a green olives if requested.",
+    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled martini cocktail glass",
+    "garnish": "Squeeze oil from lemon peel onto the drink, or garnish with a green olives if requested",
     "garnishIngredients": [
       {
         "key": "lemon",
@@ -587,7 +586,7 @@
       {
         "key": "coffee-liqueur",
         "name": "Coffee Liqueur",
-        "note": "Kahlua preferred.",
+        "note": "Kahlua preferred",
         "quantity": 30,
         "unit": "ml"
       },
@@ -601,10 +600,10 @@
         "key": "espresso",
         "name": "Espresso",
         "quantity": 1,
-        "note": "Use strong espresso."
+        "note": "Use strong espresso"
       }
     ],
-    "method": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "method": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass",
     "garnish": "3 coffee beans",
     "garnishIngredients": [
       {
@@ -623,7 +622,7 @@
       {
         "key": "fernet",
         "name": "Fernet",
-        "note": "Fernet-Branca preferred.",
+        "note": "Fernet-Branca preferred",
         "quantity": 50,
         "unit": "ml"
       },
@@ -633,8 +632,7 @@
         "action": "fill"
       }
     ],
-    "method": "Pour the Fernet Branca into a double old fashioned glass with ice, fill the glass up with Cola. Gently stir.",
-    "garnish": "N/A",
+    "method": "Pour the Fernet Branca into a double old fashioned glass with ice, fill the glass up with Cola. Gently stir",
     "videoLink": "https://www.youtube.com/watch?v=XCUiLpnaHp4"
   },
   {
@@ -654,7 +652,7 @@
         "name": "Lemon Juice",
         "quantity": 15,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "simple-syrup",
@@ -675,8 +673,7 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all the ingredients, except Champagne, into a shaker. Shake well and strain into a Champagne flute. Top up with Champagne. Stir gently.",
-    "garnish": "N/A",
+    "method": "Pour all the ingredients, except Champagne, into a shaker. Shake well and strain into a Champagne flute. Top up with Champagne. Stir gently",
     "videoLink": "https://www.youtube.com/watch?v=lF9fAhkyATs"
   },
   {
@@ -698,8 +695,7 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients directly into old fashioned glass filled with ice cubes. Stir gently.",
-    "garnish": "N/A",
+    "method": "Pour all ingredients directly into old fashioned glass filled with ice cubes. Stir gently",
     "videoLink": "https://www.youtube.com/watch?v=smlUadU8j8Q"
   },
   {
@@ -719,11 +715,11 @@
         "name": "Orange Juice",
         "quantity": 120,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       }
     ],
-    "method": "Build all ingredients in a highball glass filled with ice.",
-    "garnish": "Garnish with an orange wedge.",
+    "method": "Build all ingredients in a highball glass filled with ice",
+    "garnish": "Garnish with an orange wedge",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -749,7 +745,7 @@
         "name": "Lemon Juice",
         "quantity": 22.5,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "simple-syrup",
@@ -760,13 +756,12 @@
       {
         "key": "basil",
         "name": "Basil",
-        "note": "Italian basil leaves.",
+        "note": "Italian basil leaves",
         "quantity": 10,
         "unit": "pcs"
       }
     ],
-    "method": "Add all ingredients into shaker with ice. Shake vigorously and pour into chilled cocktail glass.",
-    "garnish": "N/A",
+    "method": "Add all ingredients into shaker with ice. Shake vigorously and pour into chilled cocktail glass",
     "videoLink": "https://www.youtube.com/watch?v=3T0zb0pXTfg"
   },
   {
@@ -786,7 +781,7 @@
         "name": "Lemon Juice",
         "quantity": 30,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "simple-syrup",
@@ -801,8 +796,9 @@
         "unit": "splash"
       }
     ],
-    "method": "Shake all ingredients with ice except soda water. Pour into thin tall Tumbler glass , top with a splash soda water. NOTE: Serve without ice.",
-    "garnish": "Garnish with lemon slice, optional lemon zest.",
+    "method": "Shake all ingredients with ice except soda water. Pour into thin tall Tumbler glass , top with a splash soda water.",
+    "methodNote": "Serve without ice",
+    "garnish": "Garnish with lemon slice, optional lemon zest",
     "garnishIngredients": [
       {
         "key": "lemon",
@@ -820,7 +816,7 @@
       {
         "key": "gin",
         "name": "Gin",
-        "note": "Prefer London dry gin.",
+        "note": "Prefer London dry gin",
         "quantity": 45,
         "unit": "ml"
       },
@@ -837,8 +833,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
-    "garnish": "Orange zest.",
+    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass",
+    "garnish": "Orange zest",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -870,7 +866,7 @@
         "name": "Cream",
         "quantity": 50,
         "unit": "ml",
-        "note": "Fresh and chilled. Chilled."
+        "note": "Fresh and chilled. Chilled"
       },
       {
         "key": "sugar",
@@ -880,7 +876,6 @@
       }
     ],
     "method": "Warm black coffee is poured into a preheated Irish coffee glass. Whiskey and at least one teaspoon of sugar is added and stirred until dissolved. Fresh thick chilled cream is carefully poured over the back of a spoon held just above the surface of the coffee. The layer of cream will float on the coffee without mixing. Plain sugar can be replaced with sugar syrup",
-    "garnish": "N/A",
     "videoLink": "https://www.youtube.com/watch?v=MWLonPDIpTo"
   },
   {
@@ -900,7 +895,7 @@
         "name": "Lemon Juice",
         "quantity": 30,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "simple-syrup",
@@ -915,8 +910,9 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients directly into highball filled with ice. Stir gently. NOTE: Use ‘Old Tom’ Gin for Tom Collins.",
-    "garnish": "Garnish with lemon slice and maraschino cherry.",
+    "method": "Pour all ingredients directly into highball filled with ice. Stir gently.",
+    "methodNote": "Use ‘Old Tom’ Gin for Tom Collins",
+    "garnish": "Garnish with lemon slice and maraschino cherry",
     "garnishIngredients": [
       {
         "key": "lemon",
@@ -925,7 +921,7 @@
       {
         "key": "cherry",
         "name": "Cherry",
-        "note": "Cocktail or maraschino cherry."
+        "note": "Cocktail or maraschino cherry"
       }
     ],
     "videoLink": "https://www.youtube.com/watch?v=Zu1Z96TpbW8"
@@ -959,7 +955,7 @@
         "name": "Lime Juice",
         "quantity": 15,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "demerara-sugar-syrup",
@@ -968,8 +964,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients into a shaker with ice and shake. Strain into a rocks glass filled with ice.",
-    "garnish": "Garnish with a pineapple wedge.",
+    "method": "Pour all ingredients into a shaker with ice and shake. Strain into a rocks glass filled with ice",
+    "garnish": "Garnish with a pineapple wedge",
     "garnishIngredients": [
       {
         "key": "pineapple",
@@ -1001,11 +997,10 @@
         "name": "Lemon Juice",
         "quantity": 15,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       }
     ],
-    "method": "Pour all ingredients into a shaker with ice. Shake well and strain into a chilled cocktail glass.",
-    "garnish": "N/A",
+    "method": "Pour all ingredients into a shaker with ice. Shake well and strain into a chilled cocktail glass",
     "videoLink": "https://www.youtube.com/watch?v=KcSjqOw0BbU"
   },
   {
@@ -1062,8 +1057,8 @@
         "action": "top"
       }
     ],
-    "method": "Add all ingredients into highball glass filled with ice. Stir gently.",
-    "garnish": "Garnish with lemon slice (Optional).",
+    "method": "Add all ingredients into highball glass filled with ice. Stir gently",
+    "garnish": "Garnish with lemon slice (Optional)",
     "garnishIngredients": [
       {
         "key": "lemon",
@@ -1097,13 +1092,13 @@
         "unit": "dash"
       }
     ],
-    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
-    "garnish": "Garnish with cocktail cherry.",
+    "method": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass",
+    "garnish": "Garnish with cocktail cherry",
     "garnishIngredients": [
       {
         "key": "cherry",
         "name": "Cherry",
-        "note": "Cocktail or maraschino cherry."
+        "note": "Cocktail or maraschino cherry"
       }
     ],
     "videoLink": "https://www.youtube.com/watch?v=pXI_OeayD2w"
@@ -1117,7 +1112,7 @@
       {
         "key": "tequila",
         "name": "Tequila",
-        "note": "Prefer 100% agave tequila.",
+        "note": "Prefer 100% agave tequila",
         "quantity": 50,
         "unit": "ml"
       },
@@ -1132,11 +1127,11 @@
         "name": "Lime Juice",
         "quantity": 15,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       }
     ],
-    "method": "Add all ingredients into a shaker with ice. Shake and strain into a chilled cocktail glass.",
-    "garnish": "Half salt rim (Optional).",
+    "method": "Add all ingredients into a shaker with ice. Shake and strain into a chilled cocktail glass",
+    "garnish": "Half salt rim (Optional)",
     "garnishIngredients": [
       {
         "key": "salt",
@@ -1156,7 +1151,7 @@
         "name": "Orange Juice",
         "quantity": 75,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "prosecco",
@@ -1165,8 +1160,9 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour orange juice into flute glass and gently pour the sparkling wine. Stir gently. NOTE: Also known as Buck’s Fizz.",
-    "garnish": "Garnish with orange twist (optional).",
+    "method": "Pour orange juice into flute glass and gently pour the sparkling wine. Stir gently.",
+    "methodNote": "Also known as Buck’s Fizz",
+    "garnish": "Garnish with orange twist (optional)",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -1191,7 +1187,7 @@
         "key": "mint",
         "name": "Mint",
         "quantity": 4,
-        "note": "Use fresh sprigs."
+        "note": "Use fresh sprigs"
       },
       {
         "key": "powdered-sugar",
@@ -1206,8 +1202,8 @@
         "unit": "tsp"
       }
     ],
-    "method": "In Julep Stainless Steel Cup gently muddle the mint with sugar and water. Fill the glass with cracked ice, add the Bourbon and stir well until the cup frosts.",
-    "garnish": "Garnish with a mint sprig.",
+    "method": "In Julep Stainless Steel Cup gently muddle the mint with sugar and water. Fill the glass with cracked ice, add the Bourbon and stir well until the cup frosts",
+    "garnish": "Garnish with a mint sprig",
     "garnishIngredients": [
       {
         "key": "mint",
@@ -1225,7 +1221,7 @@
       {
         "key": "white-rum",
         "name": "White Rum",
-        "note": "Prefer Cuban white rum.",
+        "note": "Prefer Cuban white rum",
         "quantity": 45,
         "unit": "ml"
       },
@@ -1234,29 +1230,29 @@
         "name": "Lime Juice",
         "quantity": 20,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "mint",
         "name": "Mint",
         "quantity": 6,
         "unit": "pcs",
-        "note": "Use sprigs."
+        "note": "Use sprigs"
       },
       {
         "key": "sugar",
         "name": "Sugar",
         "quantity": 2,
         "unit": "tsp",
-        "note": "White cane sugar preferred."
+        "note": "White cane sugar preferred"
       },
       {
         "key": "soda-water",
         "name": "Soda Water"
       }
     ],
-    "method": "Mix mint springs with sugar and lime juice. Add splash of soda water and fill the glass with ice. Pour the rum and top with soda water. Light stir to involve all ingredients.",
-    "garnish": "Garnish with sprigs of mint and slice of lime.",
+    "method": "Mix mint springs with sugar and lime juice. Add splash of soda water and fill the glass with ice. Pour the rum and top with soda water. Light stir to involve all ingredients",
+    "garnish": "Garnish with sprigs of mint and slice of lime",
     "garnishIngredients": [
       {
         "key": "mint",
@@ -1278,7 +1274,7 @@
       {
         "key": "vodka",
         "name": "Vodka",
-        "note": "Smirnoff preferred.",
+        "note": "Smirnoff preferred",
         "quantity": 45,
         "unit": "ml"
       },
@@ -1293,11 +1289,11 @@
         "name": "Lime Juice",
         "quantity": 10,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       }
     ],
-    "method": "In an Mule Cup or rocks glass, combine the vodka and ginger beer. Add lime juice and gently stir to involve all ingredients.",
-    "garnish": "Garnish with a lime slice.",
+    "method": "In an Mule Cup or rocks glass, combine the vodka and ginger beer. Add lime juice and gently stir to involve all ingredients",
+    "garnish": "Garnish with a lime slice",
     "garnishIngredients": [
       {
         "key": "lime",
@@ -1331,8 +1327,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients directly into chilled old fashioned glass filled with ice. Stir gently.",
-    "garnish": "Garnish with half orange slice.",
+    "method": "Pour all ingredients directly into chilled old fashioned glass filled with ice. Stir gently",
+    "garnish": "Garnish with half orange slice",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -1370,7 +1366,7 @@
         "name": "Lemon Juice",
         "quantity": 30,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "egg-white",
@@ -1386,8 +1382,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients into the shaker. Shake vigorously with ice. Strain into a chilled rocks glass filled with ice. Float the wine on top.",
-    "garnish": "Garnish with lemon or orange zest with cherry.",
+    "method": "Pour all ingredients into the shaker. Shake vigorously with ice. Strain into a chilled rocks glass filled with ice. Float the wine on top",
+    "garnish": "Garnish with lemon or orange zest with cherry",
     "garnishIngredients": [
       {
         "key": "lemon",
@@ -1400,7 +1396,7 @@
       {
         "key": "cherry",
         "name": "Cherry",
-        "note": "Cocktail or maraschino cherry."
+        "note": "Cocktail or maraschino cherry"
       }
     ],
     "videoLink": "https://www.youtube.com/watch?v=JdQXePtlyk0"
@@ -1417,7 +1413,7 @@
         "quantity": 6,
         "maxQuantity": 8,
         "unit": "pcs",
-        "note": "Use leaves."
+        "note": "Use leaves"
       },
       {
         "key": "aged-rum",
@@ -1430,7 +1426,7 @@
         "name": "Lime Juice",
         "quantity": 22.5,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "simple-syrup",
@@ -1447,7 +1443,7 @@
       {
         "key": "champagne",
         "name": "Champagne",
-        "note": "Prefer Brut Champagne.",
+        "note": "Prefer Brut Champagne",
         "quantity": 60,
         "substitutions": [
           {
@@ -1458,8 +1454,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Pour all ingredients into cocktail shaker except the wine, shake well with ice, strain into chilled elegant cocktail glass. Top up with the sparkling wine.",
-    "garnish": "Garnish with mint springs.",
+    "method": "Pour all ingredients into cocktail shaker except the wine, shake well with ice, strain into chilled elegant cocktail glass. Top up with the sparkling wine",
+    "garnish": "Garnish with mint springs",
     "garnishIngredients": [
       {
         "key": "mint",
@@ -1506,13 +1502,13 @@
       {
         "key": "water",
         "name": "Water",
-        "note": "Plain water.",
+        "note": "Plain water",
         "amountLabel": "few",
         "unit": "dashes"
       }
     ],
-    "method": "Place sugar cube in old fashioned glass and saturate with bitter, add few dashes of plain water. Muddle until dissolved. Fill the glass with ice cubes and add whiskey. Stir gently.",
-    "garnish": "Garnish with orange slice or zest, and a cocktail cherry.",
+    "method": "Place sugar cube in old fashioned glass and saturate with bitter, add few dashes of plain water. Muddle until dissolved. Fill the glass with ice cubes and add whiskey. Stir gently",
+    "garnish": "Garnish with orange slice or zest, and a cocktail cherry",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -1521,7 +1517,7 @@
       {
         "key": "cherry",
         "name": "Cherry",
-        "note": "Cocktail or maraschino cherry."
+        "note": "Cocktail or maraschino cherry"
       }
     ],
     "videoLink": "https://www.youtube.com/watch?v=HVb0H2jd-8M"
@@ -1547,13 +1543,14 @@
       {
         "key": "pineapple-juice",
         "name": "Pineapple Juice",
-        "note": "Fresh preferred.",
+        "note": "Fresh preferred",
         "quantity": 50,
         "unit": "ml"
       }
     ],
-    "method": "Blend all the ingredients with ice in a electric blender, pour into a large glass and serve with straws. Note: Historically a few drops of fresh lime juice was added to taste. 4 slices of fresh pineapple can be used instead of juice",
-    "garnish": "Garnish with a slice of pineapple with a cocktail cherry.",
+    "method": "Blend all the ingredients with ice in a electric blender, pour into a large glass and serve with straws.",
+    "methodNote": "Historically a few drops of fresh lime juice was added to taste. 4 slices of fresh pineapple can be used instead of juice",
+    "garnish": "Garnish with a slice of pineapple with a cocktail cherry",
     "garnishIngredients": [
       {
         "key": "pineapple",
@@ -1562,7 +1559,7 @@
       {
         "key": "cherry",
         "name": "Cherry",
-        "note": "Cocktail or maraschino cherry."
+        "note": "Cocktail or maraschino cherry"
       }
     ],
     "videoLink": "https://www.youtube.com/watch?v=Q60iH34gBRw"
@@ -1599,8 +1596,8 @@
         "optional": true
       }
     ],
-    "method": "Combine all the ingredients into a rocks glass, add ice and stir briefly.",
-    "garnish": "Garnish with a orange twist.",
+    "method": "Combine all the ingredients into a rocks glass, add ice and stir briefly",
+    "garnish": "Garnish with a orange twist",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -1632,7 +1629,7 @@
         "name": "Orange Juice",
         "quantity": 40,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "cranberry-juice",
@@ -1641,8 +1638,8 @@
         "unit": "ml"
       }
     ],
-    "method": "Build all ingredients in a highball glass filled with ice.",
-    "garnish": "Garnish with half orange slice.",
+    "method": "Build all ingredients in a highball glass filled with ice",
+    "garnish": "Garnish with half orange slice",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -1674,11 +1671,10 @@
         "name": "Lemon Juice",
         "quantity": 20,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       }
     ],
-    "method": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
-    "garnish": "N/A",
+    "method": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass",
     "videoLink": "https://www.youtube.com/watch?v=9HvcVECK2YY"
   },
   {
@@ -1690,7 +1686,7 @@
       {
         "key": "gin",
         "name": "Gin",
-        "note": "Prefer London dry gin.",
+        "note": "Prefer London dry gin",
         "quantity": 60,
         "unit": "ml"
       },
@@ -1699,7 +1695,7 @@
         "name": "Lemon Juice",
         "quantity": 30,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "simple-syrup",
@@ -1712,7 +1708,7 @@
         "name": "Mint",
         "quantity": 5,
         "maxQuantity": 6,
-        "note": "Use leaves."
+        "note": "Use leaves"
       },
       {
         "key": "egg-white",
@@ -1722,8 +1718,9 @@
         "optional": true
       }
     ],
-    "method": "Pour all ingredients into a cocktail shaker, shake well with ice, double-strain into chilled cocktail glass. Note: If egg white is used shake vigorously.",
-    "garnish": "Garnish with mint springs.",
+    "method": "Pour all ingredients into a cocktail shaker, shake well with ice, double-strain into chilled cocktail glass.",
+    "methodNote": "If egg white is used shake vigorously",
+    "garnish": "Garnish with mint springs",
     "garnishIngredients": [
       {
         "key": "mint",
@@ -1757,8 +1754,9 @@
         "unit": "splash"
       }
     ],
-    "method": "Build all ingredients into a wine glass filled with ice. Stir gently. NOTE: There are other versions of the Spritz that use Campari, Cynar or Select instead of Aperol.",
-    "garnish": "Garnish with a slice of orange.",
+    "method": "Build all ingredients into a wine glass filled with ice. Stir gently.",
+    "methodNote": "There are other versions of the Spritz that use Campari, Cynar or Select instead of Aperol",
+    "garnish": "Garnish with a slice of orange",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -1784,7 +1782,7 @@
         "name": "Lemon Juice",
         "quantity": 25,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       },
       {
         "key": "simple-syrup",
@@ -1800,8 +1798,9 @@
         "optional": true
       }
     ],
-    "method": "Pour all ingredients into cocktail shaker filled with ice. Shake well. Strain into cobbler glass. If served “On the rocks”, strain ingredients into old fashioned glass filled with ice. NOTE: If egg white is used shake little harder to release and incorporate the foam from the egg white.",
-    "garnish": "Garnish with half orange slice and maraschino cherry, optionally use orange zest.",
+    "method": "Pour all ingredients into cocktail shaker filled with ice. Shake well. Strain into cobbler glass. If served “On the rocks”, strain ingredients into old fashioned glass filled with ice.",
+    "methodNote": "If egg white is used shake little harder to release and incorporate the foam from the egg white",
+    "garnish": "Garnish with half orange slice and maraschino cherry, optionally use orange zest",
     "garnishIngredients": [
       {
         "key": "orange",
@@ -1810,7 +1809,7 @@
       {
         "key": "cherry",
         "name": "Cherry",
-        "note": "Cocktail or maraschino cherry."
+        "note": "Cocktail or maraschino cherry"
       }
     ],
     "videoLink": "https://www.youtube.com/watch?v=TAtL-m4iQw0"
@@ -1838,11 +1837,10 @@
         "name": "Lemon Juice",
         "quantity": 20,
         "unit": "ml",
-        "note": "Fresh preferred."
+        "note": "Fresh preferred"
       }
     ],
-    "method": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
-    "garnish": "N/A",
+    "method": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass",
     "videoLink": "https://www.youtube.com/watch?v=tpSNeD45HTY"
   }
 ]

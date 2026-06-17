@@ -12,8 +12,8 @@
         "name": "Água com gás"
       }
     },
-    "method": "Misture os ingredientes diretamente em um copo old fashioned cheio de cubos de gelo. Adicione um splash de água com gás. Mexa delicadamente.",
-    "garnish": "Guarneça com meia fatia de laranja e uma casca de limão-siciliano.",
+    "method": "Misture os ingredientes diretamente em um copo old fashioned cheio de cubos de gelo. Adicione um splash de água com gás. Mexa delicadamente",
+    "garnish": "Guarneça com meia fatia de laranja e uma casca de limão-siciliano",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
@@ -28,22 +28,22 @@
     "ingredients": {
       "gin": {
         "name": "Gin",
-        "note": "Prefira gin seco."
+        "note": "Prefira gin seco"
       },
       "honey-syrup": {
         "name": "Xarope de mel"
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       },
       "orange-juice": {
         "name": "Suco de laranja",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Mexa o mel com os sucos de limão-siciliano e laranja até dissolver, adicione o gin e bata com gelo. Coe para uma taça de coquetel resfriada.",
-    "garnish": "Opcionalmente, guarneça com uma casca de limão-siciliano ou de laranja.",
+    "method": "Mexa o mel com os sucos de limão-siciliano e laranja até dissolver, adicione o gin e bata com gelo. Coe para uma taça de coquetel resfriada",
+    "garnish": "Opcionalmente, guarneça com uma casca de limão-siciliano ou de laranja",
     "garnishIngredients": {
       "lemon": {
         "name": "Limão-siciliano"
@@ -67,11 +67,10 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Adicione todos os ingredientes à coqueteleira. Bata com gelo e coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição."
+    "method": "Adicione todos os ingredientes à coqueteleira. Bata com gelo e coe para uma taça de coquetel resfriada"
   },
   "black-russian": {
     "name": "Black Russian",
@@ -83,8 +82,8 @@
         "name": "Licor de café"
       }
     },
-    "method": "Despeje os ingredientes em um copo old fashioned cheio de cubos de gelo. Mexa delicadamente. Coe para um copo old fashioned cheio de gelo. NOTA: WHITE RUSSIAN - coloque creme de leite fresco por cima e misture lentamente.",
-    "garnish": "Sem guarnição."
+    "method": "Despeje os ingredientes em um copo old fashioned cheio de cubos de gelo. Mexa delicadamente. Coe para um copo old fashioned cheio de gelo.",
+    "methodNote": "White Russian - coloque creme de leite fresco por cima e misture lentamente"
   },
   "bloody-mary": {
     "name": "Bloody Mary",
@@ -116,11 +115,12 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Mexa delicadamente todos os ingredientes em um mixing glass com gelo e despeje em um copo rocks. NOTA: se solicitado com gelo, sirva em um copo highball.",
-    "garnish": "Aipo e gomo de limão (opcional).",
+    "method": "Mexa delicadamente todos os ingredientes em um mixing glass com gelo e despeje em um copo rocks.",
+    "methodNote": "Se solicitado com gelo, sirva em um copo highball",
+    "garnish": "Aipo e gomo de limão (opcional)",
     "garnishIngredients": {
       "celery": {
         "name": "Aipo"
@@ -148,8 +148,8 @@
         "name": "Vermute tinto doce"
       }
     },
-    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada.",
-    "garnish": "Guarneça com uma casca de laranja; opcionalmente, uma casca de limão-siciliano.",
+    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada",
+    "garnish": "Guarneça com uma casca de laranja; opcionalmente, uma casca de limão-siciliano",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
@@ -167,15 +167,15 @@
       },
       "lime": {
         "name": "Limão",
-        "note": "Cortado em pequenos gomos."
+        "note": "Cortado em pequenos gomos"
       },
       "sugar": {
         "name": "Açúcar",
-        "note": "Prefira açúcar de cana branco."
+        "note": "Prefira açúcar de cana branco"
       }
     },
-    "method": "Coloque o limão e o açúcar em um copo double old fashioned e macere delicadamente. Complete o copo com gelo quebrado e adicione a cachaça. Mexa delicadamente para envolver os ingredientes. Nota: Caipiroska - use vodka no lugar da cachaça; Caipirissima - use rum no lugar da cachaça. Caipirão - use Licor Beirão no lugar da cachaça.",
-    "garnish": "Sem guarnição."
+    "method": "Coloque o limão e o açúcar em um copo double old fashioned e macere delicadamente. Complete o copo com gelo quebrado e adicione a cachaça. Mexa delicadamente para envolver os ingredientes.",
+    "methodNote": "Caipiroska - use vodka no lugar da cachaça; Caipirissima - use rum no lugar da cachaça. Caipirão - use Licor Beirão no lugar da cachaça"
   },
   "canchanchara": {
     "name": "Canchanchara",
@@ -188,15 +188,15 @@
       },
       "rum": {
         "name": "Rum",
-        "note": "Prefira aguardente cubana."
+        "note": "Prefira aguardente cubana"
       },
       "lime-juice": {
         "name": "Suco de limão",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Misture o mel com água e suco de limão e espalhe a mistura no fundo e nas laterais do copo. Adicione gelo quebrado e depois o rum. Finalize mexendo energicamente de baixo para cima.",
-    "garnish": "Guarneça com um gomo de limão.",
+    "method": "Misture o mel com água e suco de limão e espalhe a mistura no fundo e nas laterais do copo. Adicione gelo quebrado e depois o rum. Finalize mexendo energicamente de baixo para cima",
+    "garnish": "Guarneça com um gomo de limão",
     "garnishIngredients": {
       "lime": {
         "name": "Limão"
@@ -216,8 +216,8 @@
         "name": "Campari"
       }
     },
-    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada.",
-    "garnish": "Guarneça com uma casca de limão-siciliano.",
+    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada",
+    "garnish": "Guarneça com uma casca de limão-siciliano",
     "garnishIngredients": {
       "lemon": {
         "name": "Limão-siciliano"
@@ -229,7 +229,7 @@
     "ingredients": {
       "champagne": {
         "name": "Champagne",
-        "note": "Use Champagne gelado.",
+        "note": "Use Champagne gelado",
         "substitutions": {
           "prosecco": {
             "name": "Prosecco"
@@ -254,15 +254,15 @@
         }
       }
     },
-    "method": "Coloque o cubo de açúcar com 2 dashes de bitter em uma taça grande de Champagne e adicione o conhaque. Despeje delicadamente o Champagne gelado.",
-    "garnish": "Guarneça com casca de laranja e cereja maraschino.",
+    "method": "Coloque o cubo de açúcar com 2 dashes de bitter em uma taça grande de Champagne e adicione o conhaque. Despeje delicadamente o Champagne gelado",
+    "garnish": "Guarneça com casca de laranja e cereja maraschino",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
       },
       "cherry": {
         "name": "Cereja",
-        "note": "Cereja de coquetel ou maraschino."
+        "note": "Cereja de coquetel ou maraschino"
       }
     }
   },
@@ -280,11 +280,11 @@
       },
       "lime-juice": {
         "name": "Suco de limão",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Adicione todos os ingredientes a uma coqueteleira cheia de gelo. Bata bem e coe para uma taça grande de coquetel.",
-    "garnish": "Guarneça com uma torção de casca de limão-siciliano.",
+    "method": "Adicione todos os ingredientes a uma coqueteleira cheia de gelo. Bata bem e coe para uma taça grande de coquetel",
+    "garnish": "Guarneça com uma torção de casca de limão-siciliano",
     "garnishIngredients": {
       "lemon": {
         "name": "Limão-siciliano"
@@ -302,11 +302,11 @@
       },
       "lime-juice": {
         "name": "Suco de limão",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Monte todos os ingredientes em um copo highball cheio de gelo.",
-    "garnish": "Guarneça com um gomo de limão.",
+    "method": "Monte todos os ingredientes em um copo highball cheio de gelo",
+    "garnish": "Guarneça com um gomo de limão",
     "garnishIngredients": {
       "lime": {
         "name": "Limão"
@@ -318,19 +318,18 @@
     "ingredients": {
       "white-rum": {
         "name": "Rum branco",
-        "note": "Prefira rum branco cubano."
+        "note": "Prefira rum branco cubano"
       },
       "sugar": {
         "name": "Açúcar",
-        "note": "Prefira refinado."
+        "note": "Prefira refinado"
       },
       "lime-juice": {
         "name": "Suco de limão",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Adicione todos os ingredientes a uma coqueteleira. Mexa bem para dissolver o açúcar. Adicione gelo e bata. Coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição."
+    "method": "Adicione todos os ingredientes a uma coqueteleira. Mexa bem para dissolver o açúcar. Adicione gelo e bata. Coe para uma taça de coquetel resfriada"
   },
   "dry-martini": {
     "name": "Dry Martini",
@@ -342,8 +341,8 @@
         "name": "Vermute seco"
       }
     },
-    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça martini resfriada.",
-    "garnish": "Esprema os óleos de uma casca de limão-siciliano sobre o drink ou guarneça com azeitonas verdes, se solicitado.",
+    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça martini resfriada",
+    "garnish": "Esprema os óleos de uma casca de limão-siciliano sobre o drink ou guarneça com azeitonas verdes, se solicitado",
     "garnishIngredients": {
       "lemon": {
         "name": "Limão-siciliano"
@@ -361,18 +360,18 @@
       },
       "coffee-liqueur": {
         "name": "Licor de café",
-        "note": "Prefira Kahlúa."
+        "note": "Prefira Kahlúa"
       },
       "espresso": {
         "name": "Espresso",
-        "note": "Use espresso forte."
+        "note": "Use espresso forte"
       },
       "simple-syrup": {
         "name": "Xarope simples"
       }
     },
-    "method": "Despeje todos os ingredientes na coqueteleira, bata bem com gelo e coe para uma taça de coquetel resfriada.",
-    "garnish": "3 grãos de café.",
+    "method": "Despeje todos os ingredientes na coqueteleira, bata bem com gelo e coe para uma taça de coquetel resfriada",
+    "garnish": "3 grãos de café",
     "garnishIngredients": {
       "coffee-beans": {
         "name": "Grãos de café"
@@ -384,14 +383,13 @@
     "ingredients": {
       "fernet": {
         "name": "Fernet",
-        "note": "Prefira Fernet-Branca."
+        "note": "Prefira Fernet-Branca"
       },
       "cola": {
         "name": "Cola"
       }
     },
-    "method": "Despeje o Fernet Branca em um copo double old fashioned com gelo e complete com cola. Mexa delicadamente.",
-    "garnish": "Sem guarnição."
+    "method": "Despeje o Fernet Branca em um copo double old fashioned com gelo e complete com cola. Mexa delicadamente"
   },
   "french-75": {
     "name": "French 75",
@@ -409,14 +407,13 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       },
       "simple-syrup": {
         "name": "Xarope simples"
       }
     },
-    "method": "Despeje todos os ingredientes, exceto o Champagne, em uma coqueteleira. Bata bem e coe para uma taça flute. Complete com Champagne. Mexa delicadamente.",
-    "garnish": "Sem guarnição."
+    "method": "Despeje todos os ingredientes, exceto o Champagne, em uma coqueteleira. Bata bem e coe para uma taça flute. Complete com Champagne. Mexa delicadamente"
   },
   "french-connection": {
     "name": "French Connection",
@@ -428,8 +425,7 @@
         "name": "Amaretto"
       }
     },
-    "method": "Despeje todos os ingredientes diretamente em um copo old fashioned cheio de cubos de gelo. Mexa delicadamente.",
-    "garnish": "Sem guarnição."
+    "method": "Despeje todos os ingredientes diretamente em um copo old fashioned cheio de cubos de gelo. Mexa delicadamente"
   },
   "garibaldi": {
     "name": "Garibaldi",
@@ -439,11 +435,11 @@
       },
       "orange-juice": {
         "name": "Suco de laranja",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Monte todos os ingredientes em um copo highball cheio de gelo.",
-    "garnish": "Guarneça com um gomo de laranja.",
+    "method": "Monte todos os ingredientes em um copo highball cheio de gelo",
+    "garnish": "Guarneça com um gomo de laranja",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
@@ -458,18 +454,17 @@
       },
       "basil": {
         "name": "Manjericão",
-        "note": "Folhas de manjericão italiano."
+        "note": "Folhas de manjericão italiano"
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       },
       "simple-syrup": {
         "name": "Xarope simples"
       }
     },
-    "method": "Adicione todos os ingredientes à coqueteleira com gelo. Bata vigorosamente e despeje em uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição."
+    "method": "Adicione todos os ingredientes à coqueteleira com gelo. Bata vigorosamente e despeje em uma taça de coquetel resfriada"
   },
   "gin-fizz": {
     "name": "Gin Fizz",
@@ -485,11 +480,12 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Bata todos os ingredientes com gelo, exceto a água com gás. Despeje em um copo tumbler alto e fino e complete com um splash de água com gás. NOTA: sirva sem gelo.",
-    "garnish": "Guarneça com uma fatia de limão-siciliano; opcionalmente, uma casca de limão-siciliano.",
+    "method": "Bata todos os ingredientes com gelo, exceto a água com gás. Despeje em um copo tumbler alto e fino e complete com um splash de água com gás.",
+    "methodNote": "Sirva sem gelo",
+    "garnish": "Guarneça com uma fatia de limão-siciliano; opcionalmente, uma casca de limão-siciliano",
     "garnishIngredients": {
       "lemon": {
         "name": "Limão-siciliano"
@@ -501,7 +497,7 @@
     "ingredients": {
       "gin": {
         "name": "Gin",
-        "note": "Prefira London dry gin."
+        "note": "Prefira London dry gin"
       },
       "vermouth-rosso": {
         "name": "Vermute tinto doce"
@@ -510,8 +506,8 @@
         "name": "Fernet"
       }
     },
-    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada.",
-    "garnish": "Casca de laranja.",
+    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada",
+    "garnish": "Casca de laranja",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
@@ -532,11 +528,10 @@
       },
       "cream": {
         "name": "Creme de leite",
-        "note": "Fresco e gelado. Gelado."
+        "note": "Fresco e gelado. Gelado"
       }
     },
-    "method": "Despeje café preto quente em uma taça Irish coffee previamente aquecida. Adicione whiskey e pelo menos uma colher de chá de açúcar, mexendo até dissolver. Despeje cuidadosamente creme de leite fresco gelado e espesso sobre as costas de uma colher posicionada logo acima da superfície do café. A camada de creme deve flutuar sobre o café sem se misturar. Açúcar comum pode ser substituído por xarope de açúcar.",
-    "garnish": "Sem guarnição."
+    "method": "Despeje café preto quente em uma taça Irish coffee previamente aquecida. Adicione whiskey e pelo menos uma colher de chá de açúcar, mexendo até dissolver. Despeje cuidadosamente creme de leite fresco gelado e espesso sobre as costas de uma colher posicionada logo acima da superfície do café. A camada de creme deve flutuar sobre o café sem se misturar. Açúcar comum pode ser substituído por xarope de açúcar"
   },
   "john-collins": {
     "name": "John Collins",
@@ -552,18 +547,19 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Despeje todos os ingredientes diretamente em um copo highball cheio de gelo. Mexa delicadamente. NOTA: use gin Old Tom para o Tom Collins.",
-    "garnish": "Guarneça com fatia de limão-siciliano e cereja maraschino.",
+    "method": "Despeje todos os ingredientes diretamente em um copo highball cheio de gelo. Mexa delicadamente.",
+    "methodNote": "Use gin Old Tom para o Tom Collins",
+    "garnish": "Guarneça com fatia de limão-siciliano e cereja maraschino",
     "garnishIngredients": {
       "lemon": {
         "name": "Limão-siciliano"
       },
       "cherry": {
         "name": "Cereja",
-        "note": "Cereja de coquetel ou maraschino."
+        "note": "Cereja de coquetel ou maraschino"
       }
     }
   },
@@ -584,11 +580,11 @@
       },
       "lime-juice": {
         "name": "Suco de limão",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Despeje todos os ingredientes em uma coqueteleira com gelo e bata. Coe para um copo rocks cheio de gelo.",
-    "garnish": "Guarneça com um gomo de abacaxi.",
+    "method": "Despeje todos os ingredientes em uma coqueteleira com gelo e bata. Coe para um copo rocks cheio de gelo",
+    "garnish": "Guarneça com um gomo de abacaxi",
     "garnishIngredients": {
       "pineapple": {
         "name": "Abacaxi"
@@ -606,11 +602,10 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Despeje todos os ingredientes em uma coqueteleira com gelo. Bata bem e coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição."
+    "method": "Despeje todos os ingredientes em uma coqueteleira com gelo. Bata bem e coe para uma taça de coquetel resfriada"
   },
   "long-island-iced-tea": {
     "name": "Long Island Iced Tea",
@@ -640,8 +635,8 @@
         "name": "Cola"
       }
     },
-    "method": "Adicione todos os ingredientes em um copo highball cheio de gelo. Mexa delicadamente.",
-    "garnish": "Guarneça com uma fatia de limão-siciliano (opcional).",
+    "method": "Adicione todos os ingredientes em um copo highball cheio de gelo. Mexa delicadamente",
+    "garnish": "Guarneça com uma fatia de limão-siciliano (opcional)",
     "garnishIngredients": {
       "lemon": {
         "name": "Limão-siciliano"
@@ -661,12 +656,12 @@
         "name": "Bitter Angostura"
       }
     },
-    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada.",
-    "garnish": "Guarneça com cereja de coquetel.",
+    "method": "Despeje todos os ingredientes em um mixing glass com cubos de gelo. Mexa bem. Coe para uma taça de coquetel resfriada",
+    "garnish": "Guarneça com cereja de coquetel",
     "garnishIngredients": {
       "cherry": {
         "name": "Cereja",
-        "note": "Cereja de coquetel ou maraschino."
+        "note": "Cereja de coquetel ou maraschino"
       }
     }
   },
@@ -675,18 +670,18 @@
     "ingredients": {
       "tequila": {
         "name": "Tequila",
-        "note": "Prefira tequila 100% agave."
+        "note": "Prefira tequila 100% agave"
       },
       "cointreau": {
         "name": "Cointreau"
       },
       "lime-juice": {
         "name": "Suco de limão",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Adicione todos os ingredientes a uma coqueteleira com gelo. Bata e coe para uma taça de coquetel resfriada.",
-    "garnish": "Meia borda de sal (opcional).",
+    "method": "Adicione todos os ingredientes a uma coqueteleira com gelo. Bata e coe para uma taça de coquetel resfriada",
+    "garnish": "Meia borda de sal (opcional)",
     "garnishIngredients": {
       "salt": {
         "name": "Sal"
@@ -701,11 +696,12 @@
       },
       "orange-juice": {
         "name": "Suco de laranja",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Despeje o suco de laranja em uma taça flute e adicione delicadamente o vinho espumante. Mexa delicadamente. NOTA: também conhecido como Buck’s Fizz.",
-    "garnish": "Guarneça com uma torção de casca de laranja (opcional).",
+    "method": "Despeje o suco de laranja em uma taça flute e adicione delicadamente o vinho espumante. Mexa delicadamente.",
+    "methodNote": "Também conhecido como Buck’s Fizz",
+    "garnish": "Guarneça com uma torção de casca de laranja (opcional)",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
@@ -726,11 +722,11 @@
       },
       "mint": {
         "name": "Hortelã",
-        "note": "Use ramos frescos."
+        "note": "Use ramos frescos"
       }
     },
-    "method": "Em uma caneca julep de aço inox, macere delicadamente a hortelã com açúcar e água. Complete o copo com gelo quebrado, adicione o bourbon e mexa bem até a caneca gelar por fora.",
-    "garnish": "Guarneça com um ramo de hortelã.",
+    "method": "Em uma caneca julep de aço inox, macere delicadamente a hortelã com açúcar e água. Complete o copo com gelo quebrado, adicione o bourbon e mexa bem até a caneca gelar por fora",
+    "garnish": "Guarneça com um ramo de hortelã",
     "garnishIngredients": {
       "mint": {
         "name": "Hortelã"
@@ -742,26 +738,26 @@
     "ingredients": {
       "white-rum": {
         "name": "Rum branco",
-        "note": "Prefira rum branco cubano."
+        "note": "Prefira rum branco cubano"
       },
       "soda-water": {
         "name": "Água com gás"
       },
       "sugar": {
         "name": "Açúcar",
-        "note": "Prefira açúcar de cana branco."
+        "note": "Prefira açúcar de cana branco"
       },
       "mint": {
         "name": "Hortelã",
-        "note": "Use ramos."
+        "note": "Use ramos"
       },
       "lime-juice": {
         "name": "Suco de limão",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Misture os ramos de hortelã com açúcar e suco de limão. Adicione um splash de água com gás e encha o copo com gelo. Despeje o rum e complete com água com gás. Mexa levemente para envolver todos os ingredientes.",
-    "garnish": "Guarneça com ramos de hortelã e uma fatia de limão.",
+    "method": "Misture os ramos de hortelã com açúcar e suco de limão. Adicione um splash de água com gás e encha o copo com gelo. Despeje o rum e complete com água com gás. Mexa levemente para envolver todos os ingredientes",
+    "garnish": "Guarneça com ramos de hortelã e uma fatia de limão",
     "garnishIngredients": {
       "mint": {
         "name": "Hortelã"
@@ -776,18 +772,18 @@
     "ingredients": {
       "vodka": {
         "name": "Vodka",
-        "note": "Prefira Smirnoff."
+        "note": "Prefira Smirnoff"
       },
       "ginger-beer": {
         "name": "Ginger beer"
       },
       "lime-juice": {
         "name": "Suco de limão",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Em uma caneca mule ou copo rocks, combine a vodka e a ginger beer. Adicione o suco de limão e mexa delicadamente para envolver todos os ingredientes.",
-    "garnish": "Guarneça com uma fatia de limão.",
+    "method": "Em uma caneca mule ou copo rocks, combine a vodka e a ginger beer. Adicione o suco de limão e mexa delicadamente para envolver todos os ingredientes",
+    "garnish": "Guarneça com uma fatia de limão",
     "garnishIngredients": {
       "lime": {
         "name": "Limão"
@@ -807,8 +803,8 @@
         "name": "Vermute tinto doce"
       }
     },
-    "method": "Despeje todos os ingredientes diretamente em um copo old fashioned resfriado e cheio de gelo. Mexa delicadamente.",
-    "garnish": "Guarneça com meia fatia de laranja.",
+    "method": "Despeje todos os ingredientes diretamente em um copo old fashioned resfriado e cheio de gelo. Mexa delicadamente",
+    "garnish": "Guarneça com meia fatia de laranja",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
@@ -838,11 +834,11 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Despeje todos os ingredientes na coqueteleira. Bata vigorosamente com gelo. Coe para um copo rocks resfriado e cheio de gelo. Flutue o vinho por cima.",
-    "garnish": "Guarneça com casca de limão-siciliano ou de laranja e cereja.",
+    "method": "Despeje todos os ingredientes na coqueteleira. Bata vigorosamente com gelo. Coe para um copo rocks resfriado e cheio de gelo. Flutue o vinho por cima",
+    "garnish": "Guarneça com casca de limão-siciliano ou de laranja e cereja",
     "garnishIngredients": {
       "lemon": {
         "name": "Limão-siciliano"
@@ -852,7 +848,7 @@
       },
       "cherry": {
         "name": "Cereja",
-        "note": "Cereja de coquetel ou maraschino."
+        "note": "Cereja de coquetel ou maraschino"
       }
     }
   },
@@ -870,7 +866,7 @@
       },
       "champagne": {
         "name": "Champagne",
-        "note": "Prefira Champagne Brut.",
+        "note": "Prefira Champagne Brut",
         "substitutions": {
           "prosecco": {
             "name": "Prosecco"
@@ -879,15 +875,15 @@
       },
       "mint": {
         "name": "Hortelã",
-        "note": "Use folhas."
+        "note": "Use folhas"
       },
       "lime-juice": {
         "name": "Suco de limão",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Despeje todos os ingredientes na coqueteleira, exceto o espumante. Bata bem com gelo e coe para uma taça de coquetel elegante e resfriada. Complete com o vinho espumante.",
-    "garnish": "Guarneça com ramos de hortelã.",
+    "method": "Despeje todos os ingredientes na coqueteleira, exceto o espumante. Bata bem com gelo e coe para uma taça de coquetel elegante e resfriada. Complete com o vinho espumante",
+    "garnish": "Guarneça com ramos de hortelã",
     "garnishIngredients": {
       "mint": {
         "name": "Hortelã"
@@ -918,18 +914,18 @@
       },
       "water": {
         "name": "Água",
-        "note": "Sem gás."
+        "note": "Sem gás"
       }
     },
-    "method": "Coloque o cubo de açúcar no copo old fashioned e sature com bitter; adicione alguns dashes de água sem gás. Macere até dissolver. Encha o copo com cubos de gelo e adicione o whiskey. Mexa delicadamente.",
-    "garnish": "Guarneça com fatia ou casca de laranja e uma cereja de coquetel.",
+    "method": "Coloque o cubo de açúcar no copo old fashioned e sature com bitter; adicione alguns dashes de água sem gás. Macere até dissolver. Encha o copo com cubos de gelo e adicione o whiskey. Mexa delicadamente",
+    "garnish": "Guarneça com fatia ou casca de laranja e uma cereja de coquetel",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
       },
       "cherry": {
         "name": "Cereja",
-        "note": "Cereja de coquetel ou maraschino."
+        "note": "Cereja de coquetel ou maraschino"
       }
     }
   },
@@ -944,18 +940,19 @@
       },
       "pineapple-juice": {
         "name": "Suco de abacaxi",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Bata todos os ingredientes com gelo em um liquidificador, despeje em um copo grande e sirva com canudos. Nota: historicamente, algumas gotas de suco de limão fresco eram adicionadas a gosto. Quatro fatias de abacaxi fresco podem ser usadas no lugar do suco.",
-    "garnish": "Guarneça com uma fatia de abacaxi e uma cereja de coquetel.",
+    "method": "Bata todos os ingredientes com gelo em um liquidificador, despeje em um copo grande e sirva com canudos.",
+    "methodNote": "Historicamente, algumas gotas de suco de limão fresco eram adicionadas a gosto. Quatro fatias de abacaxi fresco podem ser usadas no lugar do suco",
+    "garnish": "Guarneça com uma fatia de abacaxi e uma cereja de coquetel",
     "garnishIngredients": {
       "pineapple": {
         "name": "Abacaxi"
       },
       "cherry": {
         "name": "Cereja",
-        "note": "Cereja de coquetel ou maraschino."
+        "note": "Cereja de coquetel ou maraschino"
       }
     }
   },
@@ -975,8 +972,8 @@
         "name": "Bitter Angostura"
       }
     },
-    "method": "Combine todos os ingredientes em um copo rocks, adicione gelo e mexa brevemente.",
-    "garnish": "Guarneça com uma torção de casca de laranja.",
+    "method": "Combine todos os ingredientes em um copo rocks, adicione gelo e mexa brevemente",
+    "garnish": "Guarneça com uma torção de casca de laranja",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
@@ -997,11 +994,11 @@
       },
       "orange-juice": {
         "name": "Suco de laranja",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Monte todos os ingredientes em um copo highball cheio de gelo.",
-    "garnish": "Guarneça com meia fatia de laranja.",
+    "method": "Monte todos os ingredientes em um copo highball cheio de gelo",
+    "garnish": "Guarneça com meia fatia de laranja",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
@@ -1019,18 +1016,17 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Despeje todos os ingredientes na coqueteleira, bata bem com gelo e coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição."
+    "method": "Despeje todos os ingredientes na coqueteleira, bata bem com gelo e coe para uma taça de coquetel resfriada"
   },
   "south-side": {
     "name": "South Side",
     "ingredients": {
       "gin": {
         "name": "Gin",
-        "note": "Prefira London dry gin."
+        "note": "Prefira London dry gin"
       },
       "simple-syrup": {
         "name": "Xarope simples"
@@ -1040,15 +1036,16 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       },
       "mint": {
         "name": "Hortelã",
-        "note": "Use folhas."
+        "note": "Use folhas"
       }
     },
-    "method": "Despeje todos os ingredientes em uma coqueteleira, bata bem com gelo e faça dupla coagem para uma taça de coquetel resfriada. Nota: se usar clara de ovo, bata vigorosamente.",
-    "garnish": "Guarneça com ramos de hortelã.",
+    "method": "Despeje todos os ingredientes em uma coqueteleira, bata bem com gelo e faça dupla coagem para uma taça de coquetel resfriada.",
+    "methodNote": "Se usar clara de ovo, bata vigorosamente",
+    "garnish": "Guarneça com ramos de hortelã",
     "garnishIngredients": {
       "mint": {
         "name": "Hortelã"
@@ -1068,8 +1065,9 @@
         "name": "Água com gás"
       }
     },
-    "method": "Monte todos os ingredientes em uma taça de vinho cheia de gelo. Mexa delicadamente. NOTA: existem outras versões do Spritz que usam Campari, Cynar ou Select no lugar do Aperol.",
-    "garnish": "Guarneça com uma fatia de laranja.",
+    "method": "Monte todos os ingredientes em uma taça de vinho cheia de gelo. Mexa delicadamente.",
+    "methodNote": "Existem outras versões do Spritz que usam Campari, Cynar ou Select no lugar do Aperol",
+    "garnish": "Guarneça com uma fatia de laranja",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
@@ -1087,21 +1085,22 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       },
       "simple-syrup": {
         "name": "Xarope simples"
       }
     },
-    "method": "Despeje todos os ingredientes em uma coqueteleira cheia de gelo. Bata bem. Coe para um copo cobbler. Se servido “on the rocks”, coe para um copo old fashioned cheio de gelo. NOTA: se usar clara de ovo, bata um pouco mais forte para liberar e incorporar a espuma da clara.",
-    "garnish": "Guarneça com meia fatia de laranja e cereja maraschino; opcionalmente, use casca de laranja.",
+    "method": "Despeje todos os ingredientes em uma coqueteleira cheia de gelo. Bata bem. Coe para um copo cobbler. Se servido “on the rocks”, coe para um copo old fashioned cheio de gelo.",
+    "methodNote": "Se usar clara de ovo, bata um pouco mais forte para liberar e incorporar a espuma da clara",
+    "garnish": "Guarneça com meia fatia de laranja e cereja maraschino; opcionalmente, use casca de laranja",
     "garnishIngredients": {
       "orange": {
         "name": "Laranja"
       },
       "cherry": {
         "name": "Cereja",
-        "note": "Cereja de coquetel ou maraschino."
+        "note": "Cereja de coquetel ou maraschino"
       }
     }
   },
@@ -1116,10 +1115,9 @@
       },
       "lemon-juice": {
         "name": "Suco de limão-siciliano",
-        "note": "Prefira fresco."
+        "note": "Prefira fresco"
       }
     },
-    "method": "Despeje todos os ingredientes na coqueteleira, bata bem com gelo e coe para uma taça de coquetel resfriada.",
-    "garnish": "Sem guarnição."
+    "method": "Despeje todos os ingredientes na coqueteleira, bata bem com gelo e coe para uma taça de coquetel resfriada"
   }
 }

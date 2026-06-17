@@ -34,6 +34,7 @@ export interface Drink {
   ibaLink: string;
   videoLink: string;
   method: string;
+  methodNote?: string;
   garnish: string;
   ingredients: DrinkIngredient[];
   garnishIngredients?: DrinkIngredient[];
@@ -59,7 +60,8 @@ export interface DrinkRecipe {
   ibaLink: string;
   videoLink: string;
   method: string;
-  garnish: string;
+  methodNote?: string;
+  garnish?: string;
   ingredients: DrinkRecipeIngredient[];
   garnishIngredients?: DrinkRecipeIngredient[];
 }
@@ -77,7 +79,8 @@ export interface DrinkIngredientSubstitutionTranslation {
 export interface DrinkTranslation {
   name: string;
   method: string;
-  garnish: string;
+  methodNote?: string;
+  garnish?: string;
   ingredients: Record<string, DrinkIngredientTranslation>;
   garnishIngredients?: Record<string, DrinkIngredientTranslation>;
 }

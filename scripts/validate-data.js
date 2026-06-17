@@ -7,10 +7,10 @@ const TRANSLATION_FILES = {
   'pt-BR': 'drinks.pt-BR.json',
 };
 const IBA_LINK_PREFIX = 'https://iba-world.com/iba-cocktail/';
-const REQUIRED_RECIPE_FIELDS = ['slug', 'name', 'photo', 'ingredients', 'method', 'garnish', 'ibaLink', 'videoLink'];
+const REQUIRED_RECIPE_FIELDS = ['slug', 'name', 'photo', 'ingredients', 'method', 'ibaLink', 'videoLink'];
 const REQUIRED_RECIPE_INGREDIENT_FIELDS = ['key', 'name'];
-const REQUIRED_TRANSLATION_FIELDS = ['name', 'ingredients', 'method', 'garnish'];
-const RECIPE_FIELDS = new Set([...REQUIRED_RECIPE_FIELDS, 'garnishIngredients']);
+const REQUIRED_TRANSLATION_FIELDS = ['name', 'ingredients', 'method'];
+const RECIPE_FIELDS = new Set([...REQUIRED_RECIPE_FIELDS, 'garnish', 'garnishIngredients', 'methodNote']);
 const RECIPE_INGREDIENT_FIELDS = new Set([
   ...REQUIRED_RECIPE_INGREDIENT_FIELDS,
   'action',
@@ -22,7 +22,7 @@ const RECIPE_INGREDIENT_FIELDS = new Set([
   'substitutions',
   'unit',
 ]);
-const TRANSLATION_FIELDS = new Set([...REQUIRED_TRANSLATION_FIELDS, 'garnishIngredients']);
+const TRANSLATION_FIELDS = new Set([...REQUIRED_TRANSLATION_FIELDS, 'garnish', 'garnishIngredients', 'methodNote']);
 const INGREDIENT_TRANSLATION_FIELDS = new Set(['name', 'note', 'substitutions']);
 const SUBSTITUTION_TRANSLATION_FIELDS = new Set(['name']);
 const SUBSTITUTION_FIELDS = new Set(['key', 'name']);
@@ -114,6 +114,10 @@ function validateRecipes(value) {
       errors.push(`${label} must have at least one ingredient`);
     } else {
       validateRecipeIngredients(`${label}.ingredients`, recipe.ingredients);
+    }
+
+    if ('methodNote' in recipe && !hasValue(recipe.methodNote)) {
+      errors.push(`${label} methodNote must not be empty`);
     }
 
     if ('garnishIngredients' in recipe) {
@@ -261,6 +265,10 @@ function validateTranslations(language, translations, recipesToValidate) {
 
     for (const field of REQUIRED_TRANSLATION_FIELDS) {
       if (!hasValue(translation[field])) errors.push(`${label} is missing ${field}`);
+    }
+
+    if ('methodNote' in translation && !hasValue(translation.methodNote)) {
+      errors.push(`${label} methodNote must not be empty`);
     }
 
     validateIngredientTranslations(`${label}.ingredients`, translation.ingredients, recipe.ingredients);

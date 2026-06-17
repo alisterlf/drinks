@@ -133,7 +133,8 @@ export class DrinkRepository {
       ibaLink: recipe.ibaLink,
       videoLink: recipe.videoLink,
       method: translation?.method ?? recipe.method,
-      garnish: translation?.garnish ?? recipe.garnish,
+      methodNote: translation?.methodNote ?? recipe.methodNote,
+      garnish: translation?.garnish ?? recipe.garnish ?? '',
       ingredients: recipe.ingredients.map((ingredient) =>
         this.localizeIngredient(ingredient, translation?.ingredients[ingredient.key], language),
       ),

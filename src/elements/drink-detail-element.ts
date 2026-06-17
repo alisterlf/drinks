@@ -57,8 +57,11 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
       const videoLink = content.querySelector('.video-link');
       const editIngredientsButton = content.querySelector('[data-edit-ingredients-button]');
       const ingredientList = content.querySelector('.ingredient-list');
+      const notesSection = content.querySelector('[data-notes-section]');
+      const notesList = content.querySelector('[data-notes-list]');
       const missingIngredientsSection = content.querySelector('[data-missing-ingredients-section]');
       const missingIngredientList = content.querySelector('[data-missing-ingredient-list]');
+      const garnishSection = content.querySelector('[data-garnish-section]');
       const favoriteButton = content.querySelector('[data-favorite-button]');
 
       if (
@@ -67,8 +70,11 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
         !(videoLink instanceof HTMLAnchorElement) ||
         !(editIngredientsButton instanceof HTMLButtonElement) ||
         !(ingredientList instanceof HTMLElement) ||
+        !(notesSection instanceof HTMLElement) ||
+        !(notesList instanceof HTMLElement) ||
         !(missingIngredientsSection instanceof HTMLElement) ||
         !(missingIngredientList instanceof HTMLElement) ||
+        !(garnishSection instanceof HTMLElement) ||
         !(favoriteButton instanceof HTMLElement)
       ) {
         throw new Error('Drink detail template is missing required elements.');
@@ -79,13 +85,12 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
       image.src = drink.photo;
       image.alt = drink.name;
       const title = content.querySelector('.detail-title');
-      const summary = content.querySelector('.detail-summary');
       const method = content.querySelector('.method-text');
       const garnish = content.querySelector('.garnish-text');
       if (title) title.textContent = drink.name;
-      if (summary) summary.textContent = app.formatter.formatIngredientSummary(drink.ingredients);
       if (method) method.textContent = drink.method;
-      if (garnish) garnish.textContent = drink.garnish;
+      garnishSection.hidden = drink.garnish.trim().length === 0;
+      if (garnish) garnish.textContent = garnishSection.hidden ? '' : drink.garnish;
       ibaLink.href = drink.ibaLink;
       videoLink.href = drink.videoLink;
       this.bindEditIngredientsButton(editIngredientsButton);
@@ -93,6 +98,10 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
       for (const ingredient of drink.ingredients) {
         ingredientList.append(this.createIngredientItem(ingredient));
       }
+
+      const noteItems = this.createNoteItems(drink);
+      notesSection.hidden = noteItems.length === 0;
+      notesList.append(...noteItems);
 
       const missingIngredients = app.filterMatcher.getMissingIngredients(drink);
       missingIngredientsSection.hidden = missingIngredients.length === 0;
@@ -130,7 +139,7 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
         app.dispatchIngredientsChange();
       });
 
-      if (text) text.textContent = app.formatter.formatIngredientLine(ingredient);
+      if (text) text.textContent = app.formatter.formatIngredientLine(ingredient, { includeNotes: false });
       if (substitution instanceof HTMLElement) {
         const suggestion = options.showSubstitutions ? this.formatSubstitutionSuggestion(ingredient) : '';
         substitution.textContent = suggestion;
@@ -161,6 +170,40 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
         ingredient.substitutions.map((substitution) => substitution.name),
       );
       return app.translations.translate('substitutionSuggestion').replace('{substitutions}', substitutions);
+    }
+
+    createNoteItems(drink: Drink): HTMLElement[] {
+      const noteIngredients = [...drink.ingredients, ...(drink.garnishIngredients ?? [])].filter(
+        (ingredient) => ingredient.optional || ingredient.note,
+      );
+      const items = [];
+
+      if (drink.methodNote?.trim()) {
+        items.push(this.createNoteItem(drink.methodNote));
+      }
+
+      items.push(
+        ...noteIngredients.map((ingredient) => {
+          const ingredientName = app.formatter.formatAlternativeList(
+            app.formatter.getIngredientOptionNames(ingredient),
+          );
+          const notes = [];
+
+          if (ingredient.optional) notes.push(app.translations.translate('optionalIngredientNote'));
+          if (ingredient.note) notes.push(ingredient.note);
+
+          return this.createNoteItem(`${ingredientName}: ${notes.join('; ')}`);
+        }),
+      );
+
+      return items;
+    }
+
+    createNoteItem(text: string): HTMLElement {
+      const item = app.document.createElement('li');
+      item.className = 'detail-note-item';
+      item.textContent = text;
+      return item;
     }
 
     updateFavoriteButton(): void {

@@ -6,6 +6,10 @@ const OPTIONAL_LABEL_BY_LANGUAGE: Record<string, string> = {
   'pt-BR': 'opcional',
 };
 
+interface IngredientFormatOptions {
+  includeNotes?: boolean;
+}
+
 export class DrinkTextFormatter {
   private readonly languageService: LanguageService;
 
@@ -28,22 +32,22 @@ export class DrinkTextFormatter {
     return [ingredient.name, ...(ingredient.substitutions?.map((substitution) => substitution.name) ?? [])];
   }
 
-  formatIngredientSummary(ingredients: DrinkIngredient[]): string {
+  formatIngredientSummary(ingredients: DrinkIngredient[], options: IngredientFormatOptions = {}): string {
     const names = ingredients.map((ingredient) => {
       if (ingredient.prefix) {
-        return `${ingredient.prefix}${this.formatIngredientName(ingredient)}`.toLocaleLowerCase(
+        return `${ingredient.prefix}${this.formatIngredientName(ingredient, options)}`.toLocaleLowerCase(
           this.languageService.currentLanguage,
         );
       }
 
-      return this.formatIngredientName(ingredient);
+      return this.formatIngredientName(ingredient, options);
     });
 
     return this.formatList(names);
   }
 
-  formatIngredientLine(ingredient: DrinkIngredient): string {
-    const name = this.formatIngredientName(ingredient);
+  formatIngredientLine(ingredient: DrinkIngredient, options: IngredientFormatOptions = {}): string {
+    const name = this.formatIngredientName(ingredient, options);
     if (ingredient.prefix) return `${ingredient.prefix}${name}`;
 
     const amount = this.formatIngredientAmount(ingredient);
@@ -83,12 +87,14 @@ export class DrinkTextFormatter {
     return drink.ibaLink.replace(/\/$/, '').split('/').pop() ?? '';
   }
 
-  private formatIngredientName(ingredient: DrinkIngredient): string {
+  private formatIngredientName(ingredient: DrinkIngredient, options: IngredientFormatOptions): string {
     const notes = [];
     const name = this.formatDisjunction(this.getIngredientOptionNames(ingredient));
 
-    if (ingredient.optional) notes.push(this.optionalLabel);
-    if (ingredient.note) notes.push(ingredient.note);
+    if (options.includeNotes !== false) {
+      if (ingredient.optional) notes.push(this.optionalLabel);
+      if (ingredient.note) notes.push(ingredient.note);
+    }
 
     return notes.length > 0 ? `${name} (${notes.join(', ')})` : name;
   }

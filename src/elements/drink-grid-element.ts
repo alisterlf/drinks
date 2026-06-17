@@ -81,7 +81,10 @@ export function createDrinkGridElement(app: DrinksApp): CustomElementConstructor
       const title = card.querySelector('h2');
       const ingredientLegend = card.querySelector('.ingredient-legend');
       if (title) title.textContent = drink.name;
-      if (ingredientLegend) ingredientLegend.textContent = app.formatter.formatIngredientSummary(drink.ingredients);
+      if (ingredientLegend)
+        ingredientLegend.textContent = app.formatter.formatIngredientSummary(drink.ingredients, {
+          includeNotes: false,
+        });
       app.favoriteButtons.bind(favoriteButton, drink);
       return card;
     }

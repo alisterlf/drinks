@@ -587,11 +587,6 @@ h1 {
   font: var(--font-detail-title);
 }
 
-.detail-summary {
-  color: var(--color-muted);
-  font: var(--font-text);
-}
-
 .detail-links {
   display: flex;
   flex-wrap: wrap;
@@ -664,6 +659,22 @@ h1 {
 }
 
 .ingredient-list li:last-child {
+  padding-block-end: var(--space-0);
+  border-block-end: 0;
+}
+
+.detail-note-list {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-muted);
+}
+
+.detail-note-item {
+  padding-block-end: var(--space-2);
+  border-block-end: 1px solid var(--color-line-soft);
+}
+
+.detail-note-item:last-child {
   padding-block-end: var(--space-0);
   border-block-end: 0;
 }
