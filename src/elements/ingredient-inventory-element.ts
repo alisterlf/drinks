@@ -1,124 +1,22 @@
+import ingredientGroupsData from '../data/ingredient-groups.json';
 import type { DrinksApp } from '../app/drinks-app.ts';
 import type { IngredientInventoryItem } from '../types.ts';
 
 interface IngredientInventoryGroup {
   id: string;
   labelKey: string;
-  ingredientKeys: string[];
+  keys: string[];
 }
 
 interface RenderedIngredientInventoryGroup extends IngredientInventoryGroup {
   ingredients: IngredientInventoryItem[];
 }
 
-const INGREDIENT_GROUPS: IngredientInventoryGroup[] = [
-  {
-    id: 'spirits',
-    labelKey: 'ingredientGroupSpirits',
-    ingredientKeys: [
-      'aged rum',
-      'blackstrap rum',
-      'bourbon',
-      'cachaca',
-      'cognac',
-      'gin',
-      'irish whiskey',
-      'rum',
-      'rye whiskey',
-      'tequila',
-      'vodka',
-      'vodka citron',
-      'white rum',
-    ],
-  },
-  {
-    id: 'liqueurs',
-    labelKey: 'ingredientGroupLiqueurs',
-    ingredientKeys: [
-      'amaretto',
-      'aperol',
-      'campari',
-      'coffee liqueur',
-      'cointreau',
-      'cynar',
-      'fernet',
-      'grand marnier',
-      'peach schnapps',
-    ],
-  },
-  {
-    id: 'wine',
-    labelKey: 'ingredientGroupWine',
-    ingredientKeys: ['champagne', 'dry vermouth', 'prosecco', 'red wine', 'vermouth rosso'],
-  },
-  {
-    id: 'mixers',
-    labelKey: 'ingredientGroupMixers',
-    ingredientKeys: [
-      'cola',
-      'coffee beans',
-      'ginger beer',
-      'hot coffee',
-      'espresso',
-      'soda water',
-      'tomato juice',
-      'water',
-    ],
-  },
-  {
-    id: 'fruit',
-    labelKey: 'ingredientGroupFruit',
-    ingredientKeys: [
-      'cherry',
-      'cranberry juice',
-      'lemon',
-      'lemon juice',
-      'lime',
-      'lime juice',
-      'orange',
-      'orange juice',
-      'pineapple',
-      'pineapple juice',
-    ],
-  },
-  {
-    id: 'sweeteners',
-    labelKey: 'ingredientGroupSweeteners',
-    ingredientKeys: [
-      'demerara sugar syrup',
-      'honey syrup',
-      'powdered sugar',
-      'raw honey',
-      'simple syrup',
-      'sugar',
-      'sugar cube',
-    ],
-  },
-  {
-    id: 'herbs-spices',
-    labelKey: 'ingredientGroupHerbsSpices',
-    ingredientKeys: [
-      'angostura bitters',
-      'basil',
-      'mint',
-      'tabasco',
-      'celery',
-      'salt',
-      'pepper',
-      'worcestershire sauce',
-    ],
-  },
-  {
-    id: 'dairy-eggs',
-    labelKey: 'ingredientGroupDairyEggs',
-    ingredientKeys: ['coconut cream', 'cream', 'egg white'],
-  },
-  {
-    id: 'other',
-    labelKey: 'ingredientGroupOther',
-    ingredientKeys: ['olive'],
-  },
-];
+const INGREDIENT_GROUPS: IngredientInventoryGroup[] = ingredientGroupsData.groups;
+const FALLBACK_GROUP = INGREDIENT_GROUPS[INGREDIENT_GROUPS.length - 1];
+const GROUP_BY_RECIPE_KEY = new Map<string, IngredientInventoryGroup>(
+  INGREDIENT_GROUPS.flatMap((group) => group.keys.map((key) => [key, group] as const)),
+);
 
 export function createIngredientInventoryElement(app: DrinksApp): CustomElementConstructor {
   return class IngredientInventoryElement extends app.BaseHTMLElement {
@@ -232,16 +130,7 @@ export function createIngredientInventoryElement(app: DrinksApp): CustomElementC
     }
 
     getIngredientGroup(ingredient: IngredientInventoryItem): IngredientInventoryGroup {
-      return (
-        INGREDIENT_GROUPS.find((group) =>
-          group.ingredientKeys.some((ingredientKey) => this.ingredientMatchesKey(ingredient, ingredientKey)),
-        ) ?? INGREDIENT_GROUPS[INGREDIENT_GROUPS.length - 1]
-      );
-    }
-
-    ingredientMatchesKey(ingredient: IngredientInventoryItem, ingredientKey: string): boolean {
-      const normalizedKey = app.formatter.getIngredientKey(ingredientKey);
-      return ingredient.key === normalizedKey || ingredient.aliasKeys.includes(normalizedKey);
+      return GROUP_BY_RECIPE_KEY.get(ingredient.recipeKey) ?? FALLBACK_GROUP;
     }
 
     createIngredientGroup(group: RenderedIngredientInventoryGroup): HTMLElement {

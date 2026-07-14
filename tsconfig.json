@@ -6,6 +6,7 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
     "noEmit": true,
     "strict": true,
     "noUnusedLocals": true,

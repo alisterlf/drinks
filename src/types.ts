@@ -32,7 +32,7 @@ export interface Drink {
   name: string;
   photo: string;
   ibaLink: string;
-  videoLink: string;
+  videoLink?: string;
   method: string;
   methodNote?: string;
   garnish: string;
@@ -58,7 +58,7 @@ export interface DrinkRecipe {
   name: string;
   photo: string;
   ibaLink: string;
-  videoLink: string;
+  videoLink?: string;
   method: string;
   methodNote?: string;
   garnish?: string;
@@ -97,6 +97,7 @@ export interface DrinkFilterDefinition {
 
 export interface IngredientInventoryItem {
   key: string;
+  recipeKey: string;
   aliasKeys: string[];
   name: string;
   drinkCount: number;

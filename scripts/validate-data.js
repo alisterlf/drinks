@@ -2,15 +2,16 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const DATA_DIR = path.resolve(__dirname, '..', 'public');
+const GROUPS_FILE = path.resolve(__dirname, '..', 'src', 'data', 'ingredient-groups.json');
 const RECIPE_FILE = 'drinks.json';
 const TRANSLATION_FILES = {
   'pt-BR': 'drinks.pt-BR.json',
 };
 const IBA_LINK_PREFIX = 'https://iba-world.com/iba-cocktail/';
-const REQUIRED_RECIPE_FIELDS = ['slug', 'name', 'photo', 'ingredients', 'method', 'ibaLink', 'videoLink'];
+const REQUIRED_RECIPE_FIELDS = ['slug', 'name', 'photo', 'ingredients', 'method', 'ibaLink'];
 const REQUIRED_RECIPE_INGREDIENT_FIELDS = ['key', 'name'];
 const REQUIRED_TRANSLATION_FIELDS = ['name', 'ingredients', 'method'];
-const RECIPE_FIELDS = new Set([...REQUIRED_RECIPE_FIELDS, 'garnish', 'garnishIngredients', 'methodNote']);
+const RECIPE_FIELDS = new Set([...REQUIRED_RECIPE_FIELDS, 'garnish', 'garnishIngredients', 'methodNote', 'videoLink']);
 const RECIPE_INGREDIENT_FIELDS = new Set([
   ...REQUIRED_RECIPE_INGREDIENT_FIELDS,
   'action',
@@ -26,7 +27,20 @@ const TRANSLATION_FIELDS = new Set([...REQUIRED_TRANSLATION_FIELDS, 'garnish', '
 const INGREDIENT_TRANSLATION_FIELDS = new Set(['name', 'note', 'substitutions']);
 const SUBSTITUTION_TRANSLATION_FIELDS = new Set(['name']);
 const SUBSTITUTION_FIELDS = new Set(['key', 'name']);
-const UNITS = new Set(['bar spoons', 'dash', 'dashes', 'drops', 'ml', 'pcs', 'splash', 'teaspoon', 'teaspoons', 'tsp']);
+const UNITS = new Set([
+  'bar spoons',
+  'dash',
+  'dashes',
+  'drops',
+  'ml',
+  'pcs',
+  'splash',
+  'tablespoon',
+  'tablespoons',
+  'teaspoon',
+  'teaspoons',
+  'tsp',
+]);
 const ACTIONS = new Set(['fill', 'top']);
 const AMOUNT_LABELS = new Set(['few']);
 
@@ -37,9 +51,12 @@ const translationsByLanguage = new Map(
 );
 
 validateRecipes(recipes);
+validateIngredientGroups(recipes);
+validateRecipeNameConsistency(recipes);
 
 for (const [language, translations] of translationsByLanguage) {
   validateTranslations(language, translations, recipes);
+  validateTranslationNameConsistency(language, translations);
 }
 
 if (errors.length > 0) {
@@ -361,6 +378,116 @@ function validateSubstitutionTranslations(label, translations, substitutions) {
     validateKnownFields(substitutionLabel, translation, SUBSTITUTION_TRANSLATION_FIELDS);
 
     if (!hasValue(translation.name)) errors.push(`${substitutionLabel} is missing name`);
+  }
+}
+
+function collectRecipeIngredientKeys(recipesToScan) {
+  const keys = new Set();
+
+  for (const recipe of recipesToScan) {
+    for (const ingredient of [...(recipe.ingredients ?? []), ...(recipe.garnishIngredients ?? [])]) {
+      if (hasValue(ingredient?.key)) keys.add(ingredient.key);
+      for (const substitution of ingredient?.substitutions ?? []) {
+        if (hasValue(substitution?.key)) keys.add(substitution.key);
+      }
+    }
+  }
+
+  return keys;
+}
+
+function validateIngredientGroups(recipesToValidate) {
+  const file = path.basename(GROUPS_FILE);
+  let data;
+
+  try {
+    data = JSON.parse(fs.readFileSync(GROUPS_FILE, 'utf8'));
+  } catch (error) {
+    errors.push(`${file} could not be read: ${error.message}`);
+    return;
+  }
+
+  if (!Array.isArray(data?.groups)) {
+    errors.push(`${file} must contain a groups array`);
+    return;
+  }
+
+  const groupIdByKey = new Map();
+
+  for (const group of data.groups) {
+    if (!hasValue(group?.id) || !hasValue(group?.labelKey) || !Array.isArray(group?.keys)) {
+      errors.push(`${file} group ${group?.id ?? '(unnamed)'} must have id, labelKey and keys`);
+      continue;
+    }
+
+    for (const key of group.keys) {
+      if (groupIdByKey.has(key)) {
+        errors.push(`${file} key ${key} appears in groups ${groupIdByKey.get(key)} and ${group.id}`);
+      }
+      groupIdByKey.set(key, group.id);
+    }
+  }
+
+  const usedKeys = collectRecipeIngredientKeys(recipesToValidate);
+
+  for (const key of usedKeys) {
+    if (!groupIdByKey.has(key)) errors.push(`${file} is missing a group for ingredient key ${key}`);
+  }
+
+  for (const key of groupIdByKey.keys()) {
+    if (!usedKeys.has(key)) errors.push(`${file} has key ${key} that no recipe uses`);
+  }
+}
+
+function validateRecipeNameConsistency(recipesToValidate) {
+  const nameByKey = new Map();
+
+  const check = (key, name, label) => {
+    if (!hasValue(key) || !hasValue(name)) return;
+    const existing = nameByKey.get(key);
+    if (existing === undefined) {
+      nameByKey.set(key, name);
+    } else if (existing !== name) {
+      errors.push(`${RECIPE_FILE} key ${key} has inconsistent names "${existing}" and "${name}" (${label})`);
+    }
+  };
+
+  for (const recipe of recipesToValidate) {
+    for (const ingredient of [...(recipe.ingredients ?? []), ...(recipe.garnishIngredients ?? [])]) {
+      check(ingredient?.key, ingredient?.name, recipe.slug);
+      for (const substitution of ingredient?.substitutions ?? []) {
+        check(substitution?.key, substitution?.name, recipe.slug);
+      }
+    }
+  }
+}
+
+function validateTranslationNameConsistency(language, translations) {
+  const file = TRANSLATION_FILES[language];
+  const nameByKey = new Map();
+
+  const check = (key, name, label) => {
+    if (!hasValue(key) || !hasValue(name)) return;
+    const existing = nameByKey.get(key);
+    if (existing === undefined) {
+      nameByKey.set(key, name);
+    } else if (existing !== name) {
+      errors.push(`${file} key ${key} has inconsistent names "${existing}" and "${name}" (${label})`);
+    }
+  };
+
+  if (!translations || typeof translations !== 'object' || Array.isArray(translations)) return;
+
+  for (const [slug, translation] of Object.entries(translations)) {
+    const ingredientMaps = [translation?.ingredients ?? {}, translation?.garnishIngredients ?? {}];
+    for (const ingredientMap of ingredientMaps) {
+      for (const [key, ingredient] of Object.entries(ingredientMap)) {
+        check(key, ingredient?.name, slug);
+        for (const [substitutionKey, substitution] of Object.entries(ingredient?.substitutions ?? {})) {
+          check(substitutionKey, substitution?.name, slug);
+        }
+      }
+    }
   }
 }
 

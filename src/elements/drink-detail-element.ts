@@ -92,7 +92,8 @@ export function createDrinkDetailElement(app: DrinksApp): CustomElementConstruct
       garnishSection.hidden = drink.garnish.trim().length === 0;
       if (garnish) garnish.textContent = garnishSection.hidden ? '' : drink.garnish;
       ibaLink.href = drink.ibaLink;
-      videoLink.href = drink.videoLink;
+      videoLink.hidden = !drink.videoLink;
+      if (drink.videoLink) videoLink.href = drink.videoLink;
       this.bindEditIngredientsButton(editIngredientsButton);
 
       for (const ingredient of drink.ingredients) {

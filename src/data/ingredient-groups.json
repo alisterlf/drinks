@@ -1,0 +1,197 @@
+{
+  "groups": [
+    {
+      "id": "spirits",
+      "labelKey": "ingredientGroupSpirits",
+      "keys": [
+        "absinthe",
+        "aged-rum",
+        "blackstrap-rum",
+        "bourbon",
+        "brandy",
+        "cachaca",
+        "calvados",
+        "cognac",
+        "dark-rum",
+        "demerara-rum",
+        "gin",
+        "gold-puerto-rican-rum",
+        "grappa",
+        "irish-whiskey",
+        "islay-single-malt-whisky",
+        "jamaican-dark-rum",
+        "jamaican-rum",
+        "martinique-molasses-rhum",
+        "mezcal",
+        "pernod",
+        "pisco",
+        "rhum-agricole",
+        "rum",
+        "rye-whiskey",
+        "scotch-whisky",
+        "smoked-rum",
+        "tequila",
+        "vanilla-vodka",
+        "vodka",
+        "vodka-citron",
+        "white-rum"
+      ]
+    },
+    {
+      "id": "liqueurs",
+      "labelKey": "ingredientGroupLiqueurs",
+      "keys": [
+        "allspice-dram",
+        "amaretto",
+        "amaro-nonino",
+        "aperol",
+        "apricot-brandy",
+        "benedictine",
+        "campari",
+        "cherry-brandy",
+        "cherry-liqueur",
+        "coffee-liqueur",
+        "cointreau",
+        "creme-de-cacao",
+        "creme-de-cacao-white",
+        "creme-de-cassis",
+        "creme-de-menthe-green",
+        "creme-de-menthe-white",
+        "creme-de-mure",
+        "creme-de-violette",
+        "cynar",
+        "drambuie",
+        "falernum",
+        "fernet",
+        "frangelico",
+        "grand-marnier",
+        "green-chartreuse",
+        "maraschino-liqueur",
+        "orange-curacao",
+        "passion-fruit-liqueur",
+        "peach-brandy",
+        "peach-schnapps",
+        "raspberry-liqueur",
+        "yellow-chartreuse"
+      ]
+    },
+    {
+      "id": "wine",
+      "labelKey": "ingredientGroupWine",
+      "keys": [
+        "amontillado-sherry",
+        "champagne",
+        "dry-vermouth",
+        "dry-white-wine",
+        "lillet-blanc",
+        "palo-cortado",
+        "prosecco",
+        "red-wine",
+        "sparkling-wine",
+        "tawny-port",
+        "vermouth-rosso"
+      ]
+    },
+    {
+      "id": "bitters",
+      "labelKey": "ingredientGroupBitters",
+      "keys": ["amargo-bitters", "angostura-bitters", "aromatic-bitters", "orange-bitters", "peychauds-bitters"]
+    },
+    {
+      "id": "mixers",
+      "labelKey": "ingredientGroupMixers",
+      "keys": [
+        "coffee-beans",
+        "cola",
+        "espresso",
+        "ginger-ale",
+        "ginger-beer",
+        "grapefruit-soda",
+        "hot-coffee",
+        "soda-water",
+        "tomato-juice",
+        "water"
+      ]
+    },
+    {
+      "id": "fruit",
+      "labelKey": "ingredientGroupFruit",
+      "keys": [
+        "berries",
+        "blackberry",
+        "cherry",
+        "citrus",
+        "cranberry-juice",
+        "grapefruit-juice",
+        "grapes",
+        "lemon",
+        "lemon-juice",
+        "lime",
+        "lime-juice",
+        "olive",
+        "orange",
+        "orange-juice",
+        "passion-fruit",
+        "passion-fruit-cup",
+        "passion-fruit-puree",
+        "pineapple",
+        "pineapple-juice",
+        "raspberry",
+        "sugar-cane-juice",
+        "white-peach-puree"
+      ]
+    },
+    {
+      "id": "sweeteners",
+      "labelKey": "ingredientGroupSweeteners",
+      "keys": [
+        "agave-syrup",
+        "chamomile-cordial",
+        "demerara-sugar-syrup",
+        "donns-mix",
+        "elderflower-cordial",
+        "grenadine-syrup",
+        "honey-syrup",
+        "orgeat-syrup",
+        "passion-fruit-syrup",
+        "powdered-sugar",
+        "raspberry-syrup",
+        "raw-honey",
+        "simple-syrup",
+        "sugar",
+        "sugar-cube",
+        "vanilla-sugar"
+      ]
+    },
+    {
+      "id": "herbs-spices",
+      "labelKey": "ingredientGroupHerbsSpices",
+      "keys": [
+        "basil",
+        "candied-ginger",
+        "celery",
+        "chili-pepper",
+        "cloves",
+        "ginger",
+        "mint",
+        "nutmeg",
+        "orange-flower-water",
+        "pepper",
+        "salt",
+        "tabasco",
+        "vanilla-extract",
+        "worcestershire-sauce"
+      ]
+    },
+    {
+      "id": "dairy-eggs",
+      "labelKey": "ingredientGroupDairyEggs",
+      "keys": ["coconut-cream", "cream", "egg-white", "egg-yolk"]
+    },
+    {
+      "id": "other",
+      "labelKey": "ingredientGroupOther",
+      "keys": []
+    }
+  ]
+}

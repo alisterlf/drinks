@@ -206,6 +206,8 @@ export class DrinkRepository {
     if (unit === 'bar spoons') return 'colheres bailarinas';
     if (unit === 'drops') return 'gotas';
     if (unit === 'pcs') return 'unid.';
+    if (unit === 'tablespoon') return 'colher de sopa';
+    if (unit === 'tablespoons') return quantity === 1 ? 'colher de sopa' : 'colheres de sopa';
     if (unit === 'teaspoon') return 'colher de chá';
     if (unit === 'teaspoons' || unit === 'tsp') return quantity === 1 ? 'colher de chá' : 'colheres de chá';
 

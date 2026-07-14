@@ -17,9 +17,12 @@ export class IngredientCatalog {
       const drinkSlug = this.formatter.getDrinkSlug(drink);
 
       for (const [ingredientIndex, ingredient] of this.getInventoryIngredients(drink).entries()) {
+        const optionRecipeKeys = this.getIngredientOptionRecipeKeys(ingredient);
+
         for (const [optionIndex, ingredientName] of this.formatter.getIngredientOptionNames(ingredient).entries()) {
           const key = this.formatter.getIngredientKey(ingredientName);
           if (!key) continue;
+          const recipeKey = optionRecipeKeys[optionIndex] || key;
           const aliasKeys = this.getIngredientAliasKeys(
             drinkSlug,
             ingredientIndex,
@@ -29,7 +32,7 @@ export class IngredientCatalog {
           );
 
           if (!ingredientsByKey.has(key)) {
-            ingredientsByKey.set(key, { key, aliasKeys, name: ingredientName, drinkCount: 0 });
+            ingredientsByKey.set(key, { key, recipeKey, aliasKeys, name: ingredientName, drinkCount: 0 });
           }
 
           const drinkSlugs = drinkSlugsByIngredientKey.get(key) ?? new Set<string>();
@@ -55,6 +58,10 @@ export class IngredientCatalog {
 
   getInventoryIngredients(drink: Drink) {
     return [...drink.ingredients, ...(drink.garnishIngredients ?? [])];
+  }
+
+  getIngredientOptionRecipeKeys(ingredient: Drink['ingredients'][number]): string[] {
+    return [ingredient.key ?? '', ...(ingredient.substitutions?.map((substitution) => substitution.key) ?? [])];
   }
 
   getIngredientAliasKeys(
