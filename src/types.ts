@@ -4,11 +4,14 @@ import type { FavoriteStore } from './favorites/favorite-store.ts';
 import type { DrinkFilterMatcher } from './filters/drink-filter-matcher.ts';
 import type { DrinkFilterState } from './filters/drink-filter-state.ts';
 import type { DrinkTextFormatter } from './formatting/drink-text-formatter.ts';
+import type { GoogleAuthClient } from './google/google-auth-client.ts';
 import type { LanguageSelectorController } from './i18n/language-selector-controller.ts';
 import type { LanguageService } from './i18n/language-service.ts';
 import type { TranslationService } from './i18n/translation-service.ts';
 import type { IngredientCatalog } from './ingredients/ingredient-catalog.ts';
 import type { IngredientStore } from './ingredients/ingredient-store.ts';
+import type { ShoppingListBuilder } from './shopping/shopping-list-builder.ts';
+import type { ShoppingSyncService } from './shopping/shopping-sync-service.ts';
 import type { FavoriteButtonPresenter } from './ui/favorite-button-presenter.ts';
 import type { TemplateRenderer } from './ui/template-renderer.ts';
 
@@ -103,6 +106,51 @@ export interface IngredientInventoryItem {
   drinkCount: number;
 }
 
+export interface ShoppingListItem {
+  key: string;
+  recipeKey: string;
+  name: string;
+  aliasKeys: string[];
+  drinkNames: string[];
+}
+
+export interface GoogleSession {
+  accessToken: string;
+  expiresAt: number;
+  email?: string;
+}
+
+export interface GoogleTaskList {
+  id: string;
+  title: string;
+}
+
+export interface GoogleTask {
+  id: string;
+  title?: string;
+  notes?: string;
+  status: 'needsAction' | 'completed';
+}
+
+export interface GoogleTaskFields {
+  title: string;
+  notes?: string;
+}
+
+export interface ShoppingSyncState {
+  taskListId?: string;
+  lastSyncedAt?: number;
+}
+
+export interface ShoppingSyncResult {
+  total: number;
+  added: number;
+  updated: number;
+  removed: number;
+  bought: number;
+  syncedAt: number;
+}
+
 export interface FilterEventDetail {
   favoritesOnly: boolean;
   makeableOnly: boolean;
@@ -153,12 +201,15 @@ export interface AppServices {
   filterMatcher: DrinkFilterMatcher;
   filterState: DrinkFilterState;
   formatter: DrinkTextFormatter;
+  googleAuth: GoogleAuthClient;
   ingredientCatalog: IngredientCatalog;
   ingredientStore: IngredientStore;
   languageSelectors: LanguageSelectorController;
   languageService: LanguageService;
   logger: Logger;
   repository: DrinkRepository;
+  shoppingList: ShoppingListBuilder;
+  shoppingSync: ShoppingSyncService;
   templates: TemplateRenderer;
   translations: TranslationService;
 }

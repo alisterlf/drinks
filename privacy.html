@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy policy | IBA Drinks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="./app.ts"></script>
+  </head>
+  <body data-page="privacy">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="IBA Drinks home" data-i18n="brand">Drinks</a>
+      <div class="header-actions">
+        <label class="language-control">
+          <span data-i18n="languageLabel">Language</span>
+          <select data-language-select aria-label="Language">
+            <option value="en">EN</option>
+            <option value="pt-BR">PT-BR</option>
+          </select>
+        </label>
+        <a class="back-link" href="shopping.html" data-i18n="shoppingLink">Shopping list</a>
+        <a class="back-link" href="index.html" data-i18n="allDrinks">All drinks</a>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow" data-i18n="privacyEyebrow">Privacy policy</p>
+        <h1 id="page-title" data-i18n="privacyTitle">Your data stays in your browser.</h1>
+        <p class="intro-text" data-i18n="privacyIntro">
+          Drinks is a personal, open-source cocktail index published as a static website. It has no backend and no
+          accounts of its own. This page explains what the site stores and how it uses Google user data when you connect
+          a Google account.
+        </p>
+      </section>
+
+      <article class="privacy-article">
+        <p class="privacy-updated" data-i18n="privacyUpdated">Last updated: September 19, 2026</p>
+
+        <section class="privacy-section" aria-labelledby="privacy-local-title">
+          <h2 id="privacy-local-title" data-i18n="privacyLocalTitle">What is stored in your browser</h2>
+          <p data-i18n="privacyLocalText">
+            Your favorites, the ingredients you mark as owned, your filters and your language choice are saved in the
+            browser's local storage on the device you are using. They never leave your device and are not sent to us,
+            because there is no server to send them to.
+          </p>
+        </section>
+
+        <section class="privacy-section" aria-labelledby="privacy-google-title">
+          <h2 id="privacy-google-title" data-i18n="privacyGoogleTitle">Google user data</h2>
+          <p data-i18n="privacyGoogleText">
+            If you choose to connect a Google account on the shopping list page, the site asks for two permissions:
+            manage your tasks (https://www.googleapis.com/auth/tasks) and see your email address
+            (https://www.googleapis.com/auth/userinfo.email). The tasks permission is used only to find or create a task
+            list named "Drinks shopping" and to add, update, complete and delete tasks in that list so it mirrors the
+            ingredients you are missing. Tasks in other lists are never read or changed. Your email address is only
+            shown on the page to indicate which account is connected.
+          </p>
+        </section>
+
+        <section class="privacy-section" aria-labelledby="privacy-token-title">
+          <h2 id="privacy-token-title" data-i18n="privacyTokenTitle">How access is handled</h2>
+          <p data-i18n="privacyTokenText">
+            Google issues a short-lived access token directly to your browser. It is kept in the browser's session
+            storage for the current tab, expires within about an hour and is only ever sent to Google's own APIs.
+            Disconnecting on the shopping list page revokes and removes it. You can also remove the site's access at any
+            time from your Google Account.
+          </p>
+          <p>
+            <a
+              class="iba-link"
+              href="https://myaccount.google.com/permissions"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="privacyPermissionsLink"
+            >
+              Manage third-party access in your Google Account
+            </a>
+          </p>
+        </section>
+
+        <section class="privacy-section" aria-labelledby="privacy-sharing-title">
+          <h2 id="privacy-sharing-title" data-i18n="privacySharingTitle">Sharing and retention</h2>
+          <p data-i18n="privacySharingText">
+            The site does not sell, share or transfer Google user data to anyone. It has no analytics, no advertising
+            and no third-party services besides Google's APIs. No Google user data is stored outside your browser, so
+            there is nothing to retain or delete on our side.
+          </p>
+          <p data-i18n="privacyLimitedUse">
+            Drinks' use and transfer to any other app of information received from Google APIs will adhere to the Google
+            API Services User Data Policy, including the Limited Use requirements.
+          </p>
+          <p>
+            <a
+              class="iba-link"
+              href="https://developers.google.com/terms/api-services-user-data-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="privacyPolicyLink"
+            >
+              Google API Services User Data Policy
+            </a>
+          </p>
+        </section>
+
+        <section class="privacy-section" aria-labelledby="privacy-contact-title">
+          <h2 id="privacy-contact-title" data-i18n="privacyContactTitle">Contact</h2>
+          <p data-i18n="privacyContactText">
+            Questions about this policy can be sent to alisterlf@gmail.com or opened as an issue on the project's GitHub
+            repository.
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer-text" data-i18n="footerDescription">
+        Drinks is a static cocktail index based on the official IBA list. Everything you mark is stored in your browser;
+        the optional Google Tasks sync only touches the "Drinks shopping" task list.
+      </p>
+      <nav class="site-footer-links" aria-label="Site links">
+        <a href="privacy.html" data-i18n="privacyLink">Privacy policy</a>
+        <a href="https://github.com/alisterlf/drinks" target="_blank" rel="noopener noreferrer" data-i18n="sourceLink">
+          Source code
+        </a>
+      </nav>
+    </footer>
+  </body>
+</html>

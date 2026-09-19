@@ -24,12 +24,15 @@ export class DrinksApp {
   readonly filterMatcher: AppServices['filterMatcher'];
   readonly filterState: AppServices['filterState'];
   readonly formatter: AppServices['formatter'];
+  readonly googleAuth: AppServices['googleAuth'];
   readonly ingredientCatalog: AppServices['ingredientCatalog'];
   readonly ingredientStore: AppServices['ingredientStore'];
   readonly languageSelectors: AppServices['languageSelectors'];
   readonly languageService: AppServices['languageService'];
   readonly logger: AppServices['logger'];
   readonly repository: AppServices['repository'];
+  readonly shoppingList: AppServices['shoppingList'];
+  readonly shoppingSync: AppServices['shoppingSync'];
   readonly templates: AppServices['templates'];
   readonly translations: AppServices['translations'];
   elementDefinitions: ElementDefinition[];
@@ -57,12 +60,15 @@ export class DrinksApp {
     this.filterMatcher = services.filterMatcher;
     this.filterState = services.filterState;
     this.formatter = services.formatter;
+    this.googleAuth = services.googleAuth;
     this.ingredientCatalog = services.ingredientCatalog;
     this.ingredientStore = services.ingredientStore;
     this.languageSelectors = services.languageSelectors;
     this.languageService = services.languageService;
     this.logger = services.logger;
     this.repository = services.repository;
+    this.shoppingList = services.shoppingList;
+    this.shoppingSync = services.shoppingSync;
     this.templates = services.templates;
     this.translations = services.translations;
   }

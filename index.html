@@ -19,6 +19,7 @@
           </select>
         </label>
         <a class="back-link" href="ingredients.html" data-i18n="allIngredients">Ingredients</a>
+        <a class="back-link" href="shopping.html" data-i18n="shoppingLink">Shopping list</a>
       </div>
     </header>
 
@@ -26,12 +27,29 @@
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow" data-i18n="indexEyebrow">Cocktail index</p>
         <h1 id="page-title" data-i18n="indexTitle">My drinks.</h1>
+        <p class="intro-text" data-i18n="indexDescription">
+          Browse the IBA cocktails, mark what your bar has, see which drinks you can make right now, and turn the
+          missing ingredients for your favorites into a shopping list.
+        </p>
       </section>
 
       <drink-filters class="filters" aria-label="Drink filters"></drink-filters>
       <p class="drink-count" data-drink-count aria-live="polite"></p>
       <drink-grid class="drink-grid" role="list" aria-label="Drink list" aria-live="polite"></drink-grid>
     </main>
+
+    <footer class="site-footer">
+      <p class="site-footer-text" data-i18n="footerDescription">
+        Drinks is a static cocktail index based on the official IBA list. Everything you mark is stored in your browser;
+        the optional Google Tasks sync only touches the "Drinks shopping" task list.
+      </p>
+      <nav class="site-footer-links" aria-label="Site links">
+        <a href="privacy.html" data-i18n="privacyLink">Privacy policy</a>
+        <a href="https://github.com/alisterlf/drinks" target="_blank" rel="noopener noreferrer" data-i18n="sourceLink">
+          Source code
+        </a>
+      </nav>
+    </footer>
 
     <template id="drink-filters-template">
       <section class="filter-panel" aria-labelledby="filters-title">

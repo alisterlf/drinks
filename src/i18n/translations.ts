@@ -32,6 +32,8 @@ export const TRANSLATION_CATALOG = {
     drinkCountPlural: '{count} drinks shown',
     allIngredients: 'Ingredients',
     openVideo: 'Watch video',
+    indexDescription:
+      'Browse the IBA cocktails, mark what your bar has, see which drinks you can make right now, and turn the missing ingredients for your favorites into a shopping list.',
     ingredientIndexEyebrow: 'Ingredient index',
     ingredientIndexTitle: 'My bar.',
     ingredientInventoryTitle: 'Ingredients',
@@ -53,11 +55,71 @@ export const TRANSLATION_CATALOG = {
     ingredientDrinkCountPlural: '{count} drinks',
     noIngredients: 'No ingredients match this search.',
     noResults: 'No drinks match these filters.',
+    shoppingLink: 'Shopping list',
+    shoppingEyebrow: 'Shopping list',
+    shoppingTitle: 'What to buy.',
+    shoppingListTitle: 'To buy',
+    shoppingCountSingle: '{count} ingredient to buy for your favorite drinks',
+    shoppingCountPlural: '{count} ingredients to buy for your favorite drinks',
+    shoppingNoFavorites:
+      'Mark some drinks as favorites and the ingredients you are missing for them will show up here.',
+    shoppingComplete: 'You have everything you need for your favorite drinks.',
+    shoppingForDrinks: 'For {drinks}',
+    shoppingMarkBought: 'Mark {name} as bought',
+    googleSyncTitle: 'Google Tasks',
+    googleSyncDescription:
+      'Keep this list in a Google Tasks list named "Drinks shopping". Tick items off in Google Tasks while you shop, then sync again to mark them as owned here.',
+    googleSyncPrivacy: 'How your Google data is used',
+    googleSyncNotConfigured:
+      'Google sync is not configured yet. Add an OAuth client ID to src/config.ts as described in the README.',
+    googleSignIn: 'Connect Google account',
+    googleSignOut: 'Disconnect',
+    googleSyncNow: 'Sync now',
+    googleConnecting: 'Waiting for Google sign-in…',
+    googleConnected: 'Connected to Google',
+    googleConnectedAs: 'Connected as {email}',
+    googleSignInCancelled: 'Google sign-in was cancelled.',
+    googleSignInFailed: 'Could not connect to Google. Check the client ID and authorized origins, then try again.',
+    syncInProgress: 'Syncing with Google Tasks…',
+    syncSuccess: 'Synced {total} items with Google Tasks: {bought} bought, {added} added, {removed} removed.',
+    syncAuthRequired: 'Your Google session expired. Connect again to sync.',
+    syncFailed: 'Sync failed. Check your connection and try again.',
+    lastSynced: 'Last synced {time}',
+    footerDescription:
+      'Drinks is a static cocktail index based on the official IBA list. Everything you mark is stored in your browser; the optional Google Tasks sync only touches the "Drinks shopping" task list.',
+    privacyLink: 'Privacy policy',
+    sourceLink: 'Source code',
+    privacyEyebrow: 'Privacy policy',
+    privacyTitle: 'Your data stays in your browser.',
+    privacyIntro:
+      'Drinks is a personal, open-source cocktail index published as a static website. It has no backend and no accounts of its own. This page explains what the site stores and how it uses Google user data when you connect a Google account.',
+    privacyUpdated: 'Last updated: September 19, 2026',
+    privacyLocalTitle: 'What is stored in your browser',
+    privacyLocalText:
+      "Your favorites, the ingredients you mark as owned, your filters and your language choice are saved in the browser's local storage on the device you are using. They never leave your device and are not sent to us, because there is no server to send them to.",
+    privacyGoogleTitle: 'Google user data',
+    privacyGoogleText:
+      'If you choose to connect a Google account on the shopping list page, the site asks for two permissions: manage your tasks (https://www.googleapis.com/auth/tasks) and see your email address (https://www.googleapis.com/auth/userinfo.email). The tasks permission is used only to find or create a task list named "Drinks shopping" and to add, update, complete and delete tasks in that list so it mirrors the ingredients you are missing. Tasks in other lists are never read or changed. Your email address is only shown on the page to indicate which account is connected.',
+    privacyTokenTitle: 'How access is handled',
+    privacyTokenText:
+      "Google issues a short-lived access token directly to your browser. It is kept in the browser's session storage for the current tab, expires within about an hour and is only ever sent to Google's own APIs. Disconnecting on the shopping list page revokes and removes it. You can also remove the site's access at any time from your Google Account.",
+    privacyPermissionsLink: 'Manage third-party access in your Google Account',
+    privacySharingTitle: 'Sharing and retention',
+    privacySharingText:
+      "The site does not sell, share or transfer Google user data to anyone. It has no analytics, no advertising and no third-party services besides Google's APIs. No Google user data is stored outside your browser, so there is nothing to retain or delete on our side.",
+    privacyLimitedUse:
+      "Drinks' use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements.",
+    privacyPolicyLink: 'Google API Services User Data Policy',
+    privacyContactTitle: 'Contact',
+    privacyContactText:
+      "Questions about this policy can be sent to alisterlf@gmail.com or opened as an issue on the project's GitHub repository.",
   },
   'pt-BR': {
     languageLabel: 'Idioma',
     indexEyebrow: 'Índice de coquetéis',
     indexTitle: 'Meus coquetéis.',
+    indexDescription:
+      'Navegue pelos coquetéis da IBA, marque o que seu bar tem, veja quais drinks você consegue fazer agora e transforme os ingredientes que faltam para os seus favoritos em uma lista de compras.',
     allDrinks: 'Todos os drinks',
     detailEyebrow: 'Detalhes do coquetel',
     ingredientsTitle: 'Ingredientes',
@@ -111,5 +173,64 @@ export const TRANSLATION_CATALOG = {
     ingredientDrinkCountPlural: '{count} drinks',
     noIngredients: 'Nenhum ingrediente combina com essa busca.',
     noResults: 'Nenhum drink combina com esses filtros.',
+    shoppingLink: 'Lista de compras',
+    shoppingEyebrow: 'Lista de compras',
+    shoppingTitle: 'O que comprar.',
+    shoppingListTitle: 'Para comprar',
+    shoppingCountSingle: '{count} ingrediente para comprar para os seus drinks favoritos',
+    shoppingCountPlural: '{count} ingredientes para comprar para os seus drinks favoritos',
+    shoppingNoFavorites: 'Marque alguns drinks como favoritos e os ingredientes que faltam para eles aparecerão aqui.',
+    shoppingComplete: 'Você já tem tudo o que precisa para os seus drinks favoritos.',
+    shoppingForDrinks: 'Para {drinks}',
+    shoppingMarkBought: 'Marcar {name} como comprado',
+    googleSyncTitle: 'Google Tasks',
+    googleSyncDescription:
+      'Mantenha esta lista em uma lista do Google Tasks chamada "Drinks shopping". Marque os itens no Google Tasks enquanto faz compras e sincronize de novo para registrá-los como disponíveis aqui.',
+    googleSyncPrivacy: 'Como seus dados do Google são usados',
+    googleSyncNotConfigured:
+      'A sincronização com o Google ainda não foi configurada. Adicione um client ID OAuth em src/config.ts conforme descrito no README.',
+    googleSignIn: 'Conectar conta Google',
+    googleSignOut: 'Desconectar',
+    googleSyncNow: 'Sincronizar agora',
+    googleConnecting: 'Aguardando o login do Google…',
+    googleConnected: 'Conectado ao Google',
+    googleConnectedAs: 'Conectado como {email}',
+    googleSignInCancelled: 'O login com o Google foi cancelado.',
+    googleSignInFailed:
+      'Não foi possível conectar ao Google. Verifique o client ID e as origens autorizadas e tente novamente.',
+    syncInProgress: 'Sincronizando com o Google Tasks…',
+    syncSuccess:
+      'Sincronizados {total} itens com o Google Tasks: {bought} comprados, {added} adicionados, {removed} removidos.',
+    syncAuthRequired: 'Sua sessão do Google expirou. Conecte novamente para sincronizar.',
+    syncFailed: 'A sincronização falhou. Verifique sua conexão e tente novamente.',
+    lastSynced: 'Última sincronização: {time}',
+    footerDescription:
+      'Drinks é um índice estático de coquetéis baseado na lista oficial da IBA. Tudo o que você marca fica salvo no seu navegador; a sincronização opcional com o Google Tasks só mexe na lista de tarefas "Drinks shopping".',
+    privacyLink: 'Política de privacidade',
+    sourceLink: 'Código-fonte',
+    privacyEyebrow: 'Política de privacidade',
+    privacyTitle: 'Seus dados ficam no seu navegador.',
+    privacyIntro:
+      'Drinks é um índice pessoal de coquetéis, de código aberto, publicado como um site estático. Não há backend nem contas próprias. Esta página explica o que o site armazena e como usa dados da sua conta Google quando você a conecta.',
+    privacyUpdated: 'Última atualização: 19 de setembro de 2026',
+    privacyLocalTitle: 'O que é armazenado no seu navegador',
+    privacyLocalText:
+      'Seus favoritos, os ingredientes marcados como disponíveis, seus filtros e o idioma escolhido são salvos no armazenamento local do navegador, no dispositivo em uso. Eles nunca saem do seu dispositivo e não são enviados para nós, porque não existe servidor para recebê-los.',
+    privacyGoogleTitle: 'Dados da conta Google',
+    privacyGoogleText:
+      'Se você optar por conectar uma conta Google na página da lista de compras, o site pede duas permissões: gerenciar suas tarefas (https://www.googleapis.com/auth/tasks) e ver seu endereço de e-mail (https://www.googleapis.com/auth/userinfo.email). A permissão de tarefas é usada apenas para localizar ou criar uma lista chamada "Drinks shopping" e para adicionar, atualizar, concluir e excluir tarefas nessa lista, de modo que ela espelhe os ingredientes que faltam. Tarefas em outras listas nunca são lidas nem alteradas. Seu e-mail é exibido apenas na página, para mostrar qual conta está conectada.',
+    privacyTokenTitle: 'Como o acesso é tratado',
+    privacyTokenText:
+      'O Google emite um token de acesso de curta duração diretamente para o seu navegador. Ele fica no armazenamento de sessão da aba atual, expira em cerca de uma hora e só é enviado às APIs do próprio Google. Desconectar na página da lista de compras revoga e remove o token. Você também pode remover o acesso do site a qualquer momento na sua Conta Google.',
+    privacyPermissionsLink: 'Gerenciar acesso de terceiros na sua Conta Google',
+    privacySharingTitle: 'Compartilhamento e retenção',
+    privacySharingText:
+      'O site não vende, compartilha nem transfere dados da conta Google para ninguém. Não há analytics, publicidade nem serviços de terceiros além das APIs do Google. Nenhum dado da conta Google é armazenado fora do seu navegador, então não há nada para reter ou excluir do nosso lado.',
+    privacyLimitedUse:
+      'O uso e a transferência, pelo Drinks, de informações recebidas das APIs do Google para qualquer outro aplicativo seguirão a Política de Dados do Usuário dos Serviços de API do Google, incluindo os requisitos de Uso Limitado.',
+    privacyPolicyLink: 'Política de Dados do Usuário dos Serviços de API do Google',
+    privacyContactTitle: 'Contato',
+    privacyContactText:
+      'Dúvidas sobre esta política podem ser enviadas para alisterlf@gmail.com ou abertas como issue no repositório do projeto no GitHub.',
   },
 } satisfies TranslationCatalog;

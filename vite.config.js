@@ -8,6 +8,8 @@ module.exports = {
         index: resolve(__dirname, 'index.html'),
         drink: resolve(__dirname, 'drink.html'),
         ingredients: resolve(__dirname, 'ingredients.html'),
+        shopping: resolve(__dirname, 'shopping.html'),
+        privacy: resolve(__dirname, 'privacy.html'),
       },
     },
   },

@@ -83,6 +83,19 @@ export class DrinkTextFormatter {
     return this.formatDisjunction(items);
   }
 
+  formatDateTime(timestamp: number): string {
+    const date = new Date(timestamp);
+
+    try {
+      return new Intl.DateTimeFormat(this.languageService.currentLanguage, {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      }).format(date);
+    } catch {
+      return date.toLocaleString();
+    }
+  }
+
   getDrinkSlug(drink: Drink): string {
     return drink.ibaLink.replace(/\/$/, '').split('/').pop() ?? '';
   }

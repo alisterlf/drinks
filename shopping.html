@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shopping list | IBA Drinks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="./app.ts"></script>
+  </head>
+  <body data-page="shopping">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="IBA Drinks home" data-i18n="brand">Drinks</a>
+      <div class="header-actions">
+        <label class="language-control">
+          <span data-i18n="languageLabel">Language</span>
+          <select data-language-select aria-label="Language">
+            <option value="en">EN</option>
+            <option value="pt-BR">PT-BR</option>
+          </select>
+        </label>
+        <a class="back-link" href="ingredients.html" data-i18n="allIngredients">Ingredients</a>
+        <a class="back-link" href="index.html" data-i18n="allDrinks">All drinks</a>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow" data-i18n="shoppingEyebrow">Shopping list</p>
+        <h1 id="page-title" data-i18n="shoppingTitle">What to buy.</h1>
+      </section>
+
+      <shopping-list class="shopping-list" aria-live="polite"></shopping-list>
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer-text" data-i18n="footerDescription">
+        Drinks is a static cocktail index based on the official IBA list. Everything you mark is stored in your browser;
+        the optional Google Tasks sync only touches the "Drinks shopping" task list.
+      </p>
+      <nav class="site-footer-links" aria-label="Site links">
+        <a href="privacy.html" data-i18n="privacyLink">Privacy policy</a>
+        <a href="https://github.com/alisterlf/drinks" target="_blank" rel="noopener noreferrer" data-i18n="sourceLink">
+          Source code
+        </a>
+      </nav>
+    </footer>
+
+    <template id="shopping-list-template">
+      <section class="shopping-panel" aria-labelledby="google-sync-title">
+        <h2 id="google-sync-title" data-i18n="googleSyncTitle">Google Tasks</h2>
+        <p class="shopping-panel-text" data-i18n="googleSyncDescription">
+          Keep this list in a Google Tasks list named "Drinks shopping". Tick items off in Google Tasks while you shop,
+          then sync again to mark them as owned here.
+        </p>
+        <p class="shopping-panel-text">
+          <a class="shopping-privacy-link" href="privacy.html" data-i18n="googleSyncPrivacy"
+            >How your Google data is used</a
+          >
+        </p>
+        <p
+          class="shopping-panel-text shopping-panel-notice"
+          data-google-not-configured
+          data-i18n="googleSyncNotConfigured"
+          hidden
+        >
+          Google sync is not configured yet. Add an OAuth client ID to src/config.ts as described in the README.
+        </p>
+        <div class="shopping-sync-actions">
+          <button
+            class="shopping-button shopping-button-primary"
+            type="button"
+            data-google-sign-in
+            data-i18n="googleSignIn"
+            hidden
+          >
+            Connect Google account
+          </button>
+          <button
+            class="shopping-button shopping-button-primary"
+            type="button"
+            data-google-sync
+            data-i18n="googleSyncNow"
+            hidden
+          >
+            Sync now
+          </button>
+          <button class="shopping-button" type="button" data-google-sign-out data-i18n="googleSignOut" hidden>
+            Disconnect
+          </button>
+        </div>
+        <p class="shopping-sync-account" data-google-account hidden></p>
+        <p class="shopping-sync-status" data-sync-status role="status"></p>
+      </section>
+
+      <section class="shopping-panel" aria-labelledby="shopping-items-title">
+        <h2 id="shopping-items-title" data-i18n="shoppingListTitle">To buy</h2>
+        <p class="shopping-summary" data-shopping-summary></p>
+        <ul class="shopping-items" data-shopping-items></ul>
+      </section>
+    </template>
+
+    <template id="shopping-list-item-template">
+      <li class="shopping-item">
+        <label class="ingredient-toggle shopping-item-toggle">
+          <input class="ingredient-toggle-input" type="checkbox" data-shopping-bought />
+          <span class="shopping-item-body">
+            <span class="ingredient-toggle-name" data-shopping-name></span>
+            <span class="shopping-item-drinks" data-shopping-drinks></span>
+          </span>
+        </label>
+      </li>
+    </template>
+
+    <template id="empty-state-template">
+      <section class="empty-state">
+        <p></p>
+      </section>
+    </template>
+  </body>
+</html>

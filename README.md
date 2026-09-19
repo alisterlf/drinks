@@ -60,11 +60,88 @@ Preview the production build locally:
 npm run preview
 ```
 
+## Shopping List and Google Tasks Sync
+
+`shopping.html` lists the required ingredients you are missing for the drinks marked as favorites. Ticking an item
+marks that ingredient as owned in "My bar". The list can also be kept in sync with a Google Tasks list named
+**Drinks shopping**, so you can tick items off on your phone while shopping:
+
+- Sync pushes every missing ingredient as a task, with the drinks that need it as the task notes.
+- Tasks you complete in Google Tasks mark the ingredient as owned here on the next sync and are then removed.
+- Tasks whose title is not a known ingredient are left alone, so you can add other things to the same list.
+
+Google Keep has no API for personal Google accounts, which is why the sync targets Google Tasks. Everything runs in
+the browser: there is no backend, and the Google access token lives in the tab session storage for about an hour.
+
+### One-time Google setup
+
+1. Open the [Google Cloud console](https://console.cloud.google.com/) and create a project (for example `drinks`).
+2. In **APIs & Services > Library**, enable the **Google Tasks API**.
+3. In **Google Auth Platform** (formerly the OAuth consent screen):
+   - **Branding**: set an app name and support email.
+   - **Audience**: choose **External**, keep the publishing status as **Testing**, and add your own Google account
+     under **Test users**. Testing mode is enough for personal use and avoids app verification.
+   - **Data access**: add the scopes `https://www.googleapis.com/auth/tasks` and
+     `https://www.googleapis.com/auth/userinfo.email`.
+4. In **Google Auth Platform > Clients**, create an **OAuth client ID** of type **Web application** and add these
+   **Authorized JavaScript origins** (no redirect URIs are needed):
+   - `http://127.0.0.1:5173`
+   - `http://localhost:5173`
+   - `https://alisterlf.github.io`
+5. Copy the client ID into `DEFAULT_GOOGLE_CLIENT_ID` in `src/config.ts`. Client IDs for browser apps are public, so
+   committing it is fine. For local-only experiments you can instead create a `.env` file with
+   `VITE_GOOGLE_CLIENT_ID=<your client id>`.
+6. Run `npm run dev`, open `shopping.html`, and click **Connect Google account**.
+
+Access tokens expire after about an hour; when that happens the page asks you to connect again.
+
+### Getting the app verified by Google
+
+Accounts enrolled in Google's Advanced Protection Program (and Workspace accounts with strict admin policies) refuse
+the Tasks permission with `Error 400: policy_enforced` until the app passes Google's OAuth verification for sensitive
+scopes. Verification happens once in the Google Cloud console. Reviewers open the live site, so deploy first. Google
+quotes 3 to 10 business days for sensitive-scope reviews.
+
+1. **Deploy** so that `https://alisterlf.github.io/drinks/` (homepage) and `https://alisterlf.github.io/drinks/privacy.html`
+   (privacy policy) are live. Both pages exist in this repo and the footer of every page links to the policy.
+2. **Verify the domain** in [Google Search Console](https://search.google.com/search-console) with the same Google
+   account that owns the Cloud project: add a URL-prefix property for `https://alisterlf.github.io/drinks/` and verify
+   it with the HTML tag or HTML file method. If Google refuses `alisterlf.github.io` as an authorized domain because
+   github.io is a shared host, point a custom domain you own at GitHub Pages and use it everywhere below.
+3. **Branding** (Google Auth Platform > Branding): app name `Drinks`, your support email, home page
+   `https://alisterlf.github.io/drinks/`, privacy policy `https://alisterlf.github.io/drinks/privacy.html`, authorized
+   domain `alisterlf.github.io`. Leave the logo empty; adding one triggers a separate brand review.
+4. **Data access**: keep exactly `https://www.googleapis.com/auth/tasks` (sensitive) and
+   `https://www.googleapis.com/auth/userinfo.email` (non-sensitive). Justification for the tasks scope:
+
+   > Drinks is a static cocktail index. On its shopping list page the user can connect a Google account so that the
+   > required ingredients missing for their favorite drinks are mirrored as tasks in a single Google Tasks list named
+   > "Drinks shopping". The app creates that list if it does not exist, inserts one task per missing ingredient,
+   > updates task titles when the user changes language, deletes tasks for ingredients that are no longer missing, and
+   > reads completed tasks to mark those ingredients as owned in the app. Tasks in any other list are never read or
+   > modified. The read-only scope is not sufficient because the app must create, update and delete tasks, and no
+   > narrower scope exists for a single task list. No Google user data is stored outside the user's browser.
+
+5. **Demo video** (required for sensitive scopes): while the app is still in Testing, record an unlisted YouTube video
+   in English with a Google account that is **not** in Advanced Protection and is listed as a test user. Show the
+   browser address bar on the live site, click **Connect Google account**, show the full consent screen with the app
+   name "Drinks" and the tasks permission, let the list sync, open Google Tasks and show the "Drinks shopping" list with
+   the same items, complete one task there, then press **Sync now** and show the ingredient becoming owned in the app.
+6. **Audience**: switch the publishing status from Testing to **In production**.
+7. **Submit** in Google Auth Platform > Verification Center with the video link and the justification above, then answer
+   reviewer emails from the support address. Once the status is "Verified", Advanced Protection accounts can grant the
+   permission like any other account.
+
 ## Project Structure
 
 - `index.html` - drink list page.
 - `drink.html` - drink detail page.
+- `ingredients.html` - "My bar" ingredient inventory page.
+- `shopping.html` - shopping list page with Google Tasks sync.
+- `privacy.html` - privacy policy required for Google OAuth verification.
 - `app.ts` and `src/` - custom elements, filtering, language selection, favorites, and data loading.
+- `src/shopping/` - shopping list builder and the Google Tasks sync algorithm.
+- `src/google/` - browser-only Google sign-in (Google Identity Services) and Google Tasks API client.
 - `styles.css` - shared styling.
 - `public/drinks.json` - canonical drink recipe data: images, links, measurements, ingredient keys, and English fallback text.
 - `public/drinks.pt-BR.json` - Brazilian Portuguese text overlay keyed by drink slug and ingredient key.
